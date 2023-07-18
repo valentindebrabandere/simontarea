@@ -1,0 +1,31 @@
+/* ---------------------------------
+=page section
+--------------------------------- */
+
+.c-pagesection {
+  padding-top: calc(48 / 16 * 1rem);
+  padding-bottom: calc(48 / 16 * 1rem);
+
+  @include breakpoint(medium) {
+    padding-top: calc(72 / 16 * 1rem);
+    padding-bottom: calc(72 / 16 * 1rem);
+  }
+
+  @include breakpoint(large) {
+    padding-top: calc(120 / 16 * 1rem);
+    padding-bottom: calc(120 / 16 * 1rem);
+  }
+}
+
+.c-pagesection + .c-pagesection {
+  border-top: 1px solid var(--color-border-light);
+}
+
+/* ---------------------------------
+=variants of page sections
+--------------------------------- */
+
+.c-pagesection--brand {
+  background-color: var(--color-brand);
+  color: var(--color-text-invert);
+}

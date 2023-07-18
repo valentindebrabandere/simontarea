@@ -1,0 +1,27 @@
+/* ---------------------------------
+=banner
+--------------------------------- */
+
+.c-banner {
+  width: 100%;
+  height: 240px;
+  background-color: var(--color-gray6);
+
+  @include breakpoint(medium) {
+    height: 360px;
+  }
+
+  @include breakpoint(large) {
+    height: 420px;
+  }
+
+  @include breakpoint(xlarge) {
+    height: 600px;
+  }
+}
+
+.c-banner > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

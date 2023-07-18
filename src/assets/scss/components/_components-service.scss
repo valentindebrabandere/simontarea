@@ -1,0 +1,23 @@
+/* ---------------------------------
+=service
+--------------------------------- */
+
+.c-service {
+  display: block;
+}
+
+.c-service__title {
+  font-weight: 450;
+  font-size: clamp(
+    calc(22 / 16 * 1rem),
+    calc(1rem + 1vw),
+    calc(26 / 16 * 1rem)
+  );
+  line-height: 1.24;
+  font-family: var(--fontstack-alt);
+  margin-bottom: 0.75em;
+}
+
+.c-service__text {
+  color: var(--color-text-offset);
+}

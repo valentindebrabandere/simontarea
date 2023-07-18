@@ -1,0 +1,49 @@
+/* ---------------------------------
+=call to action
+--------------------------------- */
+
+.c-ctalink {
+  padding-bottom: 6px;
+
+  font-weight: 600;
+  font-size: calc(14 / 16 * 1rem);
+  line-height: calc(24 / 16);
+  font-family: var(--fontstack--main);
+  color: var(--color-brand);
+
+  text-transform: uppercase;
+  text-decoration: none;
+
+  border-bottom: 2px solid var(--color-brand);
+
+  &:hover,
+  &:focus {
+    color: var(--color-brand);
+  }
+}
+
+.c-ctalink > svg {
+  display: inline-block;
+  margin-left: var(--spacing-xxs);
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.1s ease-out;
+}
+
+.c-ctalink:hover > svg,
+.c-ctalink:focus > svg {
+  transform: translate3d(2px, 0, 0);
+}
+
+// ---------------------------------
+// =variants
+// ---------------------------------
+
+.c-ctalink--invert {
+  color: var(--color-text-invert);
+  border-color: var(--color-text-invert);
+
+  &:hover,
+  &:focus {
+    color: var(--color-text-invert);
+  }
+}

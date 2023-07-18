@@ -1,0 +1,13 @@
+/* ---------------------------------
+=links
+--------------------------------- */
+
+a {
+  color: var(--color-brand);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+a:hover {
+  color: var(--color-brand-dark);
+}

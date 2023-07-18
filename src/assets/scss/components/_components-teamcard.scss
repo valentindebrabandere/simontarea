@@ -1,0 +1,32 @@
+/* ---------------------------------
+=team card
+--------------------------------- */
+
+.c-teamcard {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: calc(18 / 16 * 1rem);
+}
+
+.c-teamcard__media {
+  margin: 0;
+}
+
+.c-teamcard__name {
+  font-weight: 500;
+  font-size: calc(22 / 16 * 1rem);
+  line-height: 1.24;
+  font-family: var(--fontstack-alt);
+  margin-bottom: calc(6 / 16 * 1rem);
+  color: var(--color-text);
+}
+
+.c-teamcard__role {
+  font-weight: 400;
+  font-size: calc(18 / 16 * 1rem);
+  line-height: 1.24;
+  font-family: var(--fontstack-alt);
+  color: var(--color-text-offset);
+}

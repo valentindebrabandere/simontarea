@@ -1,0 +1,36 @@
+{% set metaTitle = metaTitle|default("Zodiak Agency") %}
+{% set metaDescription = metaDescription|default("Friendly web agency") %}
+{% set metaImage = metaImage|default(site.url + "/assets/img/metaimg.jpg") %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simon Tarea - {{ metaTitle }}</title>
+  <meta name="description" content="{{ metaDescription }}">
+
+  {# Preload #}
+  <link rel="preload" href="/assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
+
+  {# Open Graph #}
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:title" content="{{ metaTitle }}">
+  <meta property="og:description" content="{{ metaDescription }}">
+  <meta property="og:image" content="{{ metaImage }}">
+  <meta property="og:site_name" content="{{ site.url }}">
+  
+  {# Twitter #}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@iadarts">
+  <meta name="twitter:title" content="{{ metaTitle }}">
+  <meta name="twitter:description" content="{{ metaDescription }}">
+  <meta name="twitter:image" content="{{ metaImage }}">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script defer type="module" src="/assets/js/main.bundle.js"></script>
+</head>
+<body>
+  {% block content %}{% endblock %}
+</body>
+</html>
