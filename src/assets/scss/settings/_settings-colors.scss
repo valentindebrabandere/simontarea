@@ -1,29 +1,27 @@
 :root {
   // base variables (do not use in CSS)
-  --color-green1: #0b6451;
-  --color-green2: #15866d;
-  --color-green3: #cefea9;
-  --color-green4: #d6fbf3;
+  --color-orange: #F0644;
+  --color-blue: #101F34;
+  --color-vibrant-blue: #172B46;
 
-  --color-gray1: #031310;
-  --color-gray2: #293634;
-  --color-gray3: #6d7674;
-  --color-gray4: #8e9593;
-  --color-gray5: #cdd0cf;
-  --color-gray6: #e6e7e7;
+  --color-gray1: #0A0301;
+  --color-gray2: #393331;
+  --color-gray3: #585452;
+  --color-gray4: #908c8b;
+  --color-gray5: #c2bcbc;
+  --color-gray6: #ede8e8;
 
   --color-white: #ffffff;
 
   // incident variables (used in CSS)
   --color-background: var(--color-white);
-  --color-text: var(--color-gray2);
-  --color-text-offset: var(--color-gray3);
+  --color-text: var(--color-gray1);
+  --color-text-offset: var(--color-blue);
+  --color-background-invert: var(--color-blue);
   --color-text-invert: var(--color-white);
-  --color-border: var(--color-gray4);
-  --color-border-light: var(--color-gray5);
+  --color-border: var(--color-orange);
 
-  --color-brand: var(--color-green2);
-  --color-brand-dark: var(--color-green1);
-  --color-brand-bright: var(--color-green3);
-  --color-brand-muted: var(--color-green4);
+  --color-brand: var(--color-orange);
+  --color-brand-dark: var(--color-blue);
+  --color-brand-vibrant-dark: var(--color-vibrant-blue);
 }

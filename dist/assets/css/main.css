@@ -1,25 +1,23 @@
 :root {
-  --color-green1: #0b6451;
-  --color-green2: #15866d;
-  --color-green3: #cefea9;
-  --color-green4: #d6fbf3;
-  --color-gray1: #031310;
-  --color-gray2: #293634;
-  --color-gray3: #6d7674;
-  --color-gray4: #8e9593;
-  --color-gray5: #cdd0cf;
-  --color-gray6: #e6e7e7;
+  --color-orange: #F0644;
+  --color-blue: #101F34;
+  --color-vibrant-blue: #172B46;
+  --color-gray1: #0A0301;
+  --color-gray2: #393331;
+  --color-gray3: #585452;
+  --color-gray4: #908c8b;
+  --color-gray5: #c2bcbc;
+  --color-gray6: #ede8e8;
   --color-white: #ffffff;
   --color-background: var(--color-white);
-  --color-text: var(--color-gray2);
-  --color-text-offset: var(--color-gray3);
+  --color-text: var(--color-gray1);
+  --color-text-offset: var(--color-blue);
+  --color-background-invert: var(--color-blue);
   --color-text-invert: var(--color-white);
-  --color-border: var(--color-gray4);
-  --color-border-light: var(--color-gray5);
-  --color-brand: var(--color-green2);
-  --color-brand-dark: var(--color-green1);
-  --color-brand-bright: var(--color-green3);
-  --color-brand-muted: var(--color-green4);
+  --color-border: var(--color-orange);
+  --color-brand: var(--color-orange);
+  --color-brand-dark: var(--color-blue);
+  --color-brand-vibrant-dark: var(--color-vibrant-blue);
 }
 
 :root {
@@ -34,8 +32,8 @@
 }
 
 :root {
-  --fontstack-main: "Inter", "Helvetica", "Arial", sans-serif;
-  --fontstack-alt: "Inter", "Helvetica", "Arial", sans-serif;
+  --fontstack-main: "Switzer", "Helvetica", "Arial", sans-serif;
+  --fontstack-alt: "Outfit", "Helvetica", "Arial", sans-serif;
 }
 
 :root {
@@ -111,20 +109,12 @@ a:hover {
 }
 
 /* ---------------------------------
-=address
---------------------------------- */
-address {
-  font-style: normal;
-}
-
-/* ---------------------------------
 =fluid images
 --------------------------------- */
 .o-fluidimg {
   display: block;
   max-width: 100%;
   height: auto;
-  background-color: var(--color-gray6);
 }
 
 .o-fluidimg--full {
@@ -153,6 +143,7 @@ address {
   padding-left: 1.125rem;
   padding-right: 1.125rem;
   max-width: 1480px;
+  height: 100%;
 }
 @media all and (min-width: 760px) {
   .l-container {
@@ -262,64 +253,6 @@ address {
 @media all and (min-width: 1440px) {
   .l-split {
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  }
-}
-
-/* ---------------------------------
-=siteheader
---------------------------------- */
-.c-siteheader {
-  background-color: var(--color-brand);
-  color: var(--color-text-invert);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-  padding-top: 1.125rem;
-  padding-bottom: 1.125rem;
-}
-@media all and (min-width: 760px) {
-  .c-siteheader {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-}
-@media all and (min-width: 1024px) {
-  .c-siteheader {
-    padding-top: 1.875rem;
-    padding-bottom: 1.875rem;
-  }
-}
-@media all and (min-width: 1440px) {
-  .c-siteheader {
-    padding-top: 2.625rem;
-    padding-bottom: 2.625rem;
-  }
-}
-
-.c-siteheader__content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.c-siteheader__logo {
-  margin: 0 auto 0 0;
-}
-
-.c-siteheader__menunav {
-  margin: 0;
-}
-@media all and (min-width: 760px) {
-  .c-siteheader__menunav {
-    display: none;
-  }
-}
-
-.c-siteheader__mainnav {
-  display: none;
-}
-@media all and (min-width: 760px) {
-  .c-siteheader__mainnav {
-    display: block;
   }
 }
 
@@ -520,8 +453,8 @@ address {
 /* ---------------------------------
 =variants of page sections
 --------------------------------- */
-.c-pagesection--brand {
-  background-color: var(--color-brand);
+.c-pagesection--dark {
+  background-color: var(--color-background-invert);
   color: var(--color-text-invert);
 }
 
@@ -538,20 +471,6 @@ address {
 
 .c-pagetitle > span {
   color: var(--color-brand-bright);
-}
-
-/* ---------------------------------
-=home introduction
---------------------------------- */
-.c-homeintro {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-}
-@media all and (min-width: 1024px) {
-  .c-homeintro {
-    grid-template-columns: minmax(0, 54ch) minmax(0, 1fr);
-    column-gap: var(--gutter);
-  }
 }
 
 /* ---------------------------------
@@ -628,36 +547,6 @@ address {
 }
 
 /* ---------------------------------
-=banner
---------------------------------- */
-.c-banner {
-  width: 100%;
-  height: 240px;
-  background-color: var(--color-gray6);
-}
-@media all and (min-width: 760px) {
-  .c-banner {
-    height: 360px;
-  }
-}
-@media all and (min-width: 1024px) {
-  .c-banner {
-    height: 420px;
-  }
-}
-@media all and (min-width: 1440px) {
-  .c-banner {
-    height: 600px;
-  }
-}
-
-.c-banner > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ---------------------------------
 =titles
 --------------------------------- */
 .c-h1,
@@ -712,17 +601,6 @@ address {
 }
 
 /* ---------------------------------
-=intro text
---------------------------------- */
-.c-intro {
-  font-weight: 400;
-  font-size: clamp(1.75rem, 1rem + 2vw, 2.3125rem);
-  line-height: 1.36;
-  font-family: var(--fontstack--main);
-  margin-bottom: 1.5em;
-}
-
-/* ---------------------------------
 =vertical lists
 --------------------------------- */
 .c-vlist {
@@ -769,456 +647,42 @@ address {
   border-bottom: 1px solid var(--color-border-light);
 }
 
-/* ---------------------------------
-=service
---------------------------------- */
-.c-service {
-  display: block;
-}
-
-.c-service__title {
-  font-weight: 450;
-  font-size: clamp(1.375rem, 1rem + 1vw, 1.625rem);
-  line-height: 1.24;
-  font-family: var(--fontstack-alt);
-  margin-bottom: 0.75em;
-}
-
-.c-service__text {
-  color: var(--color-text-offset);
-}
-
-/* ---------------------------------
-=project card
---------------------------------- */
-.c-projectcard {
-  display: block;
-}
-
-.c-projectcard__link {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  gap: 1.125rem;
-  text-decoration: none;
-}
-
-.c-projectcard__media {
+.test {
+  position: relative;
+  box-sizing: border-box;
+  height: 95vh;
   overflow: hidden;
-  margin: 0;
+  padding-bottom: 0;
 }
 
-.c-projectcard__media > img {
-  transform: scale(1);
-  transition: transform 0.2s ease-out;
-}
-
-a:hover .c-projectcard__media > img {
-  transform: scale(1.024);
-}
-
-.c-projectcard__title {
-  font-weight: 500;
-  font-size: 1.375rem;
-  line-height: 1.24;
-  font-family: var(--fontstack-alt);
-  margin-bottom: 0.375rem;
-  color: var(--color-text);
-}
-a:hover .c-projectcard__title, a:focus .c-projectcard__title {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 0.05em;
-}
-
-.c-projectcard__tagline {
-  font-weight: 400;
-  font-size: 1.125rem;
-  line-height: 1.24;
-  font-family: var(--fontstack-alt);
-  color: var(--color-text-offset);
-}
-
-/* ---------------------------------
-=categories
---------------------------------- */
-.c-categories {
-  margin-bottom: 2.625rem;
-}
-
-.c-categories__title {
-  font-family: var(--fontstack-main);
-  font-weight: 600;
-  font-size: 1.125rem;
-}
-
-.c-catlist {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.test-content {
+  height: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  column-gap: var(--gutter);
+  grid-template-columns: 1fr 1fr;
 }
 
-.c-catlist__link {
-  display: inline-block;
-  padding-top: 0.1875rem;
-  padding-bottom: 0.1875rem;
-  color: var(--color-text-offset);
-  text-decoration: none;
-}
-.c-catlist__link:hover, .c-catlist__link:focus {
-  color: var(--color-text-offset);
-  text-decoration: underline;
-  text-decoration-color: rgba(0, 0, 0, 0.18);
+.test-image {
+  margin-top: auto;
+  max-height: 80vh;
+  transform: scale(1.3) translate3d(-5%, 0, 0);
 }
 
-.c-catlist__link.is-current {
-  color: var(--color-brand);
-  text-decoration: underline;
+.test--white {
+  position: relative;
 }
 
-/* ---------------------------------
-=pagination
---------------------------------- */
-.c-pagination {
-  list-style: none;
-  margin: 2.625rem 0 0;
-  padding: 1.875rem 0 0;
-  border-top: 1px solid var(--color-border-light);
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.c-pagination__link {
-  display: inline-block;
-  padding: 0.75rem 0.75rem;
-  font-weight: 600;
-  font-size: 1rem;
-  line-height: 1;
-  text-decoration: none;
-  border: 2px solid var(--color-border-light);
-  background-color: transparent;
-  color: var(--color-text-offset);
-  border-radius: 3px;
-  transition: color 0.2s ease-out;
-}
-.c-pagination__link:hover, .c-pagination__link:active {
-  color: var(--color-text);
-}
-
-.c-pagination__link.is-active {
-  border-color: var(--color-brand);
-  color: var(--color-text);
-}
-
-.c-pagination__next,
-.c-pagination__previous {
-  display: inline-block;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  font-weight: 600;
-  font-size: 1rem;
-  line-height: 1;
-  text-decoration: none;
-  color: var(--color-text-offset);
-  transition: color 0.2s ease-out;
-}
-.c-pagination__next:hover, .c-pagination__next:active,
-.c-pagination__previous:hover,
-.c-pagination__previous:active {
-  color: var(--color-text);
-}
-
-/* ---------------------------------
-=team card
---------------------------------- */
-.c-teamcard {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  gap: 1.125rem;
-}
-
-.c-teamcard__media {
-  margin: 0;
-}
-
-.c-teamcard__name {
-  font-weight: 500;
-  font-size: 1.375rem;
-  line-height: 1.24;
-  font-family: var(--fontstack-alt);
-  margin-bottom: 0.375rem;
-  color: var(--color-text);
-}
-
-.c-teamcard__role {
-  font-weight: 400;
-  font-size: 1.125rem;
-  line-height: 1.24;
-  font-family: var(--fontstack-alt);
-  color: var(--color-text-offset);
-}
-
-/* ---------------------------------
-=values
---------------------------------- */
-.c-value {
+.test--white::before {
+  content: "";
   display: block;
-}
-
-.c-value__title {
-  font-weight: 600;
-  font-size: 1.125rem;
-  margin-bottom: 0.25em;
-}
-
-.c-value__text {
-  color: var(--color-text-offset);
-  margin-bottom: 0;
-}
-
-/* ---------------------------------
-=content modules case studies
---------------------------------- */
-.c-casemodule + .c-casemodule {
-  margin-top: 2.625rem;
-}
-@media all and (min-width: 1024px) {
-  .c-casemodule + .c-casemodule {
-    margin-top: 3.75rem;
-  }
-}
-
-/* ---------------------------------
-=figure
---------------------------------- */
-.c-figure {
-  margin: 0 0 1.5rem 0;
-  padding: 0;
-}
-
-.c-figure__caption {
-  margin: 0.75rem 0;
-  padding: 0;
-  font-weight: 400;
-  font-size: 0.875rem;
-  color: var(--color-text-offset);
-}
-
-/* ---------------------------------
-=sitefooter
---------------------------------- */
-/*
-3 layers: more control over vertical spacing
-- contact: links + social (grid)
-- main: address + mainnav + legalnav (grid)
-- end
-*/
-.c-sitefooter {
-  background-color: var(--color-brand);
-  color: var(--color-text-invert);
-  padding-top: 3.75rem;
-  padding-bottom: 1.5rem;
-}
-@media all and (min-width: 760px) {
-  .c-sitefooter {
-    padding-top: 4.5rem;
-  }
-}
-@media all and (min-width: 1024px) {
-  .c-sitefooter {
-    padding-top: 5.625rem;
-  }
-}
-@media all and (min-width: 1440px) {
-  .c-sitefooter {
-    padding-top: 7.5rem;
-  }
-}
-
-/* ---------------------------------
-=sitefooter contact
---------------------------------- */
-.c-sitefooter__contact {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-areas: "a" "b";
-  gap: calc(var(--gutter) / 2);
-  margin-bottom: 2.25rem;
-}
-@media all and (min-width: 760px) {
-  .c-sitefooter__contact {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--gutter);
-    grid-template-areas: "a b";
-    margin-bottom: 3.75rem;
-  }
-}
-@media all and (min-width: 1024px) {
-  .c-sitefooter__contact {
-    margin-bottom: 5.25rem;
-  }
-}
-
-.c-sitefooter__links {
-  grid-area: a;
-}
-
-.c-sitefooter__social {
-  grid-area: b;
-}
-@media all and (min-width: 760px) {
-  .c-sitefooter__social {
-    justify-self: end;
-  }
-}
-
-/* ---------------------------------
-=sitefooter main
---------------------------------- */
-.c-sitefooter__main {
-  margin-bottom: 2.25rem;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: var(--gutter);
-  grid-template-areas: "a" "b" "c";
-}
-@media all and (min-width: 760px) {
-  .c-sitefooter__main {
-    margin-bottom: 3rem;
-    grid-template-columns: minmax(0, 6fr) repeat(2, minmax(0, 4fr));
-    grid-template-areas: "a b c";
-  }
-}
-@media all and (min-width: 1024px) {
-  .c-sitefooter__main {
-    margin-bottom: 3.75rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-.c-sitefooter__address {
-  grid-area: a;
-}
-
-.c-sitefooter__mainnav {
-  grid-area: b;
-}
-
-.c-sitefooter__legalnav {
-  grid-area: c;
-}
-
-/* ---------------------------------
-=sitefooter end
---------------------------------- */
-.c-sitefooter__end {
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-/* ---------------------------------
-=footer navigation
---------------------------------- */
-.c-footernav {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  gap: 0.375rem;
-}
-@media all and (min-width: 1024px) {
-  .c-footernav {
-    gap: 0.1875rem;
-  }
-}
-
-.c-footernav__link {
-  color: var(--color-text-invert);
-  text-decoration: none;
-}
-.c-footernav__link:hover, .c-footernav__link:focus {
-  color: var(--color-text-invert);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 6px;
-  text-decoration-color: rgba(255, 255, 255, 0.5);
-}
-
-/* ---------------------------------
-=social media
---------------------------------- */
-.c-socialmedia {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: inline-flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: var(--spacing-xxs);
-}
-
-.c-socialmedia__link {
-  color: var(--color-text-invert);
-  transition: color 0.2s ease-out;
-}
-.c-socialmedia__link:hover, .c-socialmedia__link:focus {
-  color: var(--color-brand-bright);
-}
-
-/* ---------------------------------
-=copyright
---------------------------------- */
-.c-copyright {
-  color: var(--color-text-invert);
-  margin: 0;
-}
-
-/* ---------------------------------
-=contact list
---------------------------------- */
-.c-contactlist {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  gap: 0.1875rem;
-}
-
-.c-contactlist__link {
-  color: var(--color-text-invert);
-  text-decoration: none;
-  font-weight: 400;
-  font-size: clamp(1.375rem, 1rem + 1.5vw, 2.0625rem);
-}
-.c-contactlist__link:hover, .c-contactlist__link:focus {
-  color: var(--color-text-invert);
-  text-decoration: underline;
-  text-underline-offset: 6px;
-  text-decoration-thickness: 0.05em;
-  text-decoration-color: rgba(255, 255, 255, 0.5);
-}
-
-/* ---------------------------------
-=text colors
---------------------------------- */
-.u-text-offset {
-  color: var(--color-text-offset) !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate3D(0, -100%, 0);
+  width: 100%;
+  height: 100px;
+  background-color: #ffffff;
+  z-index: 1;
+  clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 50% 100%, 0% 0%);
 }
 
 /* ---------------------------------
@@ -1480,4 +944,4 @@ a:hover .c-projectcard__title, a:focus .c-projectcard__title {
   padding-left: var(--spacing-xxl) !important;
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22file:///Users/Valou/code/simontarea/src/assets/scss/settings/_settings-colors.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/settings/_settings-spacing.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/settings/_settings-typography.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/settings/_settings-grid.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/base/_base-margins.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/base/_base-html.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/base/_base-body.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/mixins/_mixins-breakpoints.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/base/_base-fonts.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/base/_base-links.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/base/_base-address.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/objects/_objects-fluidimage.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/objects/_objects-fluidvideo.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/layout/_layout-container.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/layout/_layout-grid.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/layout/_layout-split.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-siteheader.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-logo.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-mainnav.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-menulink.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-mobilemenu.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-mobilenav.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-pagesection.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-pagetitle.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-homeintro.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-ctalink.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-button.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-banner.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-titles.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-intro.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-lists.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-service.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-projectcard.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-categories.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-pagination.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-teamcard.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-value.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-casemodule.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-figure.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-sitefooter.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-footernav.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-socialmedia.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-copyright.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-contactlist.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/utilities/_utilities-text-colors.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/utilities/_utilities-spacing.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAAA;EAEE;EACA;EACA;EACA;EAEA;EACA;EACA;EACA;EACA;EACA;EAEA;EAGA;EACA;EACA;EACA;EACA;EACA;EAEA;EACA;EACA;EACA;;;AC3BF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;ACRF;EACE;EACA;;;ACFF;EACE;;;ACGF;AAAA;AAAA;AAAA;AAKA;AAAA;AAAA;EAGE;;;ACZF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;;;ACRF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EAEA;EACA;EACA;;ACeA;EDtBF;IAUI;;;;AAIJ;EACE;;ACOA;EDRF;IAII;;;;AEtBJ;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;;ACRF;AAAA;AAAA;AAIA;EACE;EACA;EACA;;;AAGF;EACE;;;ACXF;AAAA;AAAA;AAIA;EACE;;;ACLF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;;;AAGF;EACE;;;ACZF;AAAA;AAAA;AAIA;EACE;EACA;;;AAGF;EACE;EACA;EACA;;;ACZF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;;ANkBA;EMtBF;IAOI;IACA;;;ANcF;EMtBF;IAYI;IACA;;;;AAIJ;EACE;;;ACtBF;AAAA;AAAA;AAIA;AAAA;AAAA;AAeA;EACE;EACA;EACA;EAEA;EACA;EACA;;;AAIF;EACE;;;AAGF;EACE;;;AAGF;EACE;;;AAGF;EACE;;;AAQA;EACE;IACE;;EAGF;IACE;;EAGF;IACE;;;AAVJ;EACE;IACE;;EAGF;IACE;;EAGF;IACE;;;AAVJ;EACE;IACE;;EAGF;IACE;;EAGF;IACE;;;AAVJ;EACE;IACE;;EAGF;IACE;;EAGF;IACE;;;AC7DN;AAAA;AAAA;AAIA;EACE;EACA;;ARoBA;EQtBF;IAKI;IACA;;;ARgBF;EQtBF;IAUI;;;;ACdJ;AAAA;AAAA;AAIA;EACE;EACA;EACA;EAEA;EACA;;ATgBA;EStBF;IASI;IACA;;;ATYF;EStBF;IAcI;IACA;;;ATOF;EStBF;IAmBI;IACA;;;;AAIJ;EACE;EACA;EACA;EACA;;;AAGF;EACE;;;AAGF;EACE;;ATdA;ESaF;IAII;;;;AAIJ;EACE;;ATtBA;ESqBF;IAGI;;;;AClDJ;AAAA;AAAA;AAIA;EACE;EACA;;AVoBA;EUtBF;IAKI;;;AViBF;EUtBF;IASI;;;;ACbJ;AAAA;AAAA;AAIA;EACE;EACA;EACA;EAEA;EACA;EACA;EACA;EACA;;AXaA;EWtBF;IAYI;;;;AAIJ;EACE;EACA;EAEA;EACA;EACA;EAEA;;AAEA;EAEE;EACA;;;AAIJ;EACE;EACA;;;ACvCF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EAEE;EACA;;;AChBJ;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;;AbQA;EaTF;IAII;;;;AAIJ;EACE;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EAEE;EACA;;;AAIJ;EACE;;;ACjDF;AAAA;AAAA;AAIA;EACE;IACE;IACA;;EAEF;IACE;IACA;;;AAIJ;EACE;EACA;EACA;EAEA;EACA;EACA;EACA;EACA;;;AAGF;EACE;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EAEE;EACA;;;AAIJ;EACE;EAEA;;;ACnDF;AAAA;AAAA;AAIA;EACE;EACA;;AfoBA;EetBF;IAKI;IACA;;;AfgBF;EetBF;IAUI;IACA;;;;AAIJ;EACE;;;AAGF;AAAA;AAAA;AAIA;EACE;EACA;;;AC7BF;AAAA;AAAA;AAIA;EACE;EACA;EAKA;EACA;EACA;;;AAGF;EACE;;;ACjBF;AAAA;AAAA;AAIA;EACE;EACA;;AjBoBA;EiBtBF;IAKI;IACA;;;;ACVJ;AAAA;AAAA;AAIA;EACE;EAEA;EACA;EACA;EACA;EACA;EAEA;EACA;EAEA;;AAEA;EAEE;;;AAIJ;EACE;EACA;EACA;EACA;;;AAGF;AAAA;EAEE;;;AAOF;EACE;EACA;;AAEA;EAEE;;;AC9CJ;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;EAEA;EACA;EACA;EAEA;EACA;EACA;EACA;EACA;EAEA;;AAEA;EAEE;EACA;EACA;EACA;;;AAIJ;EACE;EACA;EACA;;AAEA;EAEE;EACA;;;ACvCJ;AAAA;AAAA;AAIA;EACE;EACA;EACA;;ApBmBA;EoBtBF;IAMI;;;ApBgBF;EoBtBF;IAUI;;;ApBYF;EoBtBF;IAcI;;;;AAIJ;EACE;EACA;EACA;;;ACzBF;AAAA;AAAA;AAMA;AAAA;AAAA;AAAA;EAIE;EACA;EACA;EACA;;;AAGF;EACE;;;AAOF;EACE;;;AAOF;EACE;EACA;;;AAOF;EACE;EACA;;;AAOF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;EACA;;;AAGF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;EACA;EAKA;;;AC5EF;AAAA;AAAA;AAIA;EACE;EACA;EAKA;EACA;EACA;;;ACbF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;EACA;EAEA;EACA;EACA;EACA;;;AAGF;EACE;;;AAGF;EACE;;;AAGF;EACE;;;AAGF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;EACA;EAEA;EACA;EACA;EACA;EACA;;;AAGF;EACE;;;AChDF;AAAA;AAAA;AAIA;EACE;;;AAGF;EACE;EACA;EAKA;EACA;EACA;;;AAGF;EACE;;;ACrBF;AAAA;AAAA;AAIA;EACE;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EAEA;;;AAGF;EACE;EACA;;;AAGF;EACE;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;AAEA;EAEE;EACA;EACA;;;AAIJ;EACE;EACA;EACA;EACA;EACA;;;ACrDF;AAAA;AAAA;AAIA;EACE;;;AAGF;EACE;EACA;EACA;;;AAGF;EACE;EACA;EACA;EAEA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;;AAEA;EAEE;EACA;EACA;;;AAIJ;EACE;EACA;;;ACzCF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;EAEA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;E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%22,%22file%22:%22main.css%22%7D */
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22file:///Users/Valou/code/simontarea/src/assets/scss/settings/_settings-colors.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/settings/_settings-spacing.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/settings/_settings-typography.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/settings/_settings-grid.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/base/_base-margins.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/base/_base-html.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/base/_base-body.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/mixins/_mixins-breakpoints.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/base/_base-fonts.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/base/_base-links.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/objects/_objects-fluidimage.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/objects/_objects-fluidvideo.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/layout/_layout-container.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/layout/_layout-grid.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/layout/_layout-split.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-logo.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-mainnav.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-menulink.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-mobilemenu.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-mobilenav.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-pagesection.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-pagetitle.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-ctalink.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-button.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-titles.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_components-lists.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/components/_test.scss%22,%22file:///Users/Valou/code/simontarea/src/assets/scss/utilities/_utilities-spacing.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAAA;EAEE;EACA;EACA;EAEA;EACA;EACA;EACA;EACA;EACA;EAEA;EAGA;EACA;EACA;EACA;EACA;EACA;EAEA;EACA;EACA;;;ACzBF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;ACRF;EACE;EACA;;;ACFF;EACE;;;ACGF;AAAA;AAAA;AAAA;AAKA;AAAA;AAAA;EAGE;;;ACZF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;;;ACRF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EAEA;EACA;EACA;;ACeA;EDtBF;IAUI;;;;AAIJ;EACE;;ACOA;EDRF;IAII;;;;AEtBJ;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;;ACRF;AAAA;AAAA;AAIA;EACE;EACA;EACA;;;AAGF;EACE;;;ACXF;AAAA;AAAA;AAIA;EACE;EACA;EACA;;;AAGF;EACE;;;ACXF;AAAA;AAAA;AAIA;EACE;EACA;;;AAGF;EACE;EACA;EACA;;;ACZF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;EACA;;ALiBA;EKtBF;IAQI;IACA;;;ALaF;EKtBF;IAaI;IACA;;;;AAIJ;EACE;;;ACvBF;AAAA;AAAA;AAIA;AAAA;AAAA;AAeA;EACE;EACA;EACA;EAEA;EACA;EACA;;;AAIF;EACE;;;AAGF;EACE;;;AAGF;EACE;;;AAGF;EACE;;;AAQA;EACE;IACE;;EAGF;IACE;;EAGF;IACE;;;AAVJ;EACE;IACE;;EAGF;IACE;;EAGF;IACE;;;AAVJ;EACE;IACE;;EAGF;IACE;;EAGF;IACE;;;AAVJ;EACE;IACE;;EAGF;IACE;;EAGF;IACE;;;AC7DN;AAAA;AAAA;AAIA;EACE;EACA;;APoBA;EOtBF;IAKI;IACA;;;APgBF;EOtBF;IAUI;;;;ACdJ;AAAA;AAAA;AAIA;EACE;EACA;;ARoBA;EQtBF;IAKI;;;ARiBF;EQtBF;IASI;;;;ACbJ;AAAA;AAAA;AAIA;EACE;EACA;EACA;EAEA;EACA;EACA;EACA;EACA;;ATaA;EStBF;IAYI;;;;AAIJ;EACE;EACA;EAEA;EACA;EACA;EAEA;;AAEA;EAEE;EACA;;;AAIJ;EACE;EACA;;;ACvCF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EAEE;EACA;;;AChBJ;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;;AXQA;EWTF;IAII;;;;AAIJ;EACE;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EAEE;EACA;;;AAIJ;EACE;;;ACjDF;AAAA;AAAA;AAIA;EACE;IACE;IACA;;EAEF;IACE;IACA;;;AAIJ;EACE;EACA;EACA;EAEA;EACA;EACA;EACA;EACA;;;AAGF;EACE;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EAEE;EACA;;;AAIJ;EACE;EAEA;;;ACnDF;AAAA;AAAA;AAIA;EACE;EACA;;AboBA;EatBF;IAKI;IACA;;;AbgBF;EatBF;IAUI;IACA;;;;AAIJ;EACE;;;AAGF;AAAA;AAAA;AAIA;EACE;EACA;;;AC7BF;AAAA;AAAA;AAIA;EACE;EACA;EAKA;EACA;EACA;;;AAGF;EACE;;;ACjBF;AAAA;AAAA;AAIA;EACE;EAEA;EACA;EACA;EACA;EACA;EAEA;EACA;EAEA;;AAEA;EAEE;;;AAIJ;EACE;EACA;EACA;EACA;;;AAGF;AAAA;EAEE;;;AAOF;EACE;EACA;;AAEA;EAEE;;;AC9CJ;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;EAEA;EACA;EACA;EAEA;EACA;EACA;EACA;EACA;EAEA;;AAEA;EAEE;EACA;EACA;EACA;;;AAIJ;EACE;EACA;EACA;;AAEA;EAEE;EACA;;;ACvCJ;AAAA;AAAA;AAMA;AAAA;AAAA;AAAA;EAIE;EACA;EACA;EACA;;;AAGF;EACE;;;AAOF;EACE;;;AAOF;EACE;EACA;;;AAOF;EACE;EACA;;;AAOF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;EACA;;;AAGF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;EACA;EAKA;;;AC5EF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;EACA;EAEA;EACA;EACA;EACA;;;AAGF;EACE;;;AAGF;EACE;;;AAGF;EACE;;;AAGF;AAAA;AAAA;AAIA;EACE;EACA;EACA;EACA;EACA;EAEA;EACA;EACA;EACA;EACA;;;AAGF;EACE;;;AC/CF;EACI;EACA;EACA;EACA;EACA;;;AAGJ;EACI;EACA;EACA;;;AAGJ;EACI;EACA;EACA;;;AAGJ;EACI;;;AAIJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EAEA;EACA;;;ACtCJ;AAAA;AAAA;AAyBE;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAIF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAxBF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAIF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAxBF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAIF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAxBF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAIF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAxBF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAIF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAxBF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAIF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAxBF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAIF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAxBF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAIF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE%22,%22file%22:%22main.css%22%7D */
