@@ -1,6 +1,6 @@
 :root {
   // base variables (do not use in CSS)
-  --color-orange: #F0644;
+  --color-orange: #F06449;
   --color-blue: #101F34;
   --color-vibrant-blue: #172B46;
 
@@ -14,11 +14,11 @@
   --color-white: #ffffff;
 
   // incident variables (used in CSS)
-  --color-background: var(--color-white);
-  --color-text: var(--color-gray1);
+  --color-background: var(--color-blue);
+  --color-text: var(--color-white);
   --color-text-offset: var(--color-blue);
-  --color-background-invert: var(--color-blue);
-  --color-text-invert: var(--color-white);
+  --color-background-invert: var(--color-white);
+  --color-text-invert: var(--color-gray1);
   --color-border: var(--color-orange);
 
   --color-brand: var(--color-orange);

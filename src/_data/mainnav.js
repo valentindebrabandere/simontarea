@@ -1,17 +1,12 @@
 module.exports = [
   {
-    label: "Home",
-    trigger: "home",
-    url: "/",
-  },
-  {
-    label: "Projects",
-    trigger: "projects",
-    url: "/projects/",
-  },
-  {
-    label: "About",
+    label: "About me",
     trigger: "about",
     url: "/about/",
+  },
+  {
+    label: "Suivi individuel",
+    trigger: "suivi",
+    url: "/suivi/",
   },
 ];

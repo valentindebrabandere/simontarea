@@ -26,11 +26,11 @@
   font-weight: 500;
   text-decoration: none;
 
-  color: var(--color-text-invert);
+  color: var(--color-text);
 
   &:hover,
   &:focus {
-    color: var(--color-text-invert);
+    color: var(--color-text);
     text-decoration: none;
   }
 }

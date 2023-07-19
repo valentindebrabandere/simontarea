@@ -18,6 +18,8 @@
 @import "layout/_layout-grid.scss";
 @import "layout/_layout-split.scss";
 
+@import "components/_components-siteheader.scss";
+@import "components/_components-sitefooter.scss";
 @import "components/_components-logo.scss";
 @import "components/_components-mainnav.scss";
 @import "components/_components-menulink.scss";
@@ -29,6 +31,7 @@
 @import "components/_components-button.scss";
 @import "components/_components-titles.scss";
 @import "components/_components-lists.scss";
-@import "components/test.scss";
+@import "components/_components-hero.scss";
 
 @import "utilities/_utilities-spacing.scss";
+@import "utilities/_utilities-listbare.scss";

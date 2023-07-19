@@ -32,6 +32,8 @@
   <script defer type="module" src="/assets/js/main.bundle.js"></script>
 </head>
 <body>
+  {% include "partials/siteheader.njk" %}
   {% block content %}{% endblock %}
+  {% include "partials/sitefooter.njk" %}
 </body>
 </html>
