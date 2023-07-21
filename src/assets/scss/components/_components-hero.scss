@@ -1,31 +1,30 @@
-
-.c-hero{
+.c-hero {
     position: relative;
     box-sizing: border-box;
-    height: 82.5vh;
-    overflow: hidden;
     padding-bottom: 0;
 }
 
-.c-hero__title{
-    font-size: clamp(
-        calc(28 / 16 * 1rem),
-        calc(.2rem + 5vw),
-        calc(60 / 16 * 1rem)
-    );
+.c-hero__title {
+    font-size: clamp(calc(28 / 16 * 1rem),
+            calc(.2rem + 5vw),
+            calc(60 / 16 * 1rem));
     z-index: 1;
     margin-bottom: calc(12/16*1rem);
 
-    >span{
+    @include breakpoint(medium) {
+        white-space: nowrap;
+    }
+
+    >span {
         position: relative;
         display: inline-block;
-        
-        &::before{
+
+        &::before {
             content: "";
             position: absolute;
             bottom: -5px;
             left: 50%;
-            transform: translate3d(-50%,0,0);
+            transform: translate3d(-50%, 0, 0);
             height: 20px;
             width: calc(100% + 10px);
             z-index: -1;
@@ -34,33 +33,62 @@
             background-size: contain;
             border-radius: 25px;
         }
-    } 
+    }
 }
 
-.c-hero__paragraph{
+.c-hero__paragraph {
     font-weight: 300;
     margin-bottom: 36px;
 }
 
-.c-hero-content{
-    height: 100%;
+.c-hero-content {
+    min-height: 70vh;
     display: grid;
     place-items: center;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr, 1fr;
+    grid-template-areas: "texte" "image";
+
+    @include breakpoint(medium) {
+        grid-template-columns: 2fr 3fr;
+        grid-template-areas: "image texte";
+    }
+    
+    @include breakpoint(large) {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
-.c-hero-text{
+.c-hero-text {
     z-index: 1;
-    margin-bottom: calc(45/16*1rem);
+    margin-bottom: 10vw;
+    grid-area: texte;
 }
 
-.c-hero__footer{
+.c-hero__footer {
     display: flex;
+    flex-direction: column;
     gap: calc(18/16*1rem);
+
+    @include breakpoint(medium) {
+        flex-direction: row;
+    }
 }
 
-.c-hero-image{
+.c-hero-image {
     margin-top: auto;
-    max-height: 80vh;
-    transform: scale(1.3) translate3d(-5%, -10%, 0);
+    max-height: 60vh;
+    transform-origin: bottom left;
+    grid-area: image;
+
+    transform: translate3d(-10%, 0, 0);
+    
+    @include breakpoint(medium) {
+        transform: scale(2.5) translate3d(-35%, 0, 0);
+    }
+    @include breakpoint(large) {
+        transform: scale(2.1) translate3d(-30%, 0, 0);
+    }
+    @include breakpoint(+large) {
+        transform: scale(1.3) translate3d(-15%, 0, 0);
+    }
 }
