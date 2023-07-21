@@ -3,11 +3,12 @@
 --------------------------------- */
 
 .c-cta {
-  padding: 10px 24px;
+  display: inline-block;
+  padding: 12px 24px;
 
   font-weight: 400;
-  font-size: calc(16 / 16 * 1rem);
-  line-height: calc(24 / 16);
+  font-size: calc(18 / 16 * 1rem);
+  line-height: 1.2;
   font-family: var(--fontstack-alt);
   color: var(--color-text);
   background-color: var(--color-brand);
@@ -20,22 +21,10 @@
 
   &:hover,
   &:focus {
-    transform: scale(1.15);
+    color: var(--color-text);
+    transform: scale(1.05);
     transition: transform 0.3s ease-out;
-    
   }
-}
-
-.c-cta:hover{
-  transform: scale(1.05);
-  transition: transform 0.3s ease-out;
-}
-
-.c-cta > svg {
-  display: inline-block;
-  margin-left: var(--spacing-xxs);
-  transform: translate3d(0, 0, 0);
-  transition: transform 0.1s ease-out;
 }
 
 
@@ -43,12 +32,13 @@
 // =variants
 // ---------------------------------
 
-.c-cta--invert {
-  color: var(--color-text-invert);
-  border-color: var(--color-text-invert);
+.c-cta--secondary {
+  background-color: transparent;
+  border: solid 2px var(--color-border);
+  color: var(--color-text);
+}
 
-  &:hover,
-  &:focus {
-    color: var(--color-text-invert);
-  }
+.c-cta--small{
+  padding: 10px 18px;
+  font-size: calc(16 / 16 * 1rem);
 }

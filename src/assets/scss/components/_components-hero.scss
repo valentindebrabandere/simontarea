@@ -7,14 +7,56 @@
     padding-bottom: 0;
 }
 
+.c-hero__title{
+    font-size: clamp(
+        calc(28 / 16 * 1rem),
+        calc(.2rem + 5vw),
+        calc(60 / 16 * 1rem)
+    );
+    z-index: 1;
+    margin-bottom: calc(12/16*1rem);
+
+    >span{
+        position: relative;
+        display: inline-block;
+        
+        &::before{
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translate3d(-50%,0,0);
+            height: 20px;
+            width: calc(100% + 10px);
+            z-index: -1;
+            background-color: var(--color-brand);
+            background: url('/assets/img/undeline.svg') 50% 50% no-repeat;
+            background-size: contain;
+            border-radius: 25px;
+        }
+    } 
+}
+
+.c-hero__paragraph{
+    font-weight: 300;
+    margin-bottom: 36px;
+}
+
 .c-hero-content{
     height: 100%;
     display: grid;
+    place-items: center;
     grid-template-columns: 1fr 1fr;
 }
 
 .c-hero-text{
     z-index: 1;
+    margin-bottom: calc(45/16*1rem);
+}
+
+.c-hero__footer{
+    display: flex;
+    gap: calc(18/16*1rem);
 }
 
 .c-hero-image{

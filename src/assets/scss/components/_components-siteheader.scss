@@ -6,21 +6,21 @@
   background-color: var(--color-background);
   color: var(--color-text);
 
-  padding-top: calc(18 / 16 * 1rem);
+  padding-top: calc(24 / 16 * 1rem);
   padding-bottom: calc(18 / 16 * 1rem);
 
   @include breakpoint(medium) {
-    padding-top: calc(24 / 16 * 1rem);
+    padding-top: calc(36 / 16 * 1rem);
     padding-bottom: calc(24 / 16 * 1rem);
   }
 
   @include breakpoint(large) {
-    padding-top: calc(30 / 16 * 1rem);
+    padding-top: calc(42 / 16 * 1rem);
     padding-bottom: calc(30 / 16 * 1rem);
   }
 
   @include breakpoint(xlarge) {
-    padding-top: calc(42 / 16 * 1rem);
+    padding-top: calc(60 / 16 * 1rem);
     padding-bottom: calc(42 / 16 * 1rem);
   }
 }
