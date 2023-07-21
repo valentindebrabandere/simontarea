@@ -20,6 +20,20 @@
   }
 }
 
+.c-pagesection + .c-pagesection--deco{
+
+  padding-bottom: calc((48 + 50) / 16 * 1rem);
+
+  @include breakpoint(medium) {
+    padding-bottom: calc((72 + 75) / 16 * 1rem);
+  }
+
+  @include breakpoint(large) {
+    padding-bottom: calc((120 + 100) / 16 * 1rem);
+  }
+
+}
+
 /* ---------------------------------
 =variants of page sections
 --------------------------------- */
@@ -39,8 +53,16 @@
   transform: translate3D(0, -99%, 0);
   background-color: inherit;
   width: 100%;
-  height: 100px;
+  height: 50px;
   
   z-index: 1;
   clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 50% 90%, 0% 0%);
+  
+  @include breakpoint(medium) {
+    height: 75px;
+  }
+  
+  @include breakpoint(large) {
+    height: 100px;
+  }
 }

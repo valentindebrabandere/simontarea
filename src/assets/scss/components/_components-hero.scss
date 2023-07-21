@@ -54,7 +54,7 @@
     }
     
     @include breakpoint(large) {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 3fr 4fr;
     }
 }
 
@@ -74,21 +74,22 @@
     }
 }
 
-.c-hero-image {
-    margin-top: auto;
-    max-height: 60vh;
-    transform-origin: bottom left;
-    grid-area: image;
+.c-hero__img-container{
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+}
 
-    transform: translate3d(-10%, 0, 0);
+.c-hero-image {
+    width: 100%;
+    transform: translate3d(-10%, 20%, 0) scale(1.3);
+    transform-origin: bottom center;
     
     @include breakpoint(medium) {
-        transform: scale(2.5) translate3d(-35%, 0, 0);
-    }
-    @include breakpoint(large) {
-        transform: scale(2.1) translate3d(-30%, 0, 0);
-    }
-    @include breakpoint(+large) {
-        transform: scale(1.3) translate3d(-15%, 0, 0);
+        position: absolute;
+        bottom: 0;
+        left:55%;
+        transform: translate3d(-55%, calc(65% - 10vw) , 0);
+        width: calc(700px + 15vw);
     }
 }
