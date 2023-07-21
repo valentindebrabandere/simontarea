@@ -5,6 +5,7 @@
 }
 
 .c-hero__title {
+    font-weight: 400;
     font-size: clamp(calc(28 / 16 * 1rem),
             calc(.2rem + 5vw),
             calc(60 / 16 * 1rem));
