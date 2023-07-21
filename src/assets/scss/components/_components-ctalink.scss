@@ -2,43 +2,47 @@
 =call to action
 --------------------------------- */
 
-.c-ctalink {
-  padding-bottom: 6px;
+.c-cta {
+  padding: 10px 24px;
 
-  font-weight: 600;
-  font-size: calc(14 / 16 * 1rem);
+  font-weight: 400;
+  font-size: calc(16 / 16 * 1rem);
   line-height: calc(24 / 16);
-  font-family: var(--fontstack--main);
-  color: var(--color-brand);
+  font-family: var(--fontstack-alt);
+  color: var(--color-text);
+  background-color: var(--color-brand);
 
-  text-transform: uppercase;
+  border-radius: var(--border-radius);
+
   text-decoration: none;
-
-  border-bottom: 2px solid var(--color-brand);
+  transform: scale(1);
+  transition: transform 0.3s ease-out;
 
   &:hover,
   &:focus {
-    color: var(--color-brand);
+    transform: scale(1.15);
+    transition: transform 0.3s ease-out;
   }
 }
 
-.c-ctalink > svg {
+.c-cta:hover{
+  transform: scale(1.05);
+  transition: transform 0.3s ease-out;
+}
+
+.c-cta > svg {
   display: inline-block;
   margin-left: var(--spacing-xxs);
   transform: translate3d(0, 0, 0);
   transition: transform 0.1s ease-out;
 }
 
-.c-ctalink:hover > svg,
-.c-ctalink:focus > svg {
-  transform: translate3d(2px, 0, 0);
-}
 
 // ---------------------------------
 // =variants
 // ---------------------------------
 
-.c-ctalink--invert {
+.c-cta--invert {
   color: var(--color-text-invert);
   border-color: var(--color-text-invert);
 

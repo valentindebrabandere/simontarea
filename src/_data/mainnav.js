@@ -9,4 +9,9 @@ module.exports = [
     trigger: "suivi",
     url: "/suivi/",
   },
+  {
+    label: "Mes formations",
+    url: "https://www.example.com",
+    isExternal: true,
+  }
 ];

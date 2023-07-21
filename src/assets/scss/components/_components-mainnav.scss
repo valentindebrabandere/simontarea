@@ -19,14 +19,17 @@
 }
 
 .c-mainnav__link {
+  display: inline-block;
   padding-top: calc(6 / 16 * 1rem);
   padding-bottom: calc(6 / 16 * 1rem);
 
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: none;
 
   color: var(--color-text);
+
+  font-family: var(--fontstack-alt);
 
   &:hover,
   &:focus {

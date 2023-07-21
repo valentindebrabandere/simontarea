@@ -16,10 +16,14 @@
           {% if loop.first %}<ul class="c-mainnav">{% endif %}
             {% set currentClass = "" %}
             {% set currentAria = "" %}
-            {% if navItem.trigger == currentSection %}
-              {% set currentClass = "is-current" %}
-              {% set currentAria = 'aria-current="page"'|safe %}
-            {% endif %}
+              {% if navItem.isExternal %}
+                {% set currentClass = "is-external c-cta c-cta--small" %}
+              {% else %}
+                {% if navItem.trigger == currentSection %}
+                  {% set currentClass = "is-current" %}
+                  {% set currentAria = 'aria-current="page"'|safe %}
+                {% endif %}
+              {% endif %}
             <li class="c-mainnav__item"><a class="c-mainnav__link  {{ currentClass }}" {{ currentAria }} href="{{ navItem.url }}">{{ navItem.label }}</a></li>
           {% if loop.last %}</ul>{% endif %}
         {% endfor %}

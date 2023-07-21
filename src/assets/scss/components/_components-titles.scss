@@ -9,9 +9,11 @@
 .c-h3,
 .c-h4 {
   font-family: var(--fontstack-alt);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.24;
   margin-bottom: 1em;
+  letter-spacing: -0.6px;
+  font-feature-settings: "ss01" 1, "onum" 1;
 }
 
 .c-h1 {
