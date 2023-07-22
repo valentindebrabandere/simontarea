@@ -1,4 +1,5 @@
 module.exports = {
-  url: "https://zodiak-agency.netlify.app",
-  title: "Zodiak Agncy",
+  // TODO Change me to the final domain name
+  url: "https://simon-tarea.netlify.app",
+  title: "Simon Tarea",
 };
