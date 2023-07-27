@@ -26,10 +26,11 @@
 
 .c-h2 {
   font-size: clamp(
-    calc(28 / 16 * 1rem),
-    calc(1rem + 2vw),
-    calc(37 / 16 * 1rem)
+    calc(22 / 16 * 1rem),
+    calc(1rem + 1vw),
+    calc(35 / 16 * 1rem)
   );
+  color: var(--color-text-offset);
 }
 
 .c-h3 {
@@ -42,12 +43,9 @@
 }
 
 .c-h4 {
-  font-weight: 500;
-  font-size: clamp(
-    calc(19 / 16 * 1rem),
-    calc(1rem + 0.75vw),
-    calc(26 / 16 * 1rem)
-  );
+  font-weight: 400;
+  font-size: calc(16 / 16 * 1rem);
+  color: var(--color-brand);
 }
 
 /* ---------------------------------

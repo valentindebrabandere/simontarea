@@ -37,15 +37,9 @@ export function handleParallaxScroll() {
 
     function handleWindowResize() {
         if (window.innerWidth > 760) {
-            // FILEPATH: /Users/Valou/code/simontarea/src/assets/js/modules/parallax.js
-            // BEGIN: be15d9bcejpp
             image.style.transform = `translate3d(-55%, calc(20% - 10vw + ${imageParallax + "px"}) , 0) scale(1)`;
-            // END: be15d9bcejpp
         } else {
-            // FILEPATH: /Users/Valou/code/simontarea/src/assets/js/modules/parallax.js
-            // BEGIN: be15d9bcejpp
             image.style.transform = `translate3d(-10%, calc(20% + ${imageParallax + "px"}) , 0) scale(1.3)`;
-            // END: be15d9bcejpp
         }
     }
 
