@@ -1023,6 +1023,7 @@ a:hover {
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
+  transform-origin: center;
   width: 120%;
   height: 120%;
 }
@@ -1030,7 +1031,6 @@ a:hover {
 .c-hero__deco-container.clap {
   top: 50%;
   left: 5%;
-  rotate: 10deg;
 }
 @media all and (min-width: 760px) {
   .c-hero__deco-container.clap {
@@ -1049,7 +1049,6 @@ a:hover {
   top: 27%;
   left: 60%;
   z-index: -1;
-  rotate: 10deg;
 }
 @media all and (min-width: 760px) {
   .c-hero__deco-container.clock {
@@ -1067,7 +1066,6 @@ a:hover {
 .c-hero__deco-container.biceps {
   top: 65%;
   left: 75%;
-  rotate: 10deg;
 }
 @media all and (min-width: 760px) {
   .c-hero__deco-container.biceps {
@@ -1086,7 +1084,6 @@ a:hover {
   top: 90%;
   left: 45%;
   z-index: 10;
-  rotate: -15deg;
 }
 @media all and (min-width: 760px) {
   .c-hero__deco-container.trophy {
