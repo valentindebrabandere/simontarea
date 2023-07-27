@@ -19,45 +19,67 @@
     });
   };
 
+  // src/assets/js/modules/init-cards.js
+  var allCardGalleries = document.querySelectorAll(".c-card-gallery");
+  var init2 = () => {
+    allCardGalleries.forEach((gallery) => {
+      const cardGallery = gallery.querySelectorAll(".c-card");
+      cardGallery.forEach((card, index) => {
+        const deco = card.querySelector(".c-card__deco");
+        const direction = index % 2 === 0 ? -1 : 1;
+        deco.setAttribute("data-rotate", 10 * -direction + ", " + direction);
+      });
+    });
+  };
+
   // src/assets/js/modules/parallax.js
-  var clapIcon = document.querySelector(".c-hero__deco-container.clap");
-  var clockIcon = document.querySelector(".c-hero__deco-container.clock");
-  var bicepsIcon = document.querySelector(".c-hero__deco-container.biceps");
-  var trophyIcon = document.querySelector(".c-hero__deco-container.trophy");
   var image = document.querySelector(".c-hero__image");
-  var icons = document.querySelectorAll(".c-hero__deco");
+  var decoContainer = document.querySelectorAll(".c-deco-img-container");
+  var decoImg = document.querySelectorAll(".c-deco-img");
   function handleParallaxScroll() {
     const scrollY = window.scrollY;
-    const clapParallax = scrollY * 0.07;
-    const clockParallax = scrollY * 0.03;
-    const bicepsParallax = scrollY * 0.05;
-    const trophyParallax = scrollY * 0.04;
-    const imageParallax = scrollY * 0.03;
-    icons.forEach((icon) => {
+    const viewportHeight = window.innerHeight;
+    decoContainer.forEach((container) => {
+      const elementTop = container.getBoundingClientRect().top + scrollY;
+      const scrollProgress = Math.max(
+        0,
+        Math.min(1, (scrollY - elementTop + viewportHeight) / viewportHeight)
+      );
+      let parallax = container.getAttribute("data-parallax");
+      if (parallax === null) {
+        parallax = 0.01;
+      }
+      let parallaxValue = scrollProgress * parallax * viewportHeight;
+      container.style.transform = `translate3d(-50%, calc(-50% + ${parallaxValue + "px"}), 0)`;
+    });
+    decoImg.forEach((icon) => {
+      const elementTop = icon.getBoundingClientRect().top + scrollY;
+      const scrollProgress = Math.max(
+        0,
+        Math.min(1, (scrollY - elementTop + viewportHeight) / viewportHeight)
+      );
       let rotate = icon.getAttribute("data-rotate").split(",");
       let value = Number(rotate[0]);
       let direction = rotate[1].trim();
-      let rotateValue = value + scrollY * 0.03 * direction;
-      icon.style.transform = `translate3d(-50%, calc(-50% - ${scrollY * 0.02}px),0) rotate(${rotateValue}deg)`;
+      let rotateValue = value + scrollProgress * 20 * direction;
+      let parallaxValue = scrollProgress * 0.02 * viewportHeight;
+      icon.style.transform = `translate3d(-50%, calc(-50% - ${parallaxValue + "px"}),0) rotate(${rotateValue}deg)`;
     });
-    clapIcon.style.transform = `translateY(${clapParallax}px)`;
-    clockIcon.style.transform = `translateY(${clockParallax}px)`;
-    bicepsIcon.style.transform = `translateY(${bicepsParallax}px)`;
-    trophyIcon.style.transform = `translateY(${trophyParallax}px)`;
-    function handleWindowResize2() {
+    function handleWindowResize() {
+      const imageParallax = scrollY * 0.03;
       if (window.innerWidth > 760) {
         image.style.transform = `translate3d(-55%, calc(20% - 10vw + ${imageParallax + "px"}) , 0) scale(1)`;
       } else {
         image.style.transform = `translate3d(-10%, calc(20% + ${imageParallax + "px"}) , 0) scale(1.3)`;
       }
     }
-    handleWindowResize2();
+    handleWindowResize();
+    window.addEventListener("resize", handleWindowResize);
   }
   window.addEventListener("scroll", handleParallaxScroll);
-  window.addEventListener("resize", handleWindowResize);
 
   // src/assets/js/main.js
   init();
+  init2();
   handleParallaxScroll();
-  init();
 })();
