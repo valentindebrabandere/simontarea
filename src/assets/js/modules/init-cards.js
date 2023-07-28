@@ -11,12 +11,8 @@ const init = () => {
             parent.classList.add('c-cardsection--dyn');
             gallery.classList.add('c-card-gallery--dyn');
 
-            cardGallery.forEach((card) => {
-                card.classList.add('c-card--dyn');
-            });
-
-            const nextButton = parent.querySelector('.c-cardsection__btn.next');
-            const prevButton = parent.querySelector('.c-cardsection__btn.prev');
+            const nextButton = document.querySelector('.c-cardsection__btn.next');
+            const prevButton = document.querySelector('.c-cardsection__btn.prev');
             const footer = parent.querySelector('.c-cardsection__footer');
 
             nextButton.addEventListener('click', () => {
