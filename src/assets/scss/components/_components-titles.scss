@@ -22,6 +22,11 @@
     calc(1rem + 2vw),
     calc(40 / 16 * 1rem)
   );
+  color: var(--color-text);
+}
+
+.c-h1--dark{
+  color: var(--color-text-offset);
 }
 
 .c-h2 {
@@ -33,6 +38,10 @@
   color: var(--color-text-offset);
 }
 
+.c-h2--white{
+  color: var(--color-text);
+}
+
 .c-h3 {
   font-weight: 500;
   font-size: clamp(
@@ -40,6 +49,11 @@
     calc(1rem + 1vw),
     calc(31 / 16 * 1rem)
   );
+  color: var(--color-text-offset);
+}
+
+.c-h3--white{
+  color: var(--color-text);
 }
 
 .c-h4 {

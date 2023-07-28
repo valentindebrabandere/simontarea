@@ -1,0 +1,21 @@
+{% macro reviewCard(name, formation, age, content, url, image) %}
+  <article class="c-review-card c-card">
+    <div class="c-deco-img-container c-card__deco-container c-card__deco-container">
+      <img src="{{image}}" alt="Avis photo de {{name}}" class="c-deco-img c-card__deco">
+    </div>
+    <div class="c-card__body">
+      <div class="c-card__header">
+        <div class="c-card__titles">
+          <h4 class="c-h4 c-card__subtitle">{{ formation }}</h4>
+          <h2 class="c-card__title c-h2">{{ name }}</h2>
+        </div>
+        <div class="c-card__age">
+          <p class="c-card__age-number c-h4">{{ age }}</p>
+          <p class="c-card__age-text c-h4">ans</p>
+        </div>
+      </div>
+      <p class="c-card__content">{{ content }}</p>
+      <a href="{{ url }}" class="c-card__link">Voir la formation {% include "svg/arrow.svg" %}</a>
+    </div>
+  </article>
+{% endmacro %}

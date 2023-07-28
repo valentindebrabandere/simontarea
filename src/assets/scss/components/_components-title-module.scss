@@ -29,3 +29,13 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+
+.c-title-module__cta {
+  display: flex;
+  flex-direction: column;
+  gap: calc(18/16*1rem);
+
+  @include breakpoint(medium) {
+      flex-direction: row;
+  }
+}

@@ -44,6 +44,14 @@
   color: var(--color-text);
 }
 
+.c-pagesection--light {
+
+  .c-cta--secondary {
+    color: var(--color-brand);
+  }
+
+}
+
 .c-cta--small{
   padding: 10px 18px;
   font-size: calc(16 / 16 * 1rem);

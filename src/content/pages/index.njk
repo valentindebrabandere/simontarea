@@ -11,6 +11,7 @@ permalink: index.html
 {# Import #}
 
 {% from "macros/serviceCard.njk" import serviceCard %}
+{% from "macros/reviewCard.njk" import reviewCard %}
 
 {% block content %}
   <main>
@@ -35,7 +36,7 @@ permalink: index.html
             </div>
           <div class="c-hero__text">
             <h1 class="c-h1 c-hero__title">Votre <span>temps,</span> votre <span>santé :</span><br> Reprenons le contrôle</h1>
-            <p class="c-hero__paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula, ultrices mauris.</p>
+            <p class="c-hero__paragraph">Le coaching Create pour les entrepreneurs-parents débordés qui veulent enfin trouver l'équilibre parfait entre carrière, famille et bien-être.</p>
             <div class="c-hero__footer">
               {# TODO Add corrects links #}
               <a href="#" class="c-cta">Mes formations</a>
@@ -45,6 +46,7 @@ permalink: index.html
         </div>
       </div>
     </div>
+
     <div class="c-pagesection c-pagesection--light c-pagesection--deco c-pagesection--big-deco">
       <div class="l-container">
         <div class="c-title-module">
@@ -77,10 +79,104 @@ permalink: index.html
         </div>
       </div>
     </div>
+
     <div class="c-pagesection c-pagesection--deco">
       <div class="l-container">
-        <h1 class="c-h1">Hey</h1>
+        <div class="c-title-module">
+          <div class="c-title-module__title">
+            <h4 class="c-h4">Comment ça se passe ?</h4>
+            <h2 class="c-h2 c-h2--white">Je vous présenta ma méthode</h2>
+          </div>
+          <div class="c-title-module__content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.</p>
+          </div>
+        </div>
+        <div class="c-methode">
+          <h3 class="c-methode__title c-h3 c-h3--white">Méthode Create</h3>
+          <p class="c-methode__text">
+            Explications des 3 étapes : sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.
+          </p>
+          <div class="c-methode__shema">
+            <img src="/assets/img/schema.png" alt="Shema of the Create method" class="c-methode__img o-fluidimg">
+          </div>
+        </div>
       </div>
     </div>
+
+    <div class="c-pagesection c-pagesection--light c-pagesection--deco">
+      <div class="l-container">
+        <div class="c-title-module">
+          <div class="c-title-module__title">
+            <h4 class="c-h4">Qu’en pense-t-on ?</h4>
+            <h2 class="c-h2">Quelques personne que j’ai accompagné</h2>
+          </div>
+          <div class="c-title-module__content"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.</p>
+            {# TODO Add links#}
+            <div class="c-title-module__cta">
+              <a href="#" class="c-cta">Mes formations</a>
+              <a href="#" class="c-cta c-cta--secondary c-pagesection--light">Suivi individuel</a>
+            </div>
+          </div>
+        </div>
+        <div class="c-cardsection">
+          <ul class="u-list-bare c-card-gallery l-grid l-grid--2cols@medium">
+            <li>
+              {{ reviewCard(
+                image="/assets/img/reviewCard/amelie.png",
+                name="Amélie",
+                formation="Formation en ligne",
+                url="/lienVersLaFormation",
+                age="32",
+                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
+              ) }}
+            </li>
+            <li>
+              {{ reviewCard(
+                image="/assets/img/reviewCard/bertrand.png",
+                name="Bertrand",
+                formation="Suivi individuel",
+                url="/lienVersLaFormation",
+                age="26",
+                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
+              ) }}
+            </li>
+            <li>
+              {{ reviewCard(
+                image="/assets/img/reviewCard/philippe.png",
+                name="Philippe",
+                formation="Formation en ligne",
+                url="/lienVersLaFormation",
+                age="45",
+                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
+              ) }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+     <div class="c-pagesection c-pagesection--deco">
+      <div class="l-container">
+        <div class="c-title-module">
+          <div class="c-title-module__title">
+            <h4 class="c-h4">Comment ça se passe ?</h4>
+            <h2 class="c-h2 c-h2--white">Je vous présenta ma méthode</h2>
+          </div>
+          <div class="c-title-module__content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.</p>
+          </div>
+        </div>
+        <div class="c-methode">
+          <h3 class="c-methode__title c-h3 c-h3--white">Méthode Create</h3>
+          <p class="c-methode__text">
+            Explications des 3 étapes : sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.
+          </p>
+          <div class="c-methode__shema">
+            <img src="/assets/img/schema.png" alt="Shema of the Create method" class="c-methode__img o-fluidimg">
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
 {% endblock %}
