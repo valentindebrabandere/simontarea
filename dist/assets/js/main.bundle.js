@@ -24,6 +24,24 @@
   var init2 = () => {
     allCardGalleries.forEach((gallery) => {
       const cardGallery = gallery.querySelectorAll(".c-card");
+      if (cardGallery.length > 2) {
+        const parent = gallery.closest(".c-cardsection");
+        parent.classList.add("c-cardsection--dyn");
+        gallery.classList.add("c-card-gallery--dyn");
+        cardGallery.forEach((card) => {
+          card.classList.add("c-card--dyn");
+        });
+        const nextButton = parent.querySelector(".c-cardsection__btn.next");
+        const prevButton = parent.querySelector(".c-cardsection__btn.prev");
+        const footer = parent.querySelector(".c-cardsection__footer");
+        nextButton.addEventListener("click", () => {
+          parent.scrollLeft += 400;
+        });
+        prevButton.addEventListener("click", () => {
+          parent.scrollLeft -= 400;
+        });
+        footer.style.display = "flex";
+      }
       cardGallery.forEach((card, index) => {
         const deco = card.querySelector(".c-card__deco");
         const direction = index % 2 === 0 ? -1 : 1;

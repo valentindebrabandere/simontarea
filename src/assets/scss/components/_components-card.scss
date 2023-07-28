@@ -5,6 +5,15 @@
     align-items: center;
 }
 
+.c-cardsection--dyn{
+    overflow-x: scroll;
+}
+
+
+.c-cardsection__footer{
+    display: none;
+}
+
 .c-card-gallery{
     gap: 0px;
 
@@ -12,6 +21,12 @@
         gap: 20px;
     }
 }
+
+.c-card-gallery--dyn{
+    display: flex;
+    gap: 20px;
+}
+
 
 .c-card{
     position: relative;
@@ -28,6 +43,10 @@
     border-radius: var(--border-radius);
 }
 
+.c-card--dyn{
+    width: 440px;
+}
+
 .c-card__body{
     display: flex;
     flex-direction: column;
@@ -42,26 +61,6 @@
     margin-left: auto;
 }
 
-// {% macro serviceCard(prenom, formation, age, content, url, image) %}
-//   <article class="c-service-card c-card">
-//     <div class="c-deco-img-container c-card__deco-container c-card__deco-container">
-//       <img src="{{image}}" alt="Avis photo de {{prenom}}" class="c-deco-img c-card__deco">
-//     </div>
-//     <div class="c-card__body">
-//       <div class="c-card__header">
-//         <div class="c-card__titles">
-//           <h4 class="c-h4 c-card__subtitle">{{ formation }}</h4>
-//           <h2 class="c-card__title c-h2">{{ prenom }}</h2>
-//         </div>
-//         <div class="c-card__age">
-//           <p class="c-card__age-number">{{ age }}</p>
-//           <p class="c-card__age-text">ans</p>
-//       </div>
-//       <p class="c-card__content">{{ content }}</p>
-//       <a href="{{ url }}" class="c-card__link">Voir la formation {% include "svg/arrow.svg" %}</a>
-//     </div>
-//   </article>
-// {% endmacro %}
 
 .c-card__header{
     display: flex;
