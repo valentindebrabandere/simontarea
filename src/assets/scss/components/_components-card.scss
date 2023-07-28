@@ -6,9 +6,11 @@
 }
 
 .c-card-gallery{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
+    gap: 0px;
+
+    @include breakpoint(medium) {
+        gap: 20px;
+    }
 }
 
 .c-card{
@@ -35,4 +37,8 @@
     & > h2 {
         margin-bottom: 0;
     }
+}
+
+.c-card__link{
+    margin-left: auto;
 }

@@ -3,11 +3,21 @@
 --------------------------------- */
 
 a {
+  position: relative;
   color: var(--color-brand);
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  font-family: var(--fontstack-alt);
+
+  text-decoration: none;
+
+  &> svg {
+    transform: translate3d( 0, 1.5px, 0);
+    transition: transform 0.2s ease-in-out;
+    margin-left: 3px;
+  }
 }
 
 a:hover {
-  color: var(--color-brand-dark);
+  &> svg {
+    transform: translate3d( 2px, 1.5px, 0);
+  }
 }
