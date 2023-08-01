@@ -3,6 +3,16 @@
     box-sizing: border-box;
     padding-bottom: 0;
     background-color: transparent;
+
+    padding-top: calc(45 / 16 * 1rem);
+
+  @include breakpoint(medium) {
+    padding-top: calc(72 / 16 * 1rem);
+  }
+
+  @include breakpoint(large) {
+    padding-top: calc(90 / 16 * 1rem);
+  }
 }
 
 .c-hero__title {
@@ -61,7 +71,7 @@
 
 .c-hero__text {
     z-index: 1;
-    margin-bottom: 10vw;
+    margin-bottom: 15vw;
     grid-area: texte;
 }
 
