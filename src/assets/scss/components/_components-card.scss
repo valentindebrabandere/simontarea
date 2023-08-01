@@ -25,6 +25,8 @@
 .c-card-gallery--dyn{
     display: flex;
     gap: 20px;
+    
+    transition: transform 0.3s ease-in-out;
 }
 
 .c-card{
