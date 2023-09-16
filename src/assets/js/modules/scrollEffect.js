@@ -55,34 +55,22 @@ function scrollHandler() {
     }),0) rotate(${rotateValue}deg)`;
   });
 
-
-  let timeout = null;
-
-  const dynGallery = document.querySelectorAll(".c-card-gallery--dyn");
+  const dynGallery = document.querySelectorAll(".js-cardesction__scroll--dyn");
     
   dynGallery.forEach((gallery, index) => {
-    let currentScrollPosition = Number(gallery.dataset.scrollPosition) || 0;
+    let currentScrollPosition = 0;
 
     const elementTop = gallery.getBoundingClientRect().top + scrollY;
     const scrollProgress = Math.max(
       0,
       Math.min(1, (scrollY - elementTop + viewportHeight) / viewportHeight)
     );
+
     let scrollAnim = scrollProgress * 0.10 * viewportHeight;
     currentScrollPosition -= scrollAnim;
-    gallery.style.transition = "none";
-    gallery.style.transform = `translate3d( ${currentScrollPosition + 'px'} , 0, 0)`;
 
-    // Clear the timeout if it's already set.
-    if (timeouts[index]) {
-      clearTimeout(timeouts[index]);
-    }
-
-    // Set the timeout to save the scroll position in dataset after 200ms the scroll stop.
-    timeouts[index] = setTimeout(() => {
-      console.log("save scroll position")
-      gallery.dataset.scrollPosition = currentScrollPosition;
-    }, 300);
+    // gallery.style.transition = "transform 0.5s var(--ease-in-out)";
+    gallery.style.transform = `translate3d( ${currentScrollPosition}px , 0, 0)`;
   });
 }
 
