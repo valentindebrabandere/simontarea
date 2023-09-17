@@ -40,6 +40,25 @@
     allCardGalleries2.forEach((gallery) => {
       const cardGallery = gallery.querySelectorAll(".c-card");
       if (cardGallery.length > 2) {
+        let startDrag = function(e) {
+          isDragging = true;
+          startX = e.touches && e.touches[0] ? e.touches[0].clientX : e.clientX;
+          initialScrollPosition = Number(gallery.dataset.scrollPosition) || 0;
+          gallery.style.transition = "none";
+        }, duringDrag = function(e) {
+          if (!isDragging)
+            return;
+          const x = e.touches && e.touches[0] ? e.touches[0].clientX : e.clientX;
+          const deltaX = x - startX;
+          currentTranslateX = initialScrollPosition - deltaX;
+          gallery.style.transform = `translate3d(-${currentTranslateX}px, 0, 0)`;
+        }, endDrag = function(e) {
+          if (!isDragging)
+            return;
+          isDragging = false;
+          gallery.dataset.scrollPosition = currentTranslateX;
+          gallery.style.transition = "transform 0.5s var(--ease-in-out)";
+        };
         const parent = gallery.closest(".c-cardsection");
         const scroll = gallery.closest(".js-cardesction__scroll");
         parent.classList.add("c-cardsection--dyn");
@@ -50,7 +69,6 @@
         const nextButton = footer.querySelector(".c-cardsection__btn.next");
         let galleryWidth = gallery.offsetWidth;
         let cardWidth = 400;
-        let viewportWidth = window.innerWidth;
         const updateSizes = () => {
           galleryWidth = gallery.offsetWidth;
           cardWidth = gallery.firstElementChild.offsetWidth;
@@ -63,16 +81,17 @@
           if (window.innerWidth > 1040) {
             potentialScrollPosition = newCurrentScrollPosition + scrollOffset * 2;
           }
-          newCurrentScrollPosition = -Math.min(potentialScrollPosition, galleryWidth - scrollOffset);
+          newCurrentScrollPosition = -Math.min(
+            potentialScrollPosition,
+            galleryWidth - scrollOffset
+          );
           gallery.style.transform = `translate3d(${newCurrentScrollPosition}px, 0, 0)`;
           gallery.style.transition = "transform 0.5s var(--ease-in-out)";
           gallery.dataset.scrollPosition = -newCurrentScrollPosition;
         });
         prevButton.addEventListener("click", () => {
           let newCurrentScrollPosition = Number(gallery.dataset.scrollPosition) || 0;
-          console.log(newCurrentScrollPosition);
           let potentialScrollPosition = newCurrentScrollPosition - cardWidth;
-          console.log(potentialScrollPosition);
           if (window.innerWidth > 1040) {
             potentialScrollPosition = newCurrentScrollPosition - scrollOffset * 2;
           }
@@ -83,6 +102,15 @@
         });
         footer.style.display = "flex";
         window.addEventListener("resize", updateSizes);
+        let isDragging = false;
+        let startX, currentTranslateX, initialScrollPosition;
+        gallery.addEventListener("mousedown", startDrag);
+        gallery.addEventListener("touchstart", startDrag);
+        gallery.addEventListener("mousemove", duringDrag);
+        gallery.addEventListener("touchmove", duringDrag);
+        gallery.addEventListener("mouseup", endDrag);
+        gallery.addEventListener("touchend", endDrag);
+        gallery.addEventListener("mouseleave", endDrag);
       }
     });
   };
