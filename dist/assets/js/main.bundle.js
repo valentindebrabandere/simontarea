@@ -128,17 +128,6 @@
   function scrollHandler() {
     const scrollY3 = window.scrollY;
     const viewportHeight2 = window.innerHeight;
-    const viewportWidth = window.innerWidth;
-    decoContainer.forEach((container) => {
-      const elementTop = container.getBoundingClientRect().top + scrollY3;
-      const scrollProgress = Math.max(
-        0,
-        Math.min(1, (scrollY3 - elementTop + viewportHeight2) / viewportHeight2)
-      );
-      let parallax = Number(container.dataset.parallax || 0.01);
-      let parallaxValue = scrollProgress * parallax * viewportHeight2;
-      container.style.transform = `translate3d(-50%, calc(-50% + ${parallaxValue + "px"}), 0)`;
-    });
     decoImg.forEach((icon) => {
       const elementTop = icon.getBoundingClientRect().top + scrollY3;
       const scrollProgress = Math.max(

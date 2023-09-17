@@ -21,21 +21,20 @@ export function init() {
 function scrollHandler() {
   const scrollY = window.scrollY;
   const viewportHeight = window.innerHeight;
-  const viewportWidth = window.innerWidth;
 
-  // Parallax effect for the hero image
-  decoContainer.forEach((container) => {
-    const elementTop = container.getBoundingClientRect().top + scrollY;
-    const scrollProgress = Math.max(
-      0,
-      Math.min(1, (scrollY - elementTop + viewportHeight) / viewportHeight)
-    );
-    let parallax = Number(container.dataset.parallax || 0.01);
-    let parallaxValue = scrollProgress * parallax * viewportHeight;
-    container.style.transform = `translate3d(-50%, calc(-50% + ${
-      parallaxValue + "px"
-    }), 0)`;
-  });
+  // // Parallax effect for the hero image
+  // decoContainer.forEach((container) => {
+  //   const elementTop = container.getBoundingClientRect().top + scrollY;
+  //   const scrollProgress = Math.max(
+  //     0,
+  //     Math.min(1, (scrollY - elementTop + viewportHeight) / viewportHeight)
+  //   );
+  //   let parallax = Number(container.dataset.parallax || 0.01);
+  //   let parallaxValue = scrollProgress * parallax * viewportHeight;
+  //   container.style.transform = `translate3d(-50%, calc(-50% + ${
+  //     parallaxValue + "px"
+  //   }), 0)`;
+  // });
 
   // Parallax effect for the deco images
   decoImg.forEach((icon) => {
