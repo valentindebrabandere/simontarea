@@ -18,7 +18,9 @@
     "build": "npm-run-all clean --parallel eleventy styles:prod scripts:prod",
     
 
-    "commit": "node -e \"const rl = require('readline').createInterface({input: process.stdin, output: process.stdout}); rl.question('Enter commit message: ', (message) => { require('child_process').execSync('git add . && git commit -m\\\\'' + message + '\\\\'', { stdio: 'inherit' }); rl.close(); });\""
+    "commit": "node -e \"const rl = require('readline').createInterface({input: process.stdin, output: process.stdout}); rl.question('Enter commit message: ', (message) => { require('child_process').execSync('git add . && git commit -m\\\\'' + message + '\\\\'', { stdio: 'inherit' }); rl.close(); });\"",
+    "publish": "git checkout main && git merge dev && npm run commit && git push origin main && git checkout dev"
+
 
   },
   "keywords": [
