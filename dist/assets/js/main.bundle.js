@@ -48,51 +48,42 @@
         const footer = parent.querySelector(".c-cardsection__footer");
         const prevButton = footer.querySelector(".c-cardsection__btn.prev");
         const nextButton = footer.querySelector(".c-cardsection__btn.next");
-        let currentScrollPosition = 0;
         let galleryWidth = gallery.offsetWidth;
         let cardWidth = 400;
+        let viewportWidth = window.innerWidth;
         const updateSizes = () => {
           galleryWidth = gallery.offsetWidth;
           cardWidth = gallery.firstElementChild.offsetWidth;
         };
         updateSizes();
+        let scrollOffset = cardWidth + 20;
         nextButton.addEventListener("click", () => {
-          let scrollOffset = cardWidth + 20;
-          let potentialScrollPosition = currentScrollPosition + cardWidth + 20;
+          let newCurrentScrollPosition = Number(gallery.dataset.scrollPosition) || 0;
+          let potentialScrollPosition = newCurrentScrollPosition + scrollOffset;
           if (window.innerWidth > 1040) {
-            scrollOffset = scrollOffset * 2;
-            potentialScrollPosition = currentScrollPosition + (cardWidth + 20) * 2;
+            potentialScrollPosition = newCurrentScrollPosition + scrollOffset * 2;
           }
-          currentScrollPosition = -Math.min(potentialScrollPosition, galleryWidth - scrollOffset);
-          gallery.style.transform = `translate3d(${currentScrollPosition}px, 0, 0)`;
+          newCurrentScrollPosition = -Math.min(potentialScrollPosition, galleryWidth - scrollOffset);
+          gallery.style.transform = `translate3d(${newCurrentScrollPosition}px, 0, 0)`;
           gallery.style.transition = "transform 0.5s var(--ease-in-out)";
+          gallery.dataset.scrollPosition = -newCurrentScrollPosition;
         });
         prevButton.addEventListener("click", () => {
-          let potentialScrollPosition = currentScrollPosition - cardWidth - 20;
-          currentScrollPosition = Math.max(potentialScrollPosition, 0);
+          let newCurrentScrollPosition = Number(gallery.dataset.scrollPosition) || 0;
+          console.log(newCurrentScrollPosition);
+          let potentialScrollPosition = newCurrentScrollPosition - cardWidth;
+          console.log(potentialScrollPosition);
           if (window.innerWidth > 1040) {
-            potentialScrollPosition = currentScrollPosition - (cardWidth + 20) * 2;
-            currentScrollPosition = Math.max(potentialScrollPosition, 0);
+            potentialScrollPosition = newCurrentScrollPosition - scrollOffset * 2;
           }
-          gallery.style.transform = `translate3d(-${currentScrollPosition}px, 0, 0)`;
+          newCurrentScrollPosition = Math.max(potentialScrollPosition, 0);
+          gallery.style.transform = `translate3d(-${newCurrentScrollPosition}px, 0, 0)`;
           gallery.style.transition = "transform 0.5s var(--ease-in-out)";
-          gallery.dataset.scrollPosition = currentScrollPosition;
+          gallery.dataset.scrollPosition = newCurrentScrollPosition;
         });
         footer.style.display = "flex";
         window.addEventListener("resize", updateSizes);
       }
-    });
-    const dynGallery = document.querySelectorAll(".c-card-gallery--dyn");
-    dynGallery.forEach((gallery, index) => {
-      let currentScrollPosition = Number(gallery.dataset.scrollPosition) || 0;
-      const elementTop = gallery.getBoundingClientRect().top + scrollY2;
-      const scrollProgress = Math.max(
-        0,
-        Math.min(1, (scrollY2 - elementTop + viewportHeight) / viewportHeight)
-      );
-      let scrollAnim = scrollProgress * 0.1 * viewportHeight;
-      currentScrollPosition -= scrollAnim;
-      gallery.style.transform = `translate3d( ${currentScrollPosition}px , 0, 0)`;
     });
   };
 
@@ -134,16 +125,16 @@
       icon.style.transform = `translate3d(-50%, calc(-50% - ${parallaxValue + "px"}),0) rotate(${rotateValue}deg)`;
     });
     const dynGallery = document.querySelectorAll(".js-cardesction__scroll--dyn");
-    dynGallery.forEach((gallery, index) => {
-      let currentScrollPosition = 0;
-      const elementTop = gallery.getBoundingClientRect().top + scrollY3;
-      const scrollProgress = Math.max(
-        0,
-        Math.min(1, (scrollY3 - elementTop + viewportHeight2) / viewportHeight2)
-      );
-      let scrollAnim = scrollProgress * 0.1 * viewportHeight2;
-      currentScrollPosition -= scrollAnim;
-      gallery.style.transform = `translate3d( ${currentScrollPosition}px , 0, 0)`;
+    dynGallery.forEach((gallery) => {
+      let currentScrollPosition = 50;
+      const elementTopFromViewport = gallery.getBoundingClientRect().top;
+      const elementBottomFromViewport = gallery.getBoundingClientRect().bottom;
+      if (elementTopFromViewport <= viewportHeight2 && elementBottomFromViewport >= 0) {
+        const scrollProgress = (viewportHeight2 - elementTopFromViewport) / (viewportHeight2 + gallery.offsetHeight);
+        let scrollAnim = scrollProgress * 0.1 * viewportHeight2;
+        currentScrollPosition -= scrollAnim;
+        gallery.style.transform = `translate3d(${currentScrollPosition}px, 0, 0)`;
+      }
     });
   }
   function handleWindowResize() {

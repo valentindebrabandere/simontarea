@@ -20,44 +20,49 @@ const init = () => {
             const prevButton = footer.querySelector('.c-cardsection__btn.prev');
             const nextButton = footer.querySelector('.c-cardsection__btn.next');
 
-            let currentScrollPosition = 0;
             let galleryWidth = gallery.offsetWidth;
             let cardWidth = 400;
+            let viewportWidth = window.innerWidth;
 
             const updateSizes = () => {
                 galleryWidth = gallery.offsetWidth;
-                // get first element of cardGallery
                 cardWidth = gallery.firstElementChild.offsetWidth;
             }
 
             updateSizes();
 
+            let scrollOffset = cardWidth + 20;
+
             nextButton.addEventListener('click', () => {
-                let scrollOffset = cardWidth + 20;
-                let potentialScrollPosition = currentScrollPosition + cardWidth + 20;
+                let newCurrentScrollPosition = Number(gallery.dataset.scrollPosition) || 0;
+                let potentialScrollPosition = newCurrentScrollPosition + scrollOffset;
 
                 if (window.innerWidth > 1040) {
-                    scrollOffset = scrollOffset * 2;
-                    potentialScrollPosition = currentScrollPosition + (cardWidth + 20) * 2;
+                    potentialScrollPosition = newCurrentScrollPosition + scrollOffset * 2;
                 }
 
-                currentScrollPosition = - Math.min(potentialScrollPosition, galleryWidth - scrollOffset);
-                gallery.style.transform = `translate3d(${currentScrollPosition}px, 0, 0)`;
+                newCurrentScrollPosition = - Math.min(potentialScrollPosition, galleryWidth - scrollOffset);
+                gallery.style.transform = `translate3d(${newCurrentScrollPosition}px, 0, 0)`;
                 gallery.style.transition = "transform 0.5s var(--ease-in-out)";
+                gallery.dataset.scrollPosition = -newCurrentScrollPosition;
+
             });
             
             prevButton.addEventListener('click', () => {
-                let potentialScrollPosition = currentScrollPosition - cardWidth - 20;
-                currentScrollPosition = Math.max(potentialScrollPosition, 0);
+                let newCurrentScrollPosition = Number(gallery.dataset.scrollPosition) || 0;
+                console.log(newCurrentScrollPosition)
+                let potentialScrollPosition = newCurrentScrollPosition - cardWidth;
+                console.log(potentialScrollPosition)
 
                 if (window.innerWidth > 1040) {
-                    potentialScrollPosition = currentScrollPosition - (cardWidth + 20) * 2;
-                    currentScrollPosition = Math.max(potentialScrollPosition, 0);
+                    potentialScrollPosition = newCurrentScrollPosition - scrollOffset * 2;  
                 }
 
-                gallery.style.transform = `translate3d(-${currentScrollPosition}px, 0, 0)`;
+                newCurrentScrollPosition = Math.max(potentialScrollPosition, 0); 
+
+                gallery.style.transform = `translate3d(-${newCurrentScrollPosition}px, 0, 0)`;
                 gallery.style.transition = "transform 0.5s var(--ease-in-out)";
-                gallery.dataset.scrollPosition = currentScrollPosition;
+                gallery.dataset.scrollPosition = newCurrentScrollPosition;
             });
 
             // Show the footer only when there are more than two items
@@ -66,24 +71,6 @@ const init = () => {
             window.addEventListener('resize', updateSizes);
         }
     });
-
-    const dynGallery = document.querySelectorAll(".c-card-gallery--dyn");
-    
-  dynGallery.forEach((gallery, index) => {
-    let currentScrollPosition = Number(gallery.dataset.scrollPosition) || 0;
-
-    const elementTop = gallery.getBoundingClientRect().top + scrollY;
-    const scrollProgress = Math.max(
-      0,
-      Math.min(1, (scrollY - elementTop + viewportHeight) / viewportHeight)
-    );
-
-    let scrollAnim = scrollProgress * 0.10 * viewportHeight;
-    currentScrollPosition -= scrollAnim;
-
-    // gallery.style.transition = "none";
-    gallery.style.transform = `translate3d( ${currentScrollPosition}px , 0, 0)`;
-  });
 };
 
 export { init };

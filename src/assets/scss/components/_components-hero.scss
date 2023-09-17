@@ -100,6 +100,7 @@
     @include breakpoint(medium) {
         position: absolute;
         left:55%;
+        top: -10%;
         transform: translate3d(-55%, calc(20% - 10vw) , 0) scale(1);
         width: calc(70vh + 15vw);
         max-width: 90vh;
