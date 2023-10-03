@@ -1,13 +1,12 @@
 //init-cards.js
 
 const allCardGalleries = document.querySelectorAll(".c-card-gallery");
-const scrollY = window.scrollY;
-const viewportHeight = window.innerHeight;
 
 const init = () => {
   //  make big lists scrollable
   allCardGalleries.forEach((gallery) => {
     const cardGallery = gallery.querySelectorAll(".c-card");
+
     if (cardGallery.length > 2) {
       // if more than two children, make changes to the parent
       const parent = gallery.closest(".c-cardsection");
@@ -45,6 +44,7 @@ const init = () => {
           potentialScrollPosition,
           galleryWidth - scrollOffset
         );
+
         gallery.style.transform = `translate3d(${newCurrentScrollPosition}px, 0, 0)`;
         gallery.style.transition = "transform 0.5s var(--ease-in-out)";
         gallery.dataset.scrollPosition = -newCurrentScrollPosition;
@@ -64,6 +64,7 @@ const init = () => {
         gallery.style.transform = `translate3d(-${newCurrentScrollPosition}px, 0, 0)`;
         gallery.style.transition = "transform 0.5s var(--ease-in-out)";
         gallery.dataset.scrollPosition = newCurrentScrollPosition;
+        
       });
 
       // Show the footer only when there are more than two items

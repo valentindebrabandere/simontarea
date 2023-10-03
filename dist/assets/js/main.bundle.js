@@ -34,8 +34,6 @@
 
   // src/assets/js/modules/init-gallery.js
   var allCardGalleries2 = document.querySelectorAll(".c-card-gallery");
-  var scrollY2 = window.scrollY;
-  var viewportHeight = window.innerHeight;
   var init3 = () => {
     allCardGalleries2.forEach((gallery) => {
       const cardGallery = gallery.querySelectorAll(".c-card");
@@ -126,19 +124,19 @@
     window.addEventListener("resize", handleWindowResize);
   }
   function scrollHandler() {
-    const scrollY3 = window.scrollY;
-    const viewportHeight2 = window.innerHeight;
+    const scrollY2 = window.scrollY;
+    const viewportHeight = window.innerHeight;
     decoImg.forEach((icon) => {
-      const elementTop = icon.getBoundingClientRect().top + scrollY3;
+      const elementTop = icon.getBoundingClientRect().top + scrollY2;
       const scrollProgress = Math.max(
         0,
-        Math.min(1, (scrollY3 - elementTop + viewportHeight2) / viewportHeight2)
+        Math.min(1, (scrollY2 - elementTop + viewportHeight) / viewportHeight)
       );
       let rotate = icon.dataset.rotate.split(",");
       let value = Number(rotate[0]);
       let direction = rotate[1].trim();
       let rotateValue = value + scrollProgress * 20 * direction;
-      let parallaxValue = scrollProgress * 0.02 * viewportHeight2;
+      let parallaxValue = scrollProgress * 0.02 * viewportHeight;
       icon.style.transform = `translate3d(-50%, calc(-50% - ${parallaxValue + "px"}),0) rotate(${rotateValue}deg)`;
     });
     const dynGallery = document.querySelectorAll(".js-cardesction__scroll--dyn");
@@ -146,9 +144,9 @@
       let currentScrollPosition = 50;
       const elementTopFromViewport = gallery.getBoundingClientRect().top;
       const elementBottomFromViewport = gallery.getBoundingClientRect().bottom;
-      if (elementTopFromViewport <= viewportHeight2 && elementBottomFromViewport >= 0) {
-        const scrollProgress = (viewportHeight2 - elementTopFromViewport) / (viewportHeight2 + gallery.offsetHeight);
-        let scrollAnim = scrollProgress * 0.1 * viewportHeight2;
+      if (elementTopFromViewport <= viewportHeight && elementBottomFromViewport >= 0) {
+        const scrollProgress = (viewportHeight - elementTopFromViewport) / (viewportHeight + gallery.offsetHeight);
+        let scrollAnim = scrollProgress * 0.1 * viewportHeight;
         currentScrollPosition -= scrollAnim;
         gallery.style.transform = `translate3d(${currentScrollPosition}px, 0, 0)`;
       }
