@@ -1,9 +1,13 @@
+// STOP TRYING TO MAKE IT REPONSIVE MAKE BREAKPOINTS FOR THE FONT AND THE ICON 
+
+
 .c-schema__element {
     width: 100%;
     max-width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: auto; /* Changed to auto to adapt to the content */
+
+    display: flex;  
+    align-items: center; /* This will vertically center both the text and the icon */
     gap: 10px;
 
     padding: 12px 18px 12px 12px;
@@ -15,9 +19,10 @@
 }
 
 .c-schema__icon {
-    height: 100%;
-    max-height: 30px;
-    width: auto;
+    height: auto; /* Let the icon adapt to the height of its content */
+    width: auto; /* You might also need this if you don't want the width to stretch to 100% */
+    filter: var(--filter-drop-shadow--small);
+    align-self: center; /* If needed, this will ensure the icon is centered to its parent */
 }
 
 .c-schema__name {
@@ -26,5 +31,5 @@
     font-weight: 500;
     font-family: var(--fontstack-alt);
     color: var(--color-text);
+    align-self: center; /* If needed, this will ensure the text is centered to its parent */
 }
-
