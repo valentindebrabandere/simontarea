@@ -104,16 +104,18 @@ permalink: index.html
             Explications des 3 étapes : sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.
           </p>
           <div class="c-methode__schema">
-            {% set items = collections.items %}
-              {% for item in items %}
+            {% consoleLog collections.schema__bigItems %}
+            {% set schema__bigItems = collections.schema__bigItems %}
+            {% set schema__smallItems = collections.schema__smallItems %}
+              {% for item in collections.schema__bigItems  %}
                 {% if loop.first %}<ul class="c-list-ui">{% endif %}
-                <li>
-                  Name: {{ item.name }}
-                  Icon: {{ item.icon }}
-                  Size: {{ item.size }}
-                </li>
+                    <li class="c-schema__element c-schema__element--big">
+                      <img class="c-schema__icon o-fluidimage" src="{{item.icon}}" alt="{{item.name}} icon">
+                      <p class="c-schema__name">{{item.name}}</p>
+                    </li>
+                    {% include "svg/schema/next.svg" %}
                 {% if loop.last %}</ul>{% endif %}
-            {% endfor %}
+          {% endfor %}
 
             <div class="c-schema__big">
               <div class="c-schema__element c-schema__element--big">
