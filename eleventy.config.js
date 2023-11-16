@@ -7,10 +7,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "./src/static": "./" });
 
   // collections
+  const allItems = (collectionApi) => {
+    return schema(collectionApi).schema__items;
+
+  };
   eleventyConfig.addCollection("schema__bigItems", (collectionApi) => {
     return schema(collectionApi).schema__bigItems;
   });
-
   eleventyConfig.addCollection("schema__smallItems", (collectionApi) => {
     return schema(collectionApi).schema__smallItems;
   });

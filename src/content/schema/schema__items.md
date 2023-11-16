@@ -1,21 +1,27 @@
 ---
+# If icon path is empty, it will use the name without capital letters and special characters
+# The path and the .png extension are added after automatically
 items:
-  - name: Item 1
-    icon: Icon 1
+
+  #big icons
+  - name: Clarté
+    icon: null
     big: true
-  - name: Item 2
-    icon: Icon 2
+  - name: Rituels
+    icon: null
     big: true
-  - name: Item 3
-    icon: Icon 3
+  - name: Élan
+    icon: null
     big: true
-  - name: Item 4
-    icon: Icon 4
+    
+    #small icons
+  - name: Énergie
+    icon: null
     big: false
-  - name: Item 5
-    icon: Icon 5
+  - name: Attention
+    icon: null
     big: false
-  - name: Item 6
-    icon: Icon 6
+  - name: Temps
+    icon: null
     big: false
 ---

@@ -113,7 +113,7 @@ permalink: index.html
                       <img class="c-schema__icon o-fluidimage" src="{{item.icon}}" alt="{{item.name}} icon">
                       <p class="c-schema__name">{{item.name}}</p>
                     </li>
-                    {% include "svg/schema/next.svg" %}
+                {% if loop.last == false %}{% include "svg/schema/next.svg" %}{% endif %}
                 {% if loop.last %}</ul>{% endif %}
           {% endfor %}
 
