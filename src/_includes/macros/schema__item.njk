@@ -1,12 +1,13 @@
 {% macro schemaItem(item) %}
-  {% if item.size %}
-    {% set size = 'c-schema__element--big' %}
+
+  {% if item.big %}
+    {% set size = 'big' %}
   {% else %}
-    {% set size = 'c-schema__element--small' %}
+    {% set size = 'small' %}
   {% endif %}
 
-  <li class="c-schema__element c-schema__element--{{size}}">
+  <li class="c-schema__item c-schema__item--{{size}}">
     <img class="c-schema__icon o-fluidimage" src="{{item.icon}}" alt="{{item.name}} icon">
-    <p class="c-schema__name">{{item.name}}</p>
+    <p class="c-schema__name c-schema__name--{{size}}">{{item.name}}</p>
   </li>
 {% endmacro %}
