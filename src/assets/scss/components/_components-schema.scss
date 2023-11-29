@@ -27,15 +27,12 @@
 .c-schema__item {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 18px;
     
     width: 250px;
     height: 85px;
     box-sizing: border-box;
-
-    display: flex;  
-    align-items: center;
-    gap: 10px;
 
     padding: 12px 18px 12px 12px;
 
@@ -55,7 +52,7 @@
 
 .c-schema__icon {
     filter: var(--filter-drop-shadow--small);
-    height: 80%;
+    height: 70%;
 }
 
 .c-schema__name {
@@ -76,4 +73,10 @@
 
 .c-schema__to-small{
     width: 38px;
+}
+
+.c-schema__info{
+    font-family: "Outfit", sans-serif;
+    font-size: calc(22 / 16 * 1rem);
+    opacity: .6;
 }

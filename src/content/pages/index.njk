@@ -117,7 +117,7 @@ permalink: index.html
                 <div class="c-schema__to-small">
                   {% include "svg/schema/double.svg" %}
                 </div>
-                
+              <p class="c-schema__info">Pour optimiser votre...</p>
             {% for item in collections.schema__smallItems  %}
                 {% if loop.first %}<ul class="u-list-bare c-schema__items c-schema__items--small">{% endif %}
                     
@@ -126,9 +126,6 @@ permalink: index.html
                 {% if loop.last == false %}{% include "svg/schema/next.svg" %}{% endif %}
                 {% if loop.last %}</ul>{% endif %}
             {% endfor %}
-          </div>
-          <div class="c-methode__schema">
-            <img src="/assets/img/schema.png" alt="Shema of the Create method" class="c-methode__img o-fluidimage">
           </div>
         </div>
       </div>
