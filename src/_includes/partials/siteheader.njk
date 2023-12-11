@@ -16,8 +16,10 @@
           {% if loop.first %}<ul class="c-mainnav">{% endif %}
             {% set currentClass = "" %}
             {% set currentAria = "" %}
-              {% if navItem.isExternal %}
-                {% set currentClass = "is-external c-cta c-cta--small" %}
+              {% if navItem.isPrimary %}
+                {% set currentClass = "is-primary c-cta c-cta--small" %}
+              {% elseif navItem.isSecondary %}
+                {% set currentClass = "is-secondary c-cta c-cta--secondary c-cta--small" %}
               {% else %}
                 {% if navItem.trigger == currentSection %}
                   {% set currentClass = "is-current" %}

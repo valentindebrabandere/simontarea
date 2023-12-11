@@ -9,6 +9,8 @@
 
   background-color: var(--color-background);
 
+  scroll-margin-top: 10vh;
+
   @include breakpoint(medium) {
     padding-top: calc(120 / 16 * 1rem);
     padding-bottom: calc(72 / 16 * 1rem);
