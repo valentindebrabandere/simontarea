@@ -13,6 +13,7 @@
       <div class="c-sitefooter__social">
         <nav aria-label="social media">
           <ul class="c-socialmedia u-list-bare">
+            {# TODO : add social media links #}
             <li class="c-socialmedia__item"><a class="c-socialmedia__link" href="#" aria-label="Instragram">{% include "svg/icon_instagram.svg" %}</a></li>
             <li class="c-socialmedia__item"><a class="c-socialmedia__link" href="#" aria-label="Facebook">{% include "svg/icon_facebook.svg" %}</a></li>
             <li class="c-socialmedia__item"><a class="c-socialmedia__link" href="#" aria-label="Twitter">{% include "svg/icon_twitter.svg" %}</a></li>
@@ -46,7 +47,7 @@
     </div>
 
     <div class="c-sitefooter__end">
-      <p class="c-copyright">&copy; 2032 - Simon Tarea</p>
+      <p class="c-copyright">&copy; <time datetime="{{ site.buildTime | dateISO }}">{{ site.buildTime | dateYear }}</time> - Simon Tarea</p>
     </div>
 
   </div>
