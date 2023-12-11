@@ -20,7 +20,7 @@
   };
 
   // src/assets/js/modules/init-cards.js
-  var allCardGalleries = document.querySelectorAll(".c-card-gallery");
+  var allCardGalleries = document.querySelectorAll(".js-init-cards");
   var init2 = () => {
     allCardGalleries.forEach((gallery) => {
       const cardGallery = gallery.querySelectorAll(".c-card");
@@ -117,7 +117,6 @@
   var image = document.querySelector(".c-hero__image");
   var decoContainer = document.querySelectorAll(".c-deco-img-container");
   var decoImg = document.querySelectorAll(".c-deco-img");
-  console.log(decoImg);
   function init4() {
     scrollHandler();
     window.addEventListener("scroll", scrollHandler);
@@ -133,7 +132,6 @@
         0,
         Math.min(1, (scrollY2 - elementTop + viewportHeight) / viewportHeight)
       );
-      console.log(icon.dataset.rotate, icon);
       let rotate = icon.dataset.rotate.split(",");
       let value = Number(rotate[0]);
       let direction = rotate[1].trim();

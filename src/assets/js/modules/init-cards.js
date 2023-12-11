@@ -1,6 +1,6 @@
 //init-cards.js
 
-const allCardGalleries = document.querySelectorAll('.c-card-gallery');
+const allCardGalleries = document.querySelectorAll('.js-init-cards');
 
 const init = () => {
     allCardGalleries.forEach(gallery => {

@@ -6,7 +6,6 @@
 const image = document.querySelector(".c-hero__image");
 const decoContainer = document.querySelectorAll(".c-deco-img-container");
 const decoImg = document.querySelectorAll(".c-deco-img");
-console.log(decoImg);
 
 let timeouts = []; // Store all timeouts in an array
 
@@ -44,8 +43,7 @@ function scrollHandler() {
       0,
       Math.min(1, (scrollY - elementTop + viewportHeight) / viewportHeight)
     );
-
-    console.log(icon.dataset.rotate, icon)
+    
     let rotate = icon.dataset.rotate.split(",");
     let value = Number(rotate[0]);
     let direction = rotate[1].trim();
