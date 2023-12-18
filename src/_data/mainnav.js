@@ -7,7 +7,7 @@ module.exports = [
   {
     label: "Accompagnement",
     trigger: "Accompagnement",
-    url: "/Accompagnement/",
+    url: "/suivi/",
   },
   {
     label: "Ateliers",

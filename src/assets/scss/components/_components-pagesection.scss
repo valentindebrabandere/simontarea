@@ -5,7 +5,7 @@
 .c-pagesection {
   position: relative;
   padding-top: calc(60 / 16 * 1rem);
-  padding-bottom: calc(48 / 16 * 1rem);
+  padding-bottom: calc(60 / 16 * 1rem);
 
   background-color: var(--color-background);
 
@@ -18,7 +18,7 @@
 
   @include breakpoint(large) {
     padding-top: calc(150 / 16 * 1rem);
-    padding-bottom: calc(72 / 16 * 1rem);
+    padding-bottom: calc(150 / 16 * 1rem);
   }
 }
 
@@ -26,14 +26,14 @@
 
   // +100 for the height of the deco
   
-  padding-bottom: calc((48 + 50) / 16 * 1rem);
+  padding-bottom: calc((60 + 50) / 16 * 1rem);
   
   @include breakpoint(medium) {
-    padding-bottom: calc((60 + 75) / 16 * 1rem);
+    padding-bottom: calc((72 + 75) / 16 * 1rem);
   }
 
   @include breakpoint(large) {
-    padding-bottom: calc((72 + 100) / 16 * 1rem);
+    padding-bottom: calc((150 + 100) / 16 * 1rem);
   }
 
 }
@@ -59,6 +59,7 @@
   
   z-index: 1;
   clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 50% 90%, 0% 0%);
+  transition: height 0.5s ease;
 
   height: 30px;
   
@@ -70,6 +71,13 @@
     height: 60px;
   }
 }
+
+//TODO add scoll animation on the angle of the deco
+
+// .c-pagesection--deco:hover::before{
+//   height: 200px;
+//   transition: height 0.5s ease;
+// }
 
 .c-pagesection--big-deco{
   @include breakpoint(medium) {

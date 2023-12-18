@@ -1,0 +1,37 @@
+---
+permalink: about/index.html
+---
+{% extends "layouts/base.njk" %}
+
+{% set currentSection = "about" %}
+
+{% set metaTitle = "About" %}
+{% set metaDescription = "Simon Tarea - Votre temps, votre santé : Reprenons le contrôle" %}
+
+{# Import #}
+
+
+{% block content %}
+  <main>  
+    <div class="c-pagesection c-hero-secondary">
+        {% include "partials/siteheader.njk" %}
+        <div class="c-hero__image-container--secondary">
+          <img src="https://images.unsplash.com/photo-1549363690-1a0a7a081ec6?q=80&w=3474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image of a car crash" class="c-hero__image--secondary">
+        </div>
+      <div class="l-container l-container--small">
+          <div class="c-hero__text">
+            <h1 class="c-h1 c-hero__title">Ma vie aurait pu <span>s’arrêter</span> là</h1>
+            <p class="c-hero__paragraph">Entrepreneur, coach et formateur, ma Mission est d’inspirer les entrepreneurs à utiliser de façon épanouissante et congruente la plus importante de leur ressource, le Temps !</p>
+            <div class="c-hero__footer c-hero__footer--secondary">
+              {# TODO Add corrects links #}
+              <a href="#ancre-services" class="c-cta">Mes services</a>
+              <a href="#" class="c-cta c-cta--secondary">Me contacter</a>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="c-pagesection c-pagesection--light c-pagesection--deco"></div>
+
+  </main>
+{% endblock %}
