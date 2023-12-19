@@ -1,0 +1,31 @@
+
+.c-about-me{
+    position: relative;
+}
+
+.c-about-me::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -24px;
+
+    border-left: 1.5px solid var(--color-brand);
+    opacity: .4;
+    height: 100%;
+}
+
+.c-about-me::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -36px;
+    transform: translate(-100%, 0);
+
+    height: 100%;
+    width: 240px;
+
+    opacity: .2;
+
+    background: url(../img/parcours.svg) no-repeat right top;
+    background-size: contain;
+}

@@ -2,40 +2,42 @@
 =page section
 --------------------------------- */
 
+:root{
+  --padding-section: 60;
+  --deco-height: 30;
+  --big-deco-height: 50;
+
+  @include breakpoint(medium) {
+    --padding-section: 72;
+    --deco-height: 48;
+    --big-deco-height: 72;
+  }
+
+  @include breakpoint(large) {
+    --padding-section: 150;
+    --deco-height: 60;
+    --big-deco-height: 100;
+  }
+}
+
 .c-pagesection {
   position: relative;
-  padding-top: calc(60 / 16 * 1rem);
-  padding-bottom: calc(60 / 16 * 1rem);
+  padding-top: calc( var(--padding-section) / 16 * 1rem);
+  padding-bottom: calc( var(--padding-section) / 16 * 1rem);
 
   background-color: var(--color-background);
 
   scroll-margin-top: 10vh;
-
-  @include breakpoint(medium) {
-    padding-top: calc(120 / 16 * 1rem);
-    padding-bottom: calc(72 / 16 * 1rem);
-  }
-
-  @include breakpoint(large) {
-    padding-top: calc(150 / 16 * 1rem);
-    padding-bottom: calc(150 / 16 * 1rem);
-  }
 }
 
 .c-pagesection + .c-pagesection--deco{
-
-  // +100 for the height of the deco
   
-  padding-bottom: calc((60 + 50) / 16 * 1rem);
-  
-  @include breakpoint(medium) {
-    padding-bottom: calc((72 + 75) / 16 * 1rem);
-  }
+  padding-bottom: calc( ( var(--padding-section) + var(--deco-height) ) / 16 * 1rem);
 
-  @include breakpoint(large) {
-    padding-bottom: calc((150 + 100) / 16 * 1rem);
-  }
+}
 
+.c-pagesection--no-bottom-deco{
+  padding-bottom: calc( var(--padding-section) / 16 * 1rem) !important;
 }
 
 /* ---------------------------------
@@ -61,15 +63,7 @@
   clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 50% 90%, 0% 0%);
   transition: height 0.5s ease;
 
-  height: 30px;
-  
-  @include breakpoint(medium) {
-    height: 50px;
-  }
-  
-  @include breakpoint(large) {
-    height: 60px;
-  }
+  height: calc(var(--deco-height) / 16 * 1rem);
 }
 
 //TODO add scoll animation on the angle of the deco
@@ -90,13 +84,5 @@
 }
 
 .c-pagesection--big-deco::before{
-    height: 50px;
-  
-  @include breakpoint(medium) {
-    height: 75px;
-  }
-  
-  @include breakpoint(large) {
-    height: 100px;
-  }
+    height: calc( var(--big-deco-height) / 16 * 1rem);
 }
