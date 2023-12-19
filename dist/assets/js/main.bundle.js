@@ -114,23 +114,20 @@
   };
 
   // src/assets/js/modules/scrollEffect.js
-  var image = document.querySelector(".c-hero__image");
   var decoContainer = document.querySelectorAll(".c-deco-img-container");
   var decoImg = document.querySelectorAll(".c-deco-img");
   function init4() {
     scrollHandler();
     window.addEventListener("scroll", scrollHandler);
-    handleWindowResize();
-    window.addEventListener("resize", handleWindowResize);
   }
   function scrollHandler() {
-    const scrollY2 = window.scrollY;
+    const scrollY = window.scrollY;
     const viewportHeight = window.innerHeight;
     decoImg.forEach((icon) => {
-      const elementTop = icon.getBoundingClientRect().top + scrollY2;
+      const elementTop = icon.getBoundingClientRect().top + scrollY;
       const scrollProgress = Math.max(
         0,
-        Math.min(1, (scrollY2 - elementTop + viewportHeight) / viewportHeight)
+        Math.min(1, (scrollY - elementTop + viewportHeight) / viewportHeight)
       );
       let rotate = icon.dataset.rotate.split(",");
       let value = Number(rotate[0]);
@@ -151,14 +148,6 @@
         gallery.style.transform = `translate3d(${currentScrollPosition}px, 0, 0)`;
       }
     });
-  }
-  function handleWindowResize() {
-    const imageParallax = scrollY * 0.03;
-    if (window.innerWidth > 760) {
-      image.style.transform = `translate3d(-55%, calc(20% - 10vw + ${imageParallax + "px"}) , 0) scale(1)`;
-    } else {
-      image.style.transform = `translate3d(-10%, calc(20% + ${imageParallax + "px"}) , 0) scale(1.3)`;
-    }
   }
 
   // src/assets/js/main.js
