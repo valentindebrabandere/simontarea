@@ -2,7 +2,9 @@
   display: grid;
   max-width: 1040px;
   margin: 0 auto;
-  margin-bottom: 24px;
+  margin-bottom: 42px;
+
+  scroll-margin-top: 10vh;
 
   @include breakpoint(medium) {
     grid-template-columns: 2fr 3fr;
