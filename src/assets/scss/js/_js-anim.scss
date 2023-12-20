@@ -1,0 +1,21 @@
+.js-enabled{
+    
+    .js-anim--translate{
+        translate: 0 50px 0;
+    }
+
+    .js-anim--opacity{
+        opacity: 0;
+    }
+
+    .js-anim--scale{
+        scale: .9;
+    }
+
+    .js-show{
+        translate: 0 0 0;
+        opacity: 1;
+        scale: 1;
+    }
+    
+}

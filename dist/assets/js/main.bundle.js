@@ -25,6 +25,7 @@
     allCardGalleries.forEach((gallery) => {
       const cardGallery = gallery.querySelectorAll(".c-card");
       cardGallery.forEach((card, index) => {
+        console.log(card);
         const deco = card.querySelector(".c-card__deco");
         const direction = index % 2 === 0 ? -1 : 1;
         deco.setAttribute("data-rotate", 10 * -direction + ", " + direction);
@@ -150,8 +151,28 @@
     });
   }
 
+  // src/assets/js/modules/animation.js
+  var observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("js-show");
+      } else {
+        entry.target.classList.remove("js-show");
+      }
+    });
+  });
+  var init5 = () => {
+    const allShowTransition = document.querySelectorAll(".js-anim");
+    allShowTransition.forEach((item) => {
+      item.style.transition = "opacity 0.5s ease-out, translate 0.5s ease-out, scale 0.5s ease-out";
+      observer.observe(item);
+    });
+  };
+
   // src/assets/js/main.js
+  document.body.classList.add("js-enabled");
   init();
+  init5();
   init2();
   init3();
   init4();
