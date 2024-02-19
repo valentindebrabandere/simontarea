@@ -70,8 +70,13 @@
 .c-card-gallery--dyn{
     display: flex;
     gap: 20px;
+    cursor: grab;
     
     transition: transform 0.5s var(--ease-in-out);
+
+    &:active{
+        cursor: grabbing;
+    }
 }
 
 .c-card{
@@ -88,6 +93,12 @@
     max-width: 440px;
     border-radius: var(--border-radius);
     width: calc(90vw - 18px);
+
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 
     @include breakpoint(medium) {
         padding: 42px;

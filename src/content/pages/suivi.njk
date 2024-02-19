@@ -13,46 +13,46 @@ permalink: suivi/index.html
 
 {% block content %}
 
-<main>
-  
-  <div class="c-pagesection c-hero-secondary">
-    {% include "partials/siteheader.njk" %}
-    <div class="c-hero__image-container--secondary">
-      <img src="https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image of a car crash" class="c-hero__image--secondary">
-    </div>
-    <div class="l-container l-container--small">
-      <div class="c-hero__text">
-        <h1 class="c-h1 c-hero__title">Envie de s'y mettre ?</h1>
-        <p class="c-hero__paragraph">Prenons rendez-vous pour en parler et commencer un accompagnement.</p>
-        <div class="c-hero__footer c-hero__footer--secondary">
-          {# TODO Add corrects links #}
-          <a href="#ancre-services" class="c-cta">Prendre rendez-vous</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <main>
 
-  <div class="c-pagesection c-pagesection--light c-pagesection--deco">
-    <div class="l-container l-container--small">
-      <div class="c-title-module">
-        <div class="c-title-module__title">
-          <h4 class="c-h4">Qu’en pense-t-on ?</h4>
-          <h2 class="c-h2">Quelques personne que j’ai accompagné</h2>
-        </div>
-        <div class="c-title-module__content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.</p>
-          {# TODO Add links#}
-          <div class="c-title-module__cta">
-            <a href="#" class="c-cta">Mes formations</a>
-            <a href="#" class="c-cta c-cta--secondary c-pagesection--light">Suivi individuel</a>
+    <div class="c-pagesection c-hero-secondary">
+      {% include "partials/siteheader.njk" %}
+      <div class="c-hero__image-container--secondary">
+        <img src="https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image of a car crash" class="c-hero__image--secondary">
+      </div>
+      <div class="l-container l-container--small">
+        <div class="c-hero__text">
+          <h1 class="c-h1 c-hero__title">Envie de s'y mettre ?</h1>
+          <p class="c-hero__paragraph">Prenons rendez-vous pour en parler et commencer un accompagnement.</p>
+          <div class="c-hero__footer c-hero__footer--secondary">
+            {# TODO Add corrects links #}
+            <a href="#ancre-services" class="c-cta">Prendre rendez-vous</a>
           </div>
         </div>
       </div>
-      <div class="c-cardsection">
-        <div class="js-cardesction__scroll">
-          <ul class="u-list-bare c-card-gallery js-init-cards l-grid l-grid--2cols@medium">
-            <li>
-              {{ reviewCard(
+    </div>
+
+    <div class="c-pagesection c-pagesection--light c-pagesection--deco">
+      <div class="l-container l-container--small">
+        <div class="c-title-module">
+          <div class="c-title-module__title">
+            <h4 class="c-h4">Qu’en pense-t-on ?</h4>
+            <h2 class="c-h2">Quelques personne que j’ai accompagné</h2>
+          </div>
+          <div class="c-title-module__content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.</p>
+            {# TODO Add links#}
+            <div class="c-title-module__cta">
+              <a href="#" class="c-cta">Mes formations</a>
+              <a href="#" class="c-cta c-cta--secondary c-pagesection--light">Suivi individuel</a>
+            </div>
+          </div>
+        </div>
+        <div class="c-cardsection">
+          <div class="js-cardesction__scroll">
+            <ul class="u-list-bare c-card-gallery js-init-cards l-grid l-grid--2cols@medium">
+              <li>
+                {{ reviewCard(
                   image="/assets/img/reviewCard/amelie.png",
                   name="Amélie",
                   formation="Formation en ligne",
@@ -60,9 +60,9 @@ permalink: suivi/index.html
                   age="32",
                   content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
                 ) }}
-            </li>
-            <li>
-              {{ reviewCard(
+              </li>
+              <li>
+                {{ reviewCard(
                   image="/assets/img/reviewCard/bertrand.png",
                   name="Bertrand",
                   formation="Suivi individuel",
@@ -70,9 +70,9 @@ permalink: suivi/index.html
                   age="26",
                   content="Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
                 ) }}
-            </li>
-            <li>
-              {{ reviewCard(
+              </li>
+              <li>
+                {{ reviewCard(
                   image="/assets/img/reviewCard/philippe.png",
                   name="Philippe",
                   formation="Formation en ligne",
@@ -80,9 +80,9 @@ permalink: suivi/index.html
                   age="45",
                   content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
                 ) }}
-            </li>
-            <li>
-              {{ reviewCard(
+              </li>
+              <li>
+                {{ reviewCard(
                   image="/assets/img/reviewCard/philippe.png",
                   name="Philippe",
                   formation="Formation en ligne",
@@ -90,17 +90,29 @@ permalink: suivi/index.html
                   age="45",
                   content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
                 ) }}
-            </li>
-          </ul>
-        </div>
-        <div class="c-cardsection__footer">
-          <button class="c-cardsection__btn prev">{% include "svg/arrow.svg" %}</button>
-          <button class="c-cardsection__btn next">{% include "svg/arrow.svg" %}</button>
+              </li>
+            </ul>
+          </div>
+          <div class="c-cardsection__footer">
+            <button class="c-cardsection__btn prev">{% include "svg/arrow.svg" %}</button>
+            <button class="c-cardsection__btn next">{% include "svg/arrow.svg" %}</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-</main>
+    <div class="c-pagesection c-pagesection--deco">
+      <div class="l-container">
+          <div class="c-title-module__title">
+            <h4 class="c-h4">Envie de démarrer ?</h4>
+            <h2 class="c-h2 c-h2--white">Prenons rendez-vous !</h2>
+          </div>
+        <!-- Début de widget en ligne Calendly -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/tarea-simon/45min" style="min-width:320px;height:700px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <!-- Fin de widget en ligne Calendly -->
+      </div>
+    </div>
+  </main>
 
 {% endblock %}

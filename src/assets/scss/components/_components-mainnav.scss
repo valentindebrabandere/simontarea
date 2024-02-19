@@ -13,6 +13,10 @@
   justify-content: flex-start;
   gap: calc(30 / 16 * 1rem);
 
+  @include breakpoint(medium) {
+    gap: calc(36 / 16 * 1rem);
+  }
+
   @include breakpoint(xlarge) {
     gap: calc(42 / 16 * 1rem);
   }

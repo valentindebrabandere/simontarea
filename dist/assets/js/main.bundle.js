@@ -34,82 +34,108 @@
   };
 
   // src/assets/js/modules/init-gallery.js
-  var allCardGalleries2 = document.querySelectorAll(".c-card-gallery");
+  var allCardGalleries2 = document.querySelectorAll(
+    ".c-gallery-section__gallery"
+  );
+  var cardSpacing = 20;
+  var cardWidth = 300;
+  var galleryWidth;
+  var scrollOffset = cardWidth + cardSpacing * 2;
+  function addFooter(parent, gallery) {
+    const footerHTML = `<div class="c-gallery-section__footer">
+   <button class="c-gallery-section__btn prev">prev</button>
+   <button class="c-gallery-section__btn next">next</button>
+  </div>`;
+    parent.insertAdjacentHTML("beforeend", footerHTML);
+    const prevButton = parent.querySelector(".prev");
+    const nextButton = parent.querySelector(".next");
+    const footer = parent.querySelector(".c-gallery-section__footer");
+    nextButton.addEventListener("click", () => {
+      let newCurrentScrollPosition = Number(gallery.dataset.scrollPosition) || 0;
+      let potentialScrollPosition = newCurrentScrollPosition + scrollOffset;
+      if (window.innerWidth > 1040) {
+        potentialScrollPosition = newCurrentScrollPosition + scrollOffset * 2;
+      }
+      newCurrentScrollPosition = -Math.min(
+        potentialScrollPosition,
+        galleryWidth - scrollOffset
+      );
+      gallery.style.transform = `translate3d(${newCurrentScrollPosition}px, 0, 0)`;
+      gallery.style.transition = "transform 0.5s ease-in-out";
+      gallery.dataset.scrollPosition = -newCurrentScrollPosition;
+    });
+    prevButton.addEventListener("click", () => {
+      let newCurrentScrollPosition = Number(gallery.dataset.scrollPosition) || 0;
+      let potentialScrollPosition = newCurrentScrollPosition - cardWidth;
+      if (window.innerWidth > 1040) {
+        potentialScrollPosition = newCurrentScrollPosition - scrollOffset * 2;
+      }
+      newCurrentScrollPosition = Math.max(potentialScrollPosition, 0);
+      gallery.style.transform = `translate3d(-${newCurrentScrollPosition}px, 0, 0)`;
+      gallery.style.transition = "transform 0.5s ease-in-out";
+      gallery.dataset.scrollPosition = newCurrentScrollPosition;
+    });
+    footer.style.display = "flex";
+  }
   var init3 = () => {
     allCardGalleries2.forEach((gallery) => {
-      const cardGallery = gallery.querySelectorAll(".c-card");
-      if (cardGallery.length > 2) {
-        let startDrag = function(e) {
-          isDragging = true;
-          startX = e.touches && e.touches[0] ? e.touches[0].clientX : e.clientX;
-          initialScrollPosition = Number(gallery.dataset.scrollPosition) || 0;
-          gallery.style.transition = "none";
-        }, duringDrag = function(e) {
-          if (!isDragging)
-            return;
-          const x = e.touches && e.touches[0] ? e.touches[0].clientX : e.clientX;
-          const deltaX = x - startX;
-          currentTranslateX = initialScrollPosition - deltaX;
-          gallery.style.transform = `translate3d(-${currentTranslateX}px, 0, 0)`;
-        }, endDrag = function(e) {
-          if (!isDragging)
-            return;
-          isDragging = false;
-          gallery.dataset.scrollPosition = currentTranslateX;
-          gallery.style.transition = "transform 0.5s var(--ease-in-out)";
-        };
-        const parent = gallery.closest(".c-cardsection");
-        const scroll = gallery.closest(".js-cardesction__scroll");
-        parent.classList.add("c-cardsection--dyn");
-        scroll.classList.add("js-cardesction__scroll--dyn");
-        gallery.classList.add("c-card-gallery--dyn");
-        const footer = parent.querySelector(".c-cardsection__footer");
-        const prevButton = footer.querySelector(".c-cardsection__btn.prev");
-        const nextButton = footer.querySelector(".c-cardsection__btn.next");
-        let galleryWidth = gallery.offsetWidth;
-        let cardWidth = 400;
-        const updateSizes = () => {
-          galleryWidth = gallery.offsetWidth;
-          cardWidth = gallery.firstElementChild.offsetWidth;
-        };
-        updateSizes();
-        let scrollOffset = cardWidth + 20;
-        nextButton.addEventListener("click", () => {
-          let newCurrentScrollPosition = Number(gallery.dataset.scrollPosition) || 0;
-          let potentialScrollPosition = newCurrentScrollPosition + scrollOffset;
-          if (window.innerWidth > 1040) {
-            potentialScrollPosition = newCurrentScrollPosition + scrollOffset * 2;
+      const parent = gallery.parentElement;
+      if (parent.classList.contains("c-gallery-section--footer")) {
+        addFooter(parent, gallery);
+      }
+      galleryWidth = gallery.offsetWidth;
+      cardWidth = gallery.firstElementChild.offsetWidth;
+      scrollOffset = cardWidth + cardSpacing * 2;
+      const updateSizes = () => {
+        galleryWidth = gallery.offsetWidth;
+        cardWidth = gallery.firstElementChild.offsetWidth;
+        scrollOffset = cardWidth + cardSpacing * 2;
+      };
+      updateSizes();
+      window.addEventListener("resize", updateSizes);
+      let isDragging = false;
+      let startX, currentTranslateX, initialScrollPosition;
+      gallery.addEventListener("mousedown", startDrag);
+      gallery.addEventListener("touchstart", startDrag);
+      gallery.addEventListener("mousemove", duringDrag);
+      gallery.addEventListener("touchmove", duringDrag);
+      gallery.addEventListener("mouseup", endDrag);
+      gallery.addEventListener("touchend", endDrag);
+      gallery.addEventListener("mouseleave", endDrag);
+      function startDrag(e) {
+        isDragging = true;
+        startX = e.touches && e.touches[0] ? e.touches[0].clientX : e.clientX;
+        initialScrollPosition = Number(gallery.dataset.scrollPosition) || 0;
+        gallery.style.transition = "none";
+      }
+      function duringDrag(e) {
+        if (!isDragging)
+          return;
+        const x = e.touches && e.touches[0] ? e.touches[0].clientX : e.clientX;
+        const deltaX = x - startX;
+        currentTranslateX = initialScrollPosition - deltaX;
+        gallery.style.transform = `translate3d(-${currentTranslateX}px, 0, 0)`;
+      }
+      function endDrag(e) {
+        if (!isDragging)
+          return;
+        isDragging = false;
+        const minDragDistance = cardWidth + cardSpacing * 2;
+        let finalScrollPosition = currentTranslateX;
+        let dragDistance = initialScrollPosition - currentTranslateX;
+        if (Math.abs(dragDistance) < minDragDistance) {
+          if (dragDistance > 0) {
+            finalScrollPosition = initialScrollPosition - minDragDistance;
+            gallery.style.transition = "transform 0.5s ease-in-out";
+          } else {
+            finalScrollPosition = initialScrollPosition + minDragDistance;
+            gallery.style.transition = "transform 0.5s ease-in-out";
           }
-          newCurrentScrollPosition = -Math.min(
-            potentialScrollPosition,
-            galleryWidth - scrollOffset
-          );
-          gallery.style.transform = `translate3d(${newCurrentScrollPosition}px, 0, 0)`;
-          gallery.style.transition = "transform 0.5s var(--ease-in-out)";
-          gallery.dataset.scrollPosition = -newCurrentScrollPosition;
-        });
-        prevButton.addEventListener("click", () => {
-          let newCurrentScrollPosition = Number(gallery.dataset.scrollPosition) || 0;
-          let potentialScrollPosition = newCurrentScrollPosition - cardWidth;
-          if (window.innerWidth > 1040) {
-            potentialScrollPosition = newCurrentScrollPosition - scrollOffset * 2;
-          }
-          newCurrentScrollPosition = Math.max(potentialScrollPosition, 0);
-          gallery.style.transform = `translate3d(-${newCurrentScrollPosition}px, 0, 0)`;
-          gallery.style.transition = "transform 0.5s var(--ease-in-out)";
-          gallery.dataset.scrollPosition = newCurrentScrollPosition;
-        });
-        footer.style.display = "flex";
-        window.addEventListener("resize", updateSizes);
-        let isDragging = false;
-        let startX, currentTranslateX, initialScrollPosition;
-        gallery.addEventListener("mousedown", startDrag);
-        gallery.addEventListener("touchstart", startDrag);
-        gallery.addEventListener("mousemove", duringDrag);
-        gallery.addEventListener("touchmove", duringDrag);
-        gallery.addEventListener("mouseup", endDrag);
-        gallery.addEventListener("touchend", endDrag);
-        gallery.addEventListener("mouseleave", endDrag);
+        }
+        finalScrollPosition = Math.max(Math.min(finalScrollPosition, galleryWidth - scrollOffset), 0);
+        gallery.style.transform = `translate3d(-${finalScrollPosition}px, 0, 0)`;
+        gallery.dataset.scrollPosition = finalScrollPosition;
+        gallery.style.transition = "transform 0.5s ease-in-out";
       }
     });
   };

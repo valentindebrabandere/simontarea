@@ -1,74 +1,89 @@
 //init-cards.js
+const allCardGalleries = document.querySelectorAll(
+  ".c-gallery-section__gallery"
+);
 
-const allCardGalleries = document.querySelectorAll(".c-card-gallery");
+const cardSpacing = 20;
+let cardWidth = 300;
+let galleryWidth;
+let scrollOffset = cardWidth + cardSpacing * 2;
+
+function addFooter(parent, gallery) {
+  // add footer to the gallery
+  const footerHTML = `<div class="c-gallery-section__footer">
+   <button class="c-gallery-section__btn prev">prev</button>
+   <button class="c-gallery-section__btn next">next</button>
+  </div>`;
+
+  parent.insertAdjacentHTML("beforeend", footerHTML);
+
+  const prevButton = parent.querySelector(".prev");
+  const nextButton = parent.querySelector(".next");
+  const footer = parent.querySelector(".c-gallery-section__footer");
+
+
+  nextButton.addEventListener("click", () => {
+      let newCurrentScrollPosition =
+          Number(gallery.dataset.scrollPosition) || 0;
+      let potentialScrollPosition = newCurrentScrollPosition + scrollOffset;
+
+      if (window.innerWidth > 1040) {
+          potentialScrollPosition =
+              newCurrentScrollPosition + scrollOffset * 2;
+      }
+
+      newCurrentScrollPosition = -Math.min(
+          potentialScrollPosition,
+          galleryWidth - scrollOffset
+      );
+
+      gallery.style.transform = `translate3d(${newCurrentScrollPosition}px, 0, 0)`;
+      gallery.style.transition = "transform 0.5s ease-in-out";
+      gallery.dataset.scrollPosition = -newCurrentScrollPosition;
+  });
+
+  prevButton.addEventListener("click", () => {
+      let newCurrentScrollPosition =
+          Number(gallery.dataset.scrollPosition) || 0;
+      let potentialScrollPosition = newCurrentScrollPosition - cardWidth;
+
+      if (window.innerWidth > 1040) {
+          potentialScrollPosition =
+              newCurrentScrollPosition - scrollOffset * 2;
+      }
+
+      newCurrentScrollPosition = Math.max(potentialScrollPosition, 0);
+
+      gallery.style.transform = `translate3d(-${newCurrentScrollPosition}px, 0, 0)`;
+      gallery.style.transition = "transform 0.5s ease-in-out";
+      gallery.dataset.scrollPosition = newCurrentScrollPosition;
+  });
+
+  // Show the footer only when there are more than two items
+  footer.style.display = "flex";
+}
 
 const init = () => {
   //  make big lists scrollable
   allCardGalleries.forEach((gallery) => {
-    const cardGallery = gallery.querySelectorAll(".c-card");
-
-    if (cardGallery.length > 2) {
       // if more than two children, make changes to the parent
-      const parent = gallery.closest(".c-cardsection");
-      const scroll = gallery.closest(".js-cardesction__scroll");
-      parent.classList.add("c-cardsection--dyn");
-      scroll.classList.add("js-cardesction__scroll--dyn");
-      gallery.classList.add("c-card-gallery--dyn");
+      const parent = gallery.parentElement;
 
-      const footer = parent.querySelector(".c-cardsection__footer");
-      const prevButton = footer.querySelector(".c-cardsection__btn.prev");
-      const nextButton = footer.querySelector(".c-cardsection__btn.next");
+      if (parent.classList.contains("c-gallery-section--footer")) {
+          addFooter(parent, gallery);
+      }
 
-      let galleryWidth = gallery.offsetWidth;
-      let cardWidth = 400;
+      galleryWidth = gallery.offsetWidth;
+      cardWidth = gallery.firstElementChild.offsetWidth;
+      scrollOffset = cardWidth + cardSpacing * 2;
 
       const updateSizes = () => {
-        galleryWidth = gallery.offsetWidth;
-        cardWidth = gallery.firstElementChild.offsetWidth;
+          galleryWidth = gallery.offsetWidth;
+          cardWidth = gallery.firstElementChild.offsetWidth;
+          scrollOffset = cardWidth + cardSpacing * 2;
       };
 
       updateSizes();
-
-      let scrollOffset = cardWidth + 20;
-
-      nextButton.addEventListener("click", () => {
-        let newCurrentScrollPosition =
-          Number(gallery.dataset.scrollPosition) || 0;
-        let potentialScrollPosition = newCurrentScrollPosition + scrollOffset;
-
-        if (window.innerWidth > 1040) {
-          potentialScrollPosition = newCurrentScrollPosition + scrollOffset * 2;
-        }
-
-        newCurrentScrollPosition = -Math.min(
-          potentialScrollPosition,
-          galleryWidth - scrollOffset
-        );
-
-        gallery.style.transform = `translate3d(${newCurrentScrollPosition}px, 0, 0)`;
-        gallery.style.transition = "transform 0.5s var(--ease-in-out)";
-        gallery.dataset.scrollPosition = -newCurrentScrollPosition;
-      });
-
-      prevButton.addEventListener("click", () => {
-        let newCurrentScrollPosition =
-          Number(gallery.dataset.scrollPosition) || 0;
-        let potentialScrollPosition = newCurrentScrollPosition - cardWidth;
-
-        if (window.innerWidth > 1040) {
-          potentialScrollPosition = newCurrentScrollPosition - scrollOffset * 2;
-        }
-
-        newCurrentScrollPosition = Math.max(potentialScrollPosition, 0);
-
-        gallery.style.transform = `translate3d(-${newCurrentScrollPosition}px, 0, 0)`;
-        gallery.style.transition = "transform 0.5s var(--ease-in-out)";
-        gallery.dataset.scrollPosition = newCurrentScrollPosition;
-        
-      });
-
-      // Show the footer only when there are more than two items
-      footer.style.display = "flex";
 
       window.addEventListener("resize", updateSizes);
 
@@ -88,37 +103,56 @@ const init = () => {
       gallery.addEventListener("mouseleave", endDrag);
 
       function startDrag(e) {
-        isDragging = true;
-        startX = e.touches && e.touches[0] ? e.touches[0].clientX : e.clientX;
-        initialScrollPosition = Number(gallery.dataset.scrollPosition) || 0;
+          isDragging = true;
+          startX =
+              e.touches && e.touches[0] ? e.touches[0].clientX : e.clientX;
+          initialScrollPosition = Number(gallery.dataset.scrollPosition) || 0;
 
-        // Disable the transition while dragging for smoothness
-        gallery.style.transition = "none";
+          // Disable the transition while dragging for smoothness
+          gallery.style.transition = "none";
       }
 
       function duringDrag(e) {
-        if (!isDragging) return;
+          if (!isDragging) return;
 
-        const x = e.touches && e.touches[0] ? e.touches[0].clientX : e.clientX;
-        const deltaX = x - startX;
+          const x =
+              e.touches && e.touches[0] ? e.touches[0].clientX : e.clientX;
+          const deltaX = x - startX;
 
-        currentTranslateX = initialScrollPosition - deltaX;
+          currentTranslateX = initialScrollPosition - deltaX;
 
-        // Update gallery position while dragging
-        gallery.style.transform = `translate3d(-${currentTranslateX}px, 0, 0)`;
+          // Update gallery position while dragging
+          gallery.style.transform = `translate3d(-${currentTranslateX}px, 0, 0)`;
       }
 
       function endDrag(e) {
-        if (!isDragging) return;
-        isDragging = false;
+          if (!isDragging) return;
+          isDragging = false;
 
-        // Store the final scroll position in the dataset
-        gallery.dataset.scrollPosition = currentTranslateX;
+          const minDragDistance = cardWidth + (cardSpacing * 2);
 
-        // Re-enable the transition after dragging
-        gallery.style.transition = "transform 0.5s var(--ease-in-out)";
+          // Adjust currentTranslateX to align with card width boundaries
+          let finalScrollPosition = currentTranslateX;
+          let dragDistance = initialScrollPosition - currentTranslateX;
+
+          // Check if the drag distance is less than a card's width and adjust accordingly
+          if (Math.abs(dragDistance) < minDragDistance) {
+              if (dragDistance > 0) {
+                  finalScrollPosition = initialScrollPosition - minDragDistance;
+                  gallery.style.transition =  "transform 0.5s ease-in-out";
+              } else {
+                  finalScrollPosition = initialScrollPosition + minDragDistance;
+                  gallery.style.transition = "transform 0.5s ease-in-out";
+              }
+          }
+
+          finalScrollPosition = Math.max(Math.min(finalScrollPosition, galleryWidth - scrollOffset), 0);
+
+          // Update the gallery's transform and dataset
+          gallery.style.transform = `translate3d(-${finalScrollPosition}px, 0, 0)`;
+          gallery.dataset.scrollPosition = finalScrollPosition;
+          gallery.style.transition = "transform 0.5s ease-in-out";
       }
-    }
   });
 };
 
