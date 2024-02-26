@@ -10,6 +10,14 @@
     }
 }
 
+.swiper-container{
+    cursor: grab;
+}
+
+.swiper-container:active {
+    cursor: grabbing;
+}
+
 .swiper-slide {
     width: fit-content !important;
 }

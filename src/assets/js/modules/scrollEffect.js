@@ -20,7 +20,6 @@ function scrollHandler() {
 
   // Parallax effect for the deco images
   decoImg.forEach((icon) => {
-    console.log(icon)
     const elementTop = icon.getBoundingClientRect().top + scrollY;
     const scrollProgress = Math.max(
       0,
@@ -58,7 +57,7 @@ function scrollHandler() {
       let scrollAnim = scrollProgress * 0.1 * viewportHeight;
       currentScrollPosition -= scrollAnim;
 
-      gallery.style.transform = `translate3d(${currentScrollPosition}px, 0, 0)`;
+      gallery.style.translate = `${currentScrollPosition}px 0 0`;
     }
   });
 }
