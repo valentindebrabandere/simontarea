@@ -1,4 +1,4 @@
-.c-gallery-section-container{
+.c-gallery-section-container {
     display: flex;
     flex-direction: column;
     gap: 42px;
@@ -8,6 +8,10 @@
     h2 {
         margin-bottom: 0;
     }
+}
+
+.swiper-slide {
+    width: fit-content !important;
 }
 
 .c-gallery-section {
@@ -47,9 +51,9 @@
 }
 
 .c-gallery-section__footer {
-    display: none;
-
+    display: flex;
     gap: 12px;
+    width: fit-content;
     margin-left: auto;
     margin-top: 42px;
 }

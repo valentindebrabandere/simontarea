@@ -20,6 +20,7 @@ function scrollHandler() {
 
   // Parallax effect for the deco images
   decoImg.forEach((icon) => {
+    console.log(icon)
     const elementTop = icon.getBoundingClientRect().top + scrollY;
     const scrollProgress = Math.max(
       0,

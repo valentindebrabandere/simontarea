@@ -8,7 +8,7 @@ permalink: index.html
 {% set metaTitle = "Home" %}
 {% set metaDescription = "Simon Tarea - Votre temps, votre santé : Reprenons le contrôle" %}
 
-{# Import #}
+{# Import #}""""""
 
 {% from "macros/serviceCard.njk" import serviceCard %}
 {% from "macros/reviewCard.njk" import reviewCard %}
@@ -161,11 +161,10 @@ permalink: index.html
             </div>
           </div>
         </div>
-        <div class="c-gallery-section-container">
-          <div class="c-container">
-            <div class="c-gallery-section">
-              <ul class="u-list-bare c-gallery-section__gallery js-init-cards l-grid">
-                <li>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            
+                <div class="swiper-slide">
                   {{ reviewCard(
                     image="/assets/img/reviewCard/amelie.png",
                     name="Amélie",
@@ -174,8 +173,8 @@ permalink: index.html
                     age="32",
                     content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
                   ) }}
-                </li>
-                <li>
+                </div>
+                <div class="swiper-slide">
                   {{ reviewCard(
                     image="/assets/img/reviewCard/bertrand.png",
                     name="Bertrand",
@@ -184,8 +183,8 @@ permalink: index.html
                     age="26",
                     content="Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
                   ) }}
-                </li>
-                <li>
+                </div>
+                <div class="swiper-slide">
                   {{ reviewCard(
                     image="/assets/img/reviewCard/philippe.png",
                     name="Philippe",
@@ -194,8 +193,8 @@ permalink: index.html
                     age="45",
                     content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
                   ) }}
-                </li>
-                <li>
+                </div>
+                <div class="swiper-slide">
                   {{ reviewCard(
                     image="/assets/img/reviewCard/philippe.png",
                     name="Philippe",
@@ -204,9 +203,11 @@ permalink: index.html
                     age="45",
                     content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
                   ) }}
-                </li>
-              </ul>
-            </div>
+                </div>
+          </div>
+          <div class="c-gallery-section__footer">
+            <button class="c-cardsection__btn prev js-cardsection__btn--prev">{% include "svg/arrow.svg" %}</button>
+            <button class="c-cardsection__btn next js-cardsection__btn--next">{% include "svg/arrow.svg" %}</button>
           </div>
         </div>
       </div>
