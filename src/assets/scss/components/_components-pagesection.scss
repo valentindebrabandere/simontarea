@@ -3,18 +3,18 @@
 --------------------------------- */
 
 :root{
-  --padding-section: 60;
+  --padding-section: 72;
   --deco-height: 30;
   --big-deco-height: 50;
 
   @include breakpoint(medium) {
-    --padding-section: 72;
+    --padding-section: 90;
     --deco-height: 48;
     --big-deco-height: 72;
   }
 
   @include breakpoint(large) {
-    --padding-section: 150;
+    --padding-section: 180;
     --deco-height: 60;
     --big-deco-height: 100;
   }
