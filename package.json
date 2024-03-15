@@ -29,6 +29,7 @@
     "onchange",
     "rimraf"
   ],
+  
   "author": "Valentin de Brabandère",
   "license": "ISC",
   "devDependencies": {
