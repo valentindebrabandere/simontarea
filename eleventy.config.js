@@ -21,6 +21,18 @@ module.exports = function (eleventyConfig) {
     return schema(collectionApi).schema__smallItems;
   });
 
+  eleventyConfig.addCollection("reviews", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/content/reviews/*.md")
+      .filter(function(item) {
+        // Filter out items where draft is true
+        return !item.data.draft;
+      })
+      .sort(function(a, b) {
+        // Sort by sortOrder field
+        return a.data.sortOrder - b.data.sortOrder;
+      });
+  });
+
   // filters
   eleventyConfig.addFilter("limit", limit);
   eleventyConfig.addFilter("dateISO", dates.dateISO);

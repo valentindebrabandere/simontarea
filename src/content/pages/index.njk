@@ -54,7 +54,7 @@ permalink: index.html
 
     <div class="c-pagesection c-pagesection--light c-pagesection--deco">
       <div class="l-container">
-        <div class="c-title-module" id="ancre-services">
+        <div class="c-title-module" id=z"ancre-services">
           <div class="c-title-module__title">
             <h4 class="c-h4">Par où commencer ?</h4>
             <h2 class="c-h2">Des services qui s’adaptent à vos besoins</h2>
@@ -163,52 +163,25 @@ permalink: index.html
         </div>
         <div class="swiper-container js-init-cards">
           <div class="swiper-wrapper js-cardesction__scroll--dyn">
-                <div class="swiper-slide">
-                  {{ reviewCard(
-                    image="/assets/img/reviewCard/amelie.png",
-                    name="Amélie",
-                    formation="Formation en ligne",
-                    url="/lienVersLaFormation",
-                    age="32",
-                    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
+            {% for review in collections.reviews %}
+              <div class="swiper-slide">
+                    {{ reviewCard(
+                image=review.data.image,
+                name=review.data.name,
+                formation=review.data.formation,
+                url=review.data.url,
+                age=review.data.age,
+                content=review.data.content
                   ) }}
-                </div>
-                <div class="swiper-slide">
-                  {{ reviewCard(
-                    image="/assets/img/reviewCard/bertrand.png",
-                    name="Bertrand",
-                    formation="Suivi individuel",
-                    url="/lienVersLaFormation",
-                    age="26",
-                    content="Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
-                  ) }}
-                </div>
-                <div class="swiper-slide">
-                  {{ reviewCard(
-                    image="/assets/img/reviewCard/philippe.png",
-                    name="Philippe",
-                    formation="Formation en ligne",
-                    url="/lienVersLaFormation",
-                    age="45",
-                    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
-                  ) }}
-                </div>
-                <div class="swiper-slide">
-                  {{ reviewCard(
-                    image="/assets/img/reviewCard/philippe.png",
-                    name="Philippe",
-                    formation="Formation en ligne",
-                    url="/lienVersLaFormation",
-                    age="45",
-                    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
-                  ) }}
-                </div>
+              </div>
+            {% endfor %}
           </div>
           <div class="c-gallery-section__footer">
             <button class="c-cardsection__btn prev js-cardsection__btn--prev">{% include "svg/arrow.svg" %}</button>
             <button class="c-cardsection__btn next js-cardsection__btn--next">{% include "svg/arrow.svg" %}</button>
           </div>
         </div>
+
       </div>
     </div>
 
