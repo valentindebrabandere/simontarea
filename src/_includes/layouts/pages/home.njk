@@ -1,9 +1,9 @@
 {% extends "layouts/base.njk" %}
 
-{% set currentSection = "home" %}
+{% set currentSection = key %}
 
-{% set metaTitle = "Home" %}
-{% set metaDescription = "Simon Tarea - Votre temps, votre santé : Reprenons le contrôle" %}
+{% set metaTitle = meta.title %}
+{% set metaDescription = meta.title %}
 
 {# Import #}
 
@@ -21,7 +21,7 @@
         <div class="c-hero__content">
           <div class="c-hero__img-container js-anim js-anim--opacity js-anim--translate">
             {# TODO add srcset #}
-            <img src="/assets/img/hero-image.png" alt="Photo of Simon Tarea, smiling" class="c-hero__image">
+            <img src="{{hero.image}}" alt="{{hero.imageAlt}}" class="c-hero__image">
             <div class="c-hero__deco-container c-deco-img-container js-anim js-anim--opacity js-anim--translate clap" data-parallax="0.07">
               <img src="/assets/img/hero-icons/clapping_hands.png" alt="Icon of clapping hands" class="c-hero__deco c-deco-img" data-rotate="-7, 1" >
             </div>
@@ -37,12 +37,12 @@
           </div>
 
           <div class="c-hero__text">
-            <h1 class="c-h1 c-hero__title">{{ heroTitle | safe }}</h1>
+            <h1 class="c-h1 c-hero__title">{{ hero.title | replaceSpans | safe }}</h1>
             <p class="c-hero__paragraph">Le coaching Create pour les entrepreneurs-parents débordés qui veulent enfin trouver l'équilibre parfait entre carrière, famille et bien-être.</p>
             <div class="c-hero__footer">
               {# TODO Add corrects links #}
               <a href="#ancre-services" class="c-cta">Mes services</a>
-              <a href="#" class="c-cta c-cta--secondary">Me contacter</a>
+              <a href="mailto:tarea.simon@gmail.com" class="c-cta c-cta--secondary">Me contacter</a>
             </div>
           </div>
         </div>

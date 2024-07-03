@@ -11,7 +11,6 @@ module.exports = [
   },
   {
     label: "Ateliers",
-    trigger: "ateliers",
     // TODO : change url to the extern one
     url: "https://www.example.com",
     isExternal: true,

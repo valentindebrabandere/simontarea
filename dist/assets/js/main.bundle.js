@@ -102,8 +102,10 @@
   // src/assets/js/modules/init-hero.js
   var init6 = () => {
     const image = document.querySelector(".c-hero__image");
-    handleWindowResize();
-    window.addEventListener("resize", handleWindowResize);
+    if (image) {
+      handleWindowResize();
+      window.addEventListener("resize", handleWindowResize);
+    }
     function handleWindowResize() {
       if (window.innerWidth > 760) {
         image.style.transform = `translate3d(-55%, calc(20% - 10vw) , 0) scale(1)`;

@@ -7,6 +7,7 @@ const schema = require("./src/_11ty/collections/schema.js");
 // filters
 const limit = require("./src/_11ty/filters/limit.js");
 const dates = require("./src/_11ty/filters/dates.js");
+const replaceSpans = require("./src/_11ty/filters/replaceSpans.js");
 
 module.exports = function (eleventyConfig) {
 
@@ -40,6 +41,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("dateFull", dates.dateFull);
   eleventyConfig.addFilter("dateFormat", dates.dateFormat);
   eleventyConfig.addFilter("dateYear", dates.dateYear);
+  eleventyConfig.addFilter("replaceSpans", replaceSpans);
 
   // plugins
   eleventyConfig.addPlugin(syntaxHighlight, {

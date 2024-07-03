@@ -1,9 +1,11 @@
 export const init = () => {
 
   const image = document.querySelector(".c-hero__image");
-    
-  handleWindowResize();
-  window.addEventListener("resize", handleWindowResize);
+
+  if ( image ) {
+    handleWindowResize();
+    window.addEventListener("resize", handleWindowResize);
+  }
 
   function handleWindowResize() {
     if (window.innerWidth > 760) {

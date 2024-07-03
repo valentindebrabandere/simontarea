@@ -24,10 +24,6 @@
     margin-bottom: calc(12/16*1rem);
     text-wrap: pretty;
 
-    @include breakpoint(medium) {
-        white-space: nowrap;
-    }
-
     >span {
         position: relative;
 
