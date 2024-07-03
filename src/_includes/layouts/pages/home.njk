@@ -1,6 +1,3 @@
----
-permalink: index.html
----
 {% extends "layouts/base.njk" %}
 
 {% set currentSection = "home" %}
@@ -8,7 +5,7 @@ permalink: index.html
 {% set metaTitle = "Home" %}
 {% set metaDescription = "Simon Tarea - Votre temps, votre santé : Reprenons le contrôle" %}
 
-{# Import #}""""""
+{# Import #}
 
 {% from "macros/serviceCard.njk" import serviceCard %}
 {% from "macros/reviewCard.njk" import reviewCard %}
@@ -40,7 +37,7 @@ permalink: index.html
           </div>
 
           <div class="c-hero__text">
-            <h1 class="c-h1 c-hero__title">Votre <span>temps,</span> votre <span>santé :</span><br> Reprenons le contrôle</h1>
+            <h1 class="c-h1 c-hero__title">{{ heroTitle | safe }}</h1>
             <p class="c-hero__paragraph">Le coaching Create pour les entrepreneurs-parents débordés qui veulent enfin trouver l'équilibre parfait entre carrière, famille et bien-être.</p>
             <div class="c-hero__footer">
               {# TODO Add corrects links #}
