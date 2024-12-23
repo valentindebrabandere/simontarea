@@ -1,4 +1,4 @@
-{% macro reviewCard(name, formation, age, content, url, image) %}
+{% macro reviewCard(name, formation, age, cardContent, url, image) %}
   <article class="c-review-card c-card js-anim js-anim--translate">
     <div class="c-deco-img-container c-card__deco-container">
       <img src="{{image}}" alt="Avis photo de {{name}}" class="c-deco-img c-card__deco">
@@ -14,7 +14,7 @@
           <p class="c-card__age-text c-h4">ans</p>
         </div>
       </div>
-      <p class="c-card__content">{{ content }}</p>
+      <p class="c-card__content">{{ cardContent }}</p>
       <a href="{{ url }}" class="c-card__link">Voir la formation {% include "svg/arrow.svg" %}</a>
     </div>
   </article>

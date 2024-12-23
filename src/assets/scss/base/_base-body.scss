@@ -1,3 +1,5 @@
+@use "../mixins/mixins-breakpoints";
+
 /* ---------------------------------
 =body
 --------------------------------- */
@@ -18,7 +20,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @include breakpoint(medium) {
+  @include mixins-breakpoints.breakpoint(medium) {
     font-size: calc(18 / 16 * 1rem);
   }
 }
@@ -30,7 +32,7 @@ body {
 body.has-menu {
   overflow-y: hidden;
 
-  @include breakpoint(medium) {
+  @include mixins-breakpoints.breakpoint(medium) {
     overflow-y: auto;
   }
 }

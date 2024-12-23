@@ -1,51 +1,51 @@
-@import "settings/_settings-colors.scss";
-@import "settings/_settings-spacing.scss";
-@import "settings/_settings-typography.scss";
-@import "settings/_settings-grid.scss";
-@import "settings/_settings-border-radius.scss";
-@import "settings/_settings-custom-eases.scss";
-@import "settings/_settings-shadows.scss";
+@use "settings/_settings-colors.scss";
+@use "settings/_settings-spacing.scss";
+@use "settings/_settings-typography.scss";
+@use "settings/_settings-grid.scss";
+@use "settings/_settings-border-radius.scss";
+@use "settings/_settings-custom-eases.scss";
+@use "settings/_settings-shadows.scss";
 
-@import "mixins/_mixins-breakpoints.scss";
+@use "mixins/_mixins-breakpoints.scss";
 
-@import "base/_base-margins.scss";
-@import "base/_base-html.scss";
-@import "base/_base-body.scss";
-@import "base/_base-fonts.scss";
-@import "base/_base-links.scss";
+@use "base/_base-margins.scss";
+@use "base/_base-html.scss";
+@use "base/_base-body.scss";
+@use "base/_base-fonts.scss";
+@use "base/_base-links.scss";
 
-@import "objects/_objects-fluidimage.scss";
-@import "objects/_objects-fluidvideo.scss";
+@use "objects/_objects-fluidimage.scss";
+@use "objects/_objects-fluidvideo.scss";
 
-@import "layout/_layout-container.scss";
-@import "layout/_layout-grid.scss";
-@import "layout/_layout-split.scss";
+@use "layout/_layout-container.scss";
+@use "layout/_layout-grid.scss";
+@use "layout/_layout-split.scss";
 
-@import "components/_components-siteheader.scss";
-@import "components/_components-deco-img.scss";
-@import "components/_components-sitefooter.scss";
-@import "components/_components-logo.scss";
-@import "components/_components-mainnav.scss";
-@import "components/_components-menulink.scss";
-@import "components/_components-mobilemenu.scss";
-@import "components/_components-mobilenav.scss";
-@import "components/_components-pagesection.scss";
-@import "components/_components-pagetitle.scss";
-@import "components/_components-ctalink.scss";
-@import "components/_components-button.scss";
-@import "components/_components-titles.scss";
-@import "components/_components-lists.scss";
-@import "components/_components-hero.scss";
-@import "components/_components-title-module.scss";
-@import "components/_components-content-section.scss";
-@import "components/_components-gallery-section.scss";
-@import "components/_components-card.scss";
-@import "components/_components-methode.scss";
-@import "components/_components-schema.scss";
-@import "components/_components-about-me.scss";
+@use "components/_components-siteheader.scss";
+@use "components/_components-deco-img.scss";
+@use "components/_components-sitefooter.scss";
+@use "components/_components-logo.scss";
+@use "components/_components-mainnav.scss";
+@use "components/_components-menulink.scss";
+@use "components/_components-mobilemenu.scss";
+@use "components/_components-mobilenav.scss";
+@use "components/_components-pagesection.scss";
+@use "components/_components-pagetitle.scss";
+@use "components/_components-ctalink.scss";
+@use "components/_components-button.scss";
+@use "components/_components-titles.scss";
+@use "components/_components-lists.scss";
+@use "components/_components-hero.scss";
+@use "components/_components-title-module.scss";
+@use "components/_components-content-section.scss";
+@use "components/_components-gallery-section.scss";
+@use "components/_components-card.scss";
+@use "components/_components-methode.scss";
+@use "components/_components-schema.scss";
+@use "components/_components-about-me.scss";
 
 
-@import "utilities/_utilities-spacing.scss";
-@import "utilities/_utilities-listbare.scss";
+@use "utilities/_utilities-spacing.scss";
+@use "utilities/_utilities-listbare.scss";
 
-@import "js/_js-anim.scss";
+@use "js/_js-anim.scss";

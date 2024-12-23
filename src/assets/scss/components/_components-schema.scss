@@ -1,3 +1,5 @@
+@use "../mixins/mixins-breakpoints";
+
 .c-schema {
     display: flex;
     flex-direction: column;
@@ -86,7 +88,7 @@
     opacity: .6;
 }
 
-@include breakpoint(medium) {
+@include mixins-breakpoints.breakpoint(medium) {
     .c-schema__items {
         flex-direction: row;
         gap: 18px;

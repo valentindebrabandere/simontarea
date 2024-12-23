@@ -1,3 +1,5 @@
+@use "../mixins/mixins-breakpoints";
+
 .c-hero {
     position: relative;
     box-sizing: border-box;
@@ -6,11 +8,11 @@
 
     padding-top: calc(45 / 16 * 1rem);
 
-  @include breakpoint(medium) {
+  @include mixins-breakpoints.breakpoint(medium) {
     padding-top: calc(72 / 16 * 1rem);
   }
 
-  @include breakpoint(large) {
+  @include mixins-breakpoints.breakpoint(large) {
     padding-top: calc(90 / 16 * 1rem);
   }
 }
@@ -57,12 +59,12 @@
     grid-template-columns: 1fr, 1fr;
     grid-template-areas: "texte" "image";
 
-    @include breakpoint(medium) {
+    @include mixins-breakpoints.breakpoint(medium) {
         grid-template-columns: 2fr 3fr;
         grid-template-areas: "image texte";
     }
     
-    @include breakpoint(large) {
+    @include mixins-breakpoints.breakpoint(large) {
         grid-template-columns: 3fr 4fr;
     }
 }
@@ -78,7 +80,7 @@
     flex-direction: column;
     gap: calc(18/16*1rem);
 
-    @include breakpoint(medium) {
+    @include mixins-breakpoints.breakpoint(medium) {
         flex-direction: row;
     }
 }
@@ -95,7 +97,7 @@
     transform-origin: bottom center;
     
     
-    @include breakpoint(medium) {
+    @include mixins-breakpoints.breakpoint(medium) {
         position: absolute;
         left:55%;
         top: -10%;
@@ -181,11 +183,11 @@
     width: 42px;
     border-radius: var(--border-radius);
 
-    @include breakpoint(medium) {
+    @include mixins-breakpoints.breakpoint(medium) {
         width: 52px;
     }
 
-    @include breakpoint(large) {
+    @include mixins-breakpoints.breakpoint(large) {
         width: 62px;
     }
 }
@@ -199,12 +201,12 @@
     top: 50%;
     left: 5%;
 
-    @include breakpoint(medium) {
+    @include mixins-breakpoints.breakpoint(medium) {
         top: 60%;
         left: 0%;
     }
 
-    @include breakpoint(large) {
+    @include mixins-breakpoints.breakpoint(large) {
         top: 50%;
         left: 0%;
     }
@@ -214,12 +216,12 @@
     left: 60%;
     z-index: -1;
 
-    @include breakpoint(medium) {
+    @include mixins-breakpoints.breakpoint(medium) {
         top: 30%;
         left: 80%;
     }
 
-    @include breakpoint(large) {
+    @include mixins-breakpoints.breakpoint(large) {
         top: 25%;
         left: 75%;
     }
@@ -228,12 +230,12 @@
     top: 65%;
     left: 75%;
 
-    @include breakpoint(medium) {
+    @include mixins-breakpoints.breakpoint(medium) {
         top: 70%;
         left: 120%;
     }
 
-    @include breakpoint(large) {
+    @include mixins-breakpoints.breakpoint(large) {
         top: 72%;
         left: 90%;
     }
@@ -244,12 +246,12 @@
     left: 45%;
     z-index: 10;
 
-    @include breakpoint(medium) {
+    @include mixins-breakpoints.breakpoint(medium) {
         top: 92%;
         left: 55%;
     }
 
-    @include breakpoint(large) {
+    @include mixins-breakpoints.breakpoint(large) {
         top: 90%;
         left: 40%;
     }

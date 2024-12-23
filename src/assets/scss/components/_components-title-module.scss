@@ -1,3 +1,5 @@
+@use "../mixins/mixins-breakpoints";
+
 .c-title-module{
   display: grid;
   max-width: 1040px;
@@ -6,7 +8,7 @@
 
   scroll-margin-top: 10vh;
 
-  @include breakpoint(medium) {
+  @include mixins-breakpoints.breakpoint(medium) {
     grid-template-columns: 2fr 3fr;
     gap: 3rem;
   }
@@ -45,7 +47,7 @@
   flex-direction: column;
   gap: calc(18/16*1rem);
 
-  @include breakpoint(medium) {
+  @include mixins-breakpoints.breakpoint(medium) {
       flex-direction: row;
   }
 }

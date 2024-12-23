@@ -35,6 +35,7 @@
   // src/assets/js/modules/init-gallery.js
   var init3 = () => {
     new Swiper(".swiper-container", {
+      // Swiper options here
       slidesPerView: "auto",
       spaceBetween: 20,
       navigation: {

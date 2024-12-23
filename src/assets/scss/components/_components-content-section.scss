@@ -1,3 +1,5 @@
+@use "../mixins/mixins-breakpoints";
+
 .c-content-section{
     display: grid;
     grid-template-columns: 1fr;
@@ -8,7 +10,7 @@
 
     gap: 24px;
 
-    @include breakpoint(medium) {
+    @include mixins-breakpoints.breakpoint(medium) {
         grid-template-columns: 1fr 1fr;
         gap: 48px;
      }

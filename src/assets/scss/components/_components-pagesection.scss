@@ -1,3 +1,5 @@
+@use "../mixins/mixins-breakpoints";
+
 /* ---------------------------------
 =page section
 --------------------------------- */
@@ -7,13 +9,13 @@
   --deco-height: 30;
   --big-deco-height: 50;
 
-  @include breakpoint(medium) {
+  @include mixins-breakpoints.breakpoint(medium) {
     --padding-section: 90;
     --deco-height: 48;
     --big-deco-height: 72;
   }
 
-  @include breakpoint(large) {
+  @include mixins-breakpoints.breakpoint(large) {
     --padding-section: 180;
     --deco-height: 60;
     --big-deco-height: 100;
@@ -72,11 +74,11 @@
 // }
 
 .c-pagesection--big-deco{
-  @include breakpoint(medium) {
+  @include mixins-breakpoints.breakpoint(medium) {
     padding-top: calc(54 / 16 * 1rem);
   }
   
-  @include breakpoint(large) {
+  @include mixins-breakpoints.breakpoint(large) {
     padding-top: calc(72 / 16 * 1rem);
   }
 }
