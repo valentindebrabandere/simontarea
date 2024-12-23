@@ -1,39 +1,43 @@
+@use "../mixins/mixins-breakpoints";
+
 /* ---------------------------------
 =page section
 --------------------------------- */
 
-.c-pagesection {
-  position: relative;
-  padding-top: calc(60 / 16 * 1rem);
-  padding-bottom: calc(48 / 16 * 1rem);
+:root{
+  --padding-section: 72;
+  --deco-height: 30;
+  --big-deco-height: 50;
 
-  background-color: var(--color-background);
-
-  @include breakpoint(medium) {
-    padding-top: calc(120 / 16 * 1rem);
-    padding-bottom: calc(72 / 16 * 1rem);
+  @include mixins-breakpoints.breakpoint(medium) {
+    --padding-section: 90;
+    --deco-height: 48;
+    --big-deco-height: 72;
   }
 
-  @include breakpoint(large) {
-    padding-top: calc(150 / 16 * 1rem);
-    padding-bottom: calc(72 / 16 * 1rem);
+  @include mixins-breakpoints.breakpoint(large) {
+    --padding-section: 180;
+    --deco-height: 60;
+    --big-deco-height: 100;
   }
 }
 
+.c-pagesection {
+  position: relative;
+  padding-top: calc( var(--padding-section) / 16 * 1rem);
+  padding-bottom: calc( var(--padding-section) / 16 * 1rem);
+
+  background-color: var(--color-background);
+}
+
 .c-pagesection + .c-pagesection--deco{
-
-  // +100 for the height of the deco
   
-  padding-bottom: calc((48 + 50) / 16 * 1rem);
-  
-  @include breakpoint(medium) {
-    padding-bottom: calc((60 + 75) / 16 * 1rem);
-  }
+  padding-bottom: calc( ( var(--padding-section) + var(--deco-height) ) / 16 * 1rem);
 
-  @include breakpoint(large) {
-    padding-bottom: calc((72 + 100) / 16 * 1rem);
-  }
+}
 
+.c-pagesection--no-bottom-deco{
+  padding-bottom: calc( var(--padding-section) / 16 * 1rem) !important;
 }
 
 /* ---------------------------------
@@ -57,36 +61,28 @@
   
   z-index: 1;
   clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 50% 90%, 0% 0%);
+  transition: height 0.5s ease;
 
-  height: 30px;
-  
-  @include breakpoint(medium) {
-    height: 50px;
-  }
-  
-  @include breakpoint(large) {
-    height: 60px;
-  }
+  height: calc(var(--deco-height) / 16 * 1rem);
 }
 
+//TODO add scoll animation on the angle of the deco
+
+// .c-pagesection--deco:hover::before{
+//   height: 200px;
+//   transition: height 0.5s ease;
+// }
+
 .c-pagesection--big-deco{
-  @include breakpoint(medium) {
+  @include mixins-breakpoints.breakpoint(medium) {
     padding-top: calc(54 / 16 * 1rem);
   }
   
-  @include breakpoint(large) {
+  @include mixins-breakpoints.breakpoint(large) {
     padding-top: calc(72 / 16 * 1rem);
   }
 }
 
 .c-pagesection--big-deco::before{
-    height: 50px;
-  
-  @include breakpoint(medium) {
-    height: 75px;
-  }
-  
-  @include breakpoint(large) {
-    height: 100px;
-  }
+    height: calc( var(--big-deco-height) / 16 * 1rem);
 }

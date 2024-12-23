@@ -1,3 +1,5 @@
+@use "../mixins/mixins-breakpoints";
+
 /* ---------------------------------
 =mobile menu
 --------------------------------- */
@@ -18,7 +20,7 @@
 .c-mobilemenu.is-open {
   display: block;
 
-  @include breakpoint(medium) {
+  @include mixins-breakpoints.breakpoint(medium) {
     display: none;
   }
 }

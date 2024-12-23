@@ -1,0 +1,93 @@
+
+.c-about-me{
+    position: relative;
+
+    .c-cta{
+        margin: 0 auto;
+        
+    }
+}
+
+.c-about-me::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -42px;
+
+    border-left: 1.5px solid var(--color-brand);
+    opacity: .4;
+    height: 100%;
+}
+
+.c-about-me::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -42px;
+    transform: translate(-100%, 0);
+
+    height: 100%;
+    width: 240px;
+
+    opacity: .2;
+
+    background: url(../img/parcours.svg) no-repeat right top;
+    background-size: contain;
+}
+
+.c-about__content{
+    display: flex;
+    flex-direction: column;
+    gap: calc(12/16*1rem);
+
+    .c-h2{
+        margin-bottom: 12px;
+        margin-top: 42px;
+        width: 100%;
+    }
+
+    strong{
+        font-weight: 500;
+        color: var(--color-brand-dark);
+    }
+
+    .c-about__p-muted{
+        margin-top: 12px;
+        opacity: .6;
+        color: var(--color-brand-dark);
+    }
+}
+
+.c-about__list{
+    display: flex;
+    flex-direction: column;
+    gap: calc(18/16*1rem);
+    padding-inline-start: 60px;
+
+    // change decoration color
+    > li::marker{
+        color: var(--color-brand);
+    }
+}
+
+
+.c-about__card{
+
+    margin-top: 36px;
+    margin-bottom: 18px;
+
+    .c-about-card__deco{
+        position: relative;
+        transform: translate(-50%, 0);
+        width: 75px;
+    
+        margin-bottom: 24px;
+    }
+
+    p{
+        text-align: center;
+        text-wrap: pretty;
+    }
+}
+
+

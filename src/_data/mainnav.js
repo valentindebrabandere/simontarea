@@ -5,13 +5,22 @@ module.exports = [
     url: "/about/",
   },
   {
-    label: "Suivi individuel",
-    trigger: "suivi",
+    label: "Accompagnement",
+    trigger: "Accompagnement",
     url: "/suivi/",
   },
   {
-    label: "Mes formations",
+    label: "Ateliers",
+    // TODO : change url to the extern one
     url: "https://www.example.com",
     isExternal: true,
+    isSecondary: true,
+  },
+  {
+    label: "Bootcamps",
+    // TODO : change url to the extern one
+    url: "https://www.example.com",
+    isExternal: true,
+    isPrimary: true,
   }
 ];

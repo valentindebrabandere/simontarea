@@ -1,3 +1,5 @@
+@use "../mixins/mixins-breakpoints";
+
 /* ---------------------------------
 =sitefooter
 --------------------------------- */
@@ -15,15 +17,15 @@
   padding-top: calc(60 / 16 * 1rem);
   padding-bottom: calc(24 / 16 * 1rem);
 
-  @include breakpoint(medium) {
+  @include mixins-breakpoints.breakpoint(medium) {
     padding-top: calc(72 / 16 * 1rem);
   }
 
-  @include breakpoint(large) {
+  @include mixins-breakpoints.breakpoint(large) {
     padding-top: calc(90 / 16 * 1rem);
   }
 
-  @include breakpoint(xlarge) {
+  @include mixins-breakpoints.breakpoint(xlarge) {
     padding-top: calc(120 / 16 * 1rem);
   }
 }
@@ -41,14 +43,14 @@
   gap: calc(var(--gutter) / 2);
   margin-bottom: calc(36 / 16 * 1rem);
 
-  @include breakpoint(medium) {
+  @include mixins-breakpoints.breakpoint(medium) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--gutter);
     grid-template-areas: "a b";
     margin-bottom: calc(60 / 16 * 1rem);
   }
 
-  @include breakpoint(large) {
+  @include mixins-breakpoints.breakpoint(large) {
     margin-bottom: calc(84 / 16 * 1rem);
   }
 }
@@ -60,7 +62,7 @@
 .c-sitefooter__social {
   grid-area: b;
 
-  @include breakpoint(medium) {
+  @include mixins-breakpoints.breakpoint(medium) {
     justify-self: end;
   }
 }
@@ -79,13 +81,13 @@
     "b"
     "c";
 
-  @include breakpoint(medium) {
+  @include mixins-breakpoints.breakpoint(medium) {
     margin-bottom: calc(48 / 16 * 1rem);
     grid-template-columns: minmax(0, 6fr) repeat(2, minmax(0, 4fr));
     grid-template-areas: "a b c";
   }
 
-  @include breakpoint(large) {
+  @include mixins-breakpoints.breakpoint(large) {
     margin-bottom: calc(60 / 16 * 1rem);
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }

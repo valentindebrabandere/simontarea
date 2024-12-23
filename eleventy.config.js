@@ -7,6 +7,7 @@ const schema = require("./src/_11ty/collections/schema.js");
 // filters
 const limit = require("./src/_11ty/filters/limit.js");
 const dates = require("./src/_11ty/filters/dates.js");
+const replaceSpans = require("./src/_11ty/filters/replaceSpans.js");
 
 module.exports = function (eleventyConfig) {
 
@@ -21,6 +22,18 @@ module.exports = function (eleventyConfig) {
     return schema(collectionApi).schema__smallItems;
   });
 
+  eleventyConfig.addCollection("reviews", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/content/reviews/*.md")
+      .filter(function(item) {
+        // Filter out items where draft is true
+        return !item.data.draft;
+      })
+      .sort(function(a, b) {
+        // Sort by sortOrder field
+        return a.data.sortOrder - b.data.sortOrder;
+      });
+  });
+
   // filters
   eleventyConfig.addFilter("limit", limit);
   eleventyConfig.addFilter("dateISO", dates.dateISO);
@@ -28,6 +41,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("dateFull", dates.dateFull);
   eleventyConfig.addFilter("dateFormat", dates.dateFormat);
   eleventyConfig.addFilter("dateYear", dates.dateYear);
+  eleventyConfig.addFilter("replaceSpans", replaceSpans);
 
   // plugins
   eleventyConfig.addPlugin(syntaxHighlight, {
