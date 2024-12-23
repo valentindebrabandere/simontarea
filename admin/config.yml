@@ -1,0 +1,23 @@
+backend:
+  name: git
+  branch: main # Changez le nom de la branche si nécessaire
+
+media_folder: "./src/assets/img" # Dossier où les images seront stockées
+public_folder: "./src/assets/img"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    folder: "src/content/pages"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "reviews"
+    label: "Reviews"
+    folder: "src/content/reviews"
+    create: true
+    fields:
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Review", name: "review", widget: "text" }

@@ -25,13 +25,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("reviews", function(collectionApi) {
     return collectionApi.getFilteredByGlob("./src/content/reviews/*.md")
       .filter(function(item) {
-        // Filter out items where draft is true
         return !item.data.draft;
       })
       .sort(function(a, b) {
-        // Sort by sortOrder field
         return a.data.sortOrder - b.data.sortOrder;
       });
+  });
+
+  eleventyConfig.addCollection("pages", (collectionApi) => {
+    return collectionApi.getFilteredByGlob("./src/content/pages/*.md")
+      .filter((item) => !item.data.draft);
   });
 
   // filters
@@ -51,12 +54,14 @@ module.exports = function (eleventyConfig) {
   // ignores
   eleventyConfig.ignores.add("src/assets/**/*");
   eleventyConfig.watchIgnores.add("src/assets/**/*");
+  eleventyConfig.watchIgnores.add("admin/**/*");
 
   // passthrough copy
   eleventyConfig.setServerPassthroughCopyBehavior("copy");
   eleventyConfig.addPassthroughCopy({ "./src/static": "/" });
   eleventyConfig.addPassthroughCopy("./src/assets/img");
   eleventyConfig.addPassthroughCopy("./src/assets/fonts");
+  eleventyConfig.addPassthroughCopy({ "./admin": "/admin" });
 
   // server config
   eleventyConfig.setServerOptions({

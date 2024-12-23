@@ -11,13 +11,13 @@
     "scripts:dev": "esbuild \"src/assets/js/main.js\" --target=es6 --bundle --outfile=\"dist/assets/js/main.bundle.js\"",
     "scripts:prod": "esbuild \"src/assets/js/main.js\" --target=es6 --bundle --minify --outfile=\"dist/assets/js/main.bundle.js\"",
     "eleventy": "npx @11ty/eleventy --quiet",
+    "serve:eleventy": "eleventy --serve",
     "watch:styles": "onchange \"src/assets/scss/*\" \"src/assets/scss/**/*\" -- npm run styles:dev",
     "watch:scripts": "onchange \"src/assets/js/*\" \"src/assets/js/**/*\" -- npm run scripts:dev",
     "watch:eleventy": "npx eleventy --watch --quiet",
     "dev": "npm-run-all --parallel styles:dev scripts:dev server watch:*",
-    "build": "npm-run-all clean --parallel eleventy styles:prod scripts:prod",
-    "commit": "node -e \"const rl = require('readline').createInterface({input: process.stdin, output: process.stdout}); rl.question('Enter commit message: ', (message) => { require('child_process').execSync('git add . && git commit -m\\\\'' + message + '\\\\'', { stdio: 'inherit' }); rl.close(); });\"",
-    "commit-p": "npm run commit && git push"
+    "dev:eleventy": "npm-run-all --parallel styles:dev scripts:dev watch:* serve:eleventy",
+    "build": "npm-run-all clean --parallel eleventy styles:prod scripts:prod"
   },
   "keywords": [
     "11ty",
@@ -41,6 +41,7 @@
     "esbuild": "^0.24.2",
     "glob": "^11.0.0",
     "luxon": "^3.5.0",
+    "netlify-cms-app": "^2.15.72",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
     "postcss": "^8.4.49",
