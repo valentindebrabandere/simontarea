@@ -34,6 +34,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "@staticcms/proxy-server": "^4.0.4",
     "@types/node": "^22.10.2",
     "autoprefixer": "^10.4.20",
     "browser-sync": "^3.0.3",
@@ -53,6 +54,7 @@
   },
   "dependencies": {
     "animejs": "^3.2.2",
-    "decap-cms-app": "^3.4.0"
+    "decap-cms-app": "^3.4.0",
+    "netlify-identity-widget": "^1.9.2"
   }
 }

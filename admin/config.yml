@@ -1,6 +1,10 @@
 backend:
   name: git-gateway
-  branch: main # Spécifie la branche principale du projet
+  branch: main
+  repo: valentindebrabandere/simontarea
+  auth_endpoint: auth
+
+local_backend: true # Activer pour le développement local
 
 media_folder: "src/content/images/uploads" # Dossier pour les médias (ex : images uploadées)
 publish_mode: editorial_workflow # Workflow pour les brouillons et publications
@@ -26,6 +30,39 @@ collections:
           - { label: "Image", name: "image", widget: "image" }
           - { label: "Alt text", name: "imageAlt", widget: "string", hint: "Le texte alternatif de l'image" }
   
+  - name: "about"
+    label: "Page À propos"
+    folder: "src/content/pages/"
+    create: false
+    fields:
+      - label: "Meta données"
+        name: "meta"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+      - label: "Hero"
+        name: "hero"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Paragraph", name: "paragraph", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Alt text", name: "imageAlt", widget: "string" }
+      - label: "Contenu"
+        name: "content"
+        widget: "object"
+        fields:
+          - { label: "Titre section", name: "sectionTitle", widget: "string" }
+          - { label: "Sous-titre section", name: "sectionSubtitle", widget: "string" }
+          - { label: "Contenu principal", name: "mainContent", widget: "markdown" }
+          - label: "Cartes info"
+            name: "infoCards"
+            widget: "list"
+            fields:
+              - { label: "Icône", name: "icon", widget: "image" }
+              - { label: "Texte", name: "text", widget: "text" }
+
   - name: "reviews"
     label: "Reviews"
     folder: "src/content/reviews/"
