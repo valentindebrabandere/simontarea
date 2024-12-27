@@ -1,23 +1,45 @@
 backend:
-  name: git
-  branch: main # Changez le nom de la branche si nécessaire
+  name: git-gateway
+  branch: main # Spécifie la branche principale du projet
 
-media_folder: "./src/assets/img" # Dossier où les images seront stockées
-public_folder: "./src/assets/img"
+media_folder: "src/content/images/uploads" # Dossier pour les médias (ex : images uploadées)
+publish_mode: editorial_workflow # Workflow pour les brouillons et publications
 
 collections:
-  - name: "pages"
-    label: "Pages"
-    folder: "src/content/pages"
-    create: true
+  - name: "home"
+    label: "Homepage"
+    folder: "src/content/pages/"
+    create: false # Pas de création de nouvelles pages dans cette collection
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-
+      - label: "Meta données"
+        name: "meta"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Meta description", name: "description", widget: "string" }
+      - label: "Hero"
+        name: "hero"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Alt text", name: "imageAlt", widget: "string", hint: "Le texte alternatif de l'image" }
+  
   - name: "reviews"
     label: "Reviews"
-    folder: "src/content/reviews"
+    folder: "src/content/reviews/"
+    create: true # Permet de créer de nouveaux avis
+    fields:
+      - { label: "Nom", name: "name", widget: "string" }
+      - { label: "Avis", name: "review", widget: "text" }
+      - { label: "Note", name: "rating", widget: "number", min: 1, max: 5 }
+
+  - name: "socials"
+    label: "Réseaux sociaux"
+    folder: "src/content/socials/"
     create: true
     fields:
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Review", name: "review", widget: "text" }
+      - { label: "Nom du réseau", name: "name", widget: "string" }
+      - { label: "Lien", name: "url", widget: "string" }
+      - { label: "Icône", name: "icon", widget: "image" }
