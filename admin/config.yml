@@ -63,14 +63,19 @@ collections:
               - { label: "Icône", name: "icon", widget: "image" }
               - { label: "Texte", name: "text", widget: "text" }
 
-  - name: "reviews"
+  - name: "reviews" 
     label: "Reviews"
     folder: "src/content/reviews/"
-    create: true # Permet de créer de nouveaux avis
+    create: true
     fields:
+      - { label: "Image", name: "image", widget: "image" }
       - { label: "Nom", name: "name", widget: "string" }
-      - { label: "Avis", name: "review", widget: "text" }
-      - { label: "Note", name: "rating", widget: "number", min: 1, max: 5 }
+      - { label: "Formation", name: "formation", widget: "string" }
+      - { label: "URL", name: "url", widget: "string" }
+      - { label: "Âge", name: "age", widget: "string" }
+      - { label: "Témoignage", name: "cardContent", widget: "text" }
+      - { label: "Brouillon", name: "draft", widget: "boolean", default: false }
+      - { label: "Ordre", name: "sortOrder", widget: "number" }
 
   - name: "socials"
     label: "Réseaux sociaux"
