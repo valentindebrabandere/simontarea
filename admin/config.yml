@@ -26,9 +26,68 @@ collections:
         widget: "object"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Paragraph", name: "paragraph", widget: "text" }
           - { label: "Image", name: "image", widget: "image" }
           - { label: "Alt text", name: "imageAlt", widget: "string", hint: "Le texte alternatif de l'image" }
+          - label: "Boutons"
+            name: "buttons"
+            widget: "list"
+            fields:
+              - { label: "Texte", name: "text", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Style secondaire", name: "isSecondary", widget: "boolean", default: false }
+      
+      - label: "Section Services"
+        name: "services"
+        widget: "object"
+        fields:
+          - { label: "Petit titre", name: "smallTitle", widget: "string" }
+          - { label: "Grand titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - label: "Cartes services"
+            name: "serviceCards"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Description", name: "content", widget: "text" }
+
+      - label: "Section Méthode"
+        name: "method"
+        widget: "object"
+        fields:
+          - { label: "Petit titre", name: "smallTitle", widget: "string" }
+          - { label: "Grand titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Titre méthode", name: "methodTitle", widget: "string" }
+          - { label: "Description méthode", name: "methodText", widget: "text" }
+          - { label: "Texte intermédiaire", name: "intermediateText", widget: "string" }
+
+      - label: "Section Témoignages"
+        name: "testimonials"
+        widget: "object"
+        fields:
+          - { label: "Petit titre", name: "smallTitle", widget: "string" }
+          - { label: "Grand titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - label: "Boutons"
+            name: "buttons"
+            widget: "list"
+            fields:
+              - { label: "Texte", name: "text", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Style secondaire", name: "isSecondary", widget: "boolean", default: false }
+
+      - label: "Section À propos"
+        name: "about"
+        widget: "object"
+        fields:
+          - { label: "Petit titre", name: "smallTitle", widget: "string" }
+          - { label: "Grand titre", name: "title", widget: "string" }
+          - { label: "Contenu", name: "content", widget: "markdown" }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Alt text", name: "imageAlt", widget: "string" }
   
   - name: "about"
     label: "Page À propos"
