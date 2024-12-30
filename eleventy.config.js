@@ -69,6 +69,9 @@ module.exports = function (eleventyConfig) {
     port: 8000,
   });
 
+  // fix for eleventy 1.0.0
+  eleventyConfig.setFreezeReservedData(false);
+
   // base config
   return {
     dir: {
