@@ -5,8 +5,8 @@ permalink: suivi/index.html
 
 {% set currentSection = "suivi" %}
 
-{% set metaTitle = "Accompagnement individuel" %}
-{% set metaDescription = "Simon Tarea - Votre temps, votre santé : Reprenons le contrôle" %}
+{% set metaTitle = meta.title %}
+{% set metaDescription = meta.description %}
 
 {# Import #}
 {% from "macros/reviewCard.njk" import reviewCard %}
@@ -18,15 +18,14 @@ permalink: suivi/index.html
     <div class="c-pagesection c-hero-secondary">
       {% include "partials/siteheader.njk" %}
       <div class="c-hero__image-container--secondary">
-        <img src="https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image of a car crash" class="c-hero__image--secondary">
+        <img src="{{ hero.image }}" alt="Image of a car crash" class="c-hero__image--secondary">
       </div>
       <div class="l-container l-container--small">
         <div class="c-hero__text">
-          <h1 class="c-h1 c-hero__title">Envie de s'y mettre ?</h1>
-          <p class="c-hero__paragraph">Prenons rendez-vous pour en parler et commencer un accompagnement.</p>
+          <h1 class="c-h1 c-hero__title">{{ hero.title }}</h1>
+          <p class="c-hero__paragraph">{{ hero.paragraph }}</p>
           <div class="c-hero__footer c-hero__footer--secondary">
-            {# TODO Add corrects links #}
-            <a href="#ancre-rendez-vous" class="c-cta">Prendre rendez-vous</a>
+            <a href="{{ hero.buttonUrl }}" class="c-cta">{{ hero.buttonText }}</a>
           </div>
         </div>
       </div>
@@ -36,12 +35,11 @@ permalink: suivi/index.html
       <div class="l-container l-container--small">
         <div class="c-title-module">
           <div class="c-title-module__title">
-            <h4 class="c-h4">Qu’en pense-t-on ?</h4>
-            <h2 class="c-h2">Quelques personne que j’ai accompagné</h2>
+            <h4 class="c-h4">{{ testimonials.smallTitle }}</h4>
+            <h2 class="c-h2">{{ testimonials.title }}</h2>
           </div>
           <div class="c-title-module__content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.</p>
-            {# TODO Add links#}
+            <p>{{ testimonials.description }}</p>
             <div class="c-title-module__cta">
               <a href="#" class="c-cta">Mes formations</a>
               <a href="#" class="c-cta c-cta--secondary c-pagesection--light">Suivi individuel</a>
@@ -50,46 +48,18 @@ permalink: suivi/index.html
         </div>
         <div class="swiper-container js-init-cards">
           <div class="swiper-wrapper js-cardesction__scroll--dyn">
-                <div class="swiper-slide">
-                  {{ reviewCard(
-                    image="/assets/img/reviewCard/amelie.png",
-                    name="Amélie",
-                    formation="Formation en ligne",
-                    url="/lienVersLaFormation",
-                    age="32",
-                    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
-                  ) }}
-                </div>
-                <div class="swiper-slide">
-                  {{ reviewCard(
-                    image="/assets/img/reviewCard/bertrand.png",
-                    name="Bertrand",
-                    formation="Suivi individuel",
-                    url="/lienVersLaFormation",
-                    age="26",
-                    content="Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
-                  ) }}
-                </div>
-                <div class="swiper-slide">
-                  {{ reviewCard(
-                    image="/assets/img/reviewCard/philippe.png",
-                    name="Philippe",
-                    formation="Formation en ligne",
-                    url="/lienVersLaFormation",
-                    age="45",
-                    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
-                  ) }}
-                </div>
-                <div class="swiper-slide">
-                  {{ reviewCard(
-                    image="/assets/img/reviewCard/philippe.png",
-                    name="Philippe",
-                    formation="Formation en ligne",
-                    url="/lienVersLaFormation",
-                    age="45",
-                    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris."
-                  ) }}
-                </div>
+            {% for review in testimonials.reviewCards %}
+              <div class="swiper-slide">
+                {{ reviewCard(
+                  image=review.image,
+                  name=review.name,
+                  formation=review.formation,
+                  url=review.url,
+                  age=review.age,
+                  content=review.content
+                ) }}
+              </div>
+            {% endfor %}
           </div>
           <div class="c-gallery-section__footer">
             <button class="c-cardsection__btn prev js-cardsection__btn--prev">{% include "svg/arrow.svg" %}</button>
@@ -102,11 +72,11 @@ permalink: suivi/index.html
     <div id="ancre-rendez-vous" class="c-pagesection c-pagesection--deco">
       <div class="l-container">
           <div class="c-title-module__title">
-            <h4 class="c-h4">Envie de démarrer ?</h4>
-            <h2 class="c-h2 c-h2--white">Prenons rendez-vous !</h2>
+            <h4 class="c-h4">{{ appointment.smallTitle }}</h4>
+            <h2 class="c-h2 c-h2--white">{{ appointment.title }}</h2>
           </div>
         <!-- Début de widget en ligne Calendly -->
-        <div class="calendly-inline-widget" data-url="https://calendly.com/tarea-simon/45min" style="min-width:320px;height:700px;"></div>
+        <div class="calendly-inline-widget" data-url="{{ appointment.calendlyUrl }}" style="min-width:320px;height:700px;"></div>
         <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         <!-- Fin de widget en ligne Calendly -->
       </div>

@@ -1,0 +1,65 @@
+---
+meta:
+  title: About
+  description: "Simon Tarea - Votre temps, votre santé : Reprenons le contrôle"
+hero:
+  title: Ma vie aurait pu
+  highlightedText: s’arrêter
+  paragraph: Entrepreneur, coach et formateur, ma Mission est d’inspirer les
+    entrepreneurs à utiliser de façon épanouissante et congruente la plus
+    importante de leur ressource, le Temps !?????????
+  image: https://images.unsplash.com/photo-1549363690-1a0a7a081ec6?q=80&w=3474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  imageAlt: Image of a car crash
+  buttons:
+    - text: Mes services
+      url: "#ancre-services"
+      isSecondary: false
+    - text: Me contacter
+      url: "#"
+      isSecondary: true
+journey:
+  smallTitle: Mon parcours
+  title: Ce qui m’a amené à aujourd’hui
+  intro: >
+    J’ai subi ma vie jusqu’à mon brutal accident de la route en 2014.   **Ma vie
+    aurait pu s’arrêter là.**
+
+    À mon réveil, je me rends compte que je n’ai rien vécu, rien choisi. Pourtant, j’avais un salaire très confortable en tant que consultant. Je n’étais pas le plus à plaindre mais je n’étais pas épanoui.
+
+    Je me remets en selle, déterminé à profiter de cette seconde chance pour donner un élan à ma carrière. J’enchaîne alors les missions et les projets. Mais début 2015, la vie me met au défi une nouvelle fois. Mon corps me lâche, épuisé. Je fais bel et bien un burnout.
+
+    Cette fois-ci, je me suis juré de ne pas subir ce second message de la vie mais de prendre du recul et de me reconstruire vraiment à mon rythme.
+
+    À croire qu’il faut frôler la mort et subir un burnout pour comprendre qu’on ne doit pas chercher à rajouter des années à notre vie mais de rajouter de la vie à nos années.
+
+    Suite à ces deux accidents, je décide de reprendre le contrôle de ma vie :
+  achievements:
+    - Je quitte le salariat et me lance en tant que consultant freelance.
+    - Je deviens ensuite formateur en Lean Six Sigma pour la Belgique et la
+      France (+500 personnes formées).
+    - Je deviens vice-champion de France de MindMapping, 5ème en lecture rapide
+      et 4ème de ma catégorie aux Opens de Crossfit.
+    - Et surtout je deviens papa, le plus heureux événement de ma vie.
+  conclusion: >
+    Depuis 2020, j’ai décidé de compiler toutes mes expériences de vie pro et
+    perso dans une méthode de coaching que j’ai appelée la méthode
+    “Create”.   Cette méthode a déjà fait ses preuves sur +15 personnes.
+
+    Concrètement, j’aide les parents entrepreneurs et dirigeants, à créer de meilleures habitudes pour reprendre le contrôle de leur temps et de leur santé.
+
+    Le temps et la santé sont pour moi les 2 piliers décisifs pour vivre une vie épanouie. La bonne nouvelle c’est qu'ils sont tous les 2 majoritairement sous notre contrôle.
+
+    Si vous désirez redonner du sens à votre vie et créer votre semaine idéale pour mieux gérer votre temps et être en pleine forme, prenez rendez-vous avec moi :
+infoCards:
+  - icon: /assets/img/hero-icons/flexed_biceps.png
+    content: L’organisation de mon temps définie de manière proactive sur la base de
+      semaines idéales.
+  - icon: /assets/img/hero-icons/eleven_oclock.png
+    content: L’organisation de mon temps définie de manière proactive sur la base de
+      semaines idéales.
+finalSection:
+  text: Le temps et la santé sont pour moi les 2 piliers décisifs pour vivre une
+    vie épanouie.
+  buttonText: Prendre rendez-vous
+  buttonUrl: "#"
+---
