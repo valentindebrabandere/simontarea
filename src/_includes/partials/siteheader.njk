@@ -1,17 +1,20 @@
+{%- set headerData = collections.header[0].data -%}
 <header class="c-siteheader">
-  <div class="l-container  c-siteheader__content">
-    <p class="c-siteheader__logo"><a href="/" aria-label="Homepage">
-      <img src="/assets/img/logo.svg"
-           decoding="async"
-           width="200"
-           height="56"
-           class="c-logo"
-           alt="Simon Tarea - Logo">
-    </a></p>
+  <div class="l-container c-siteheader__content">
+    <p class="c-siteheader__logo">
+      <a href="{{ headerData.logo.url }}" aria-label="Homepage">
+        <img src="{{ headerData.logo.image }}"
+             decoding="async"
+             width="{{ headerData.logo.width }}"
+             height="{{ headerData.logo.height }}"
+             class="c-logo"
+             alt="{{ headerData.logo.alt }}">
+      </a>
+    </p>
 
     <div class="c-siteheader__mainnav">
       <nav aria-label="main navigation">
-        {% for navItem in mainnav %}
+        {% for navItem in headerData.navigation %}
           {% if loop.first %}<ul class="c-mainnav">{% endif %}
             {% set currentClass = "" %}
             {% set currentAria = "" %}
@@ -25,16 +28,21 @@
                   {% set currentAria = 'aria-current="page"'|safe %}
                 {% endif %}
               {% endif %}
-            <li class="c-mainnav__item"><a class="c-mainnav__link  {{ currentClass }}" {{ currentAria }} href="{{ navItem.url }}">{{ navItem.label }}</a></li>
+            <li class="c-mainnav__item">
+              <a class="c-mainnav__link {{ currentClass }}" 
+                 {{ currentAria }} 
+                 href="{{ navItem.url }}"
+                 {% if navItem.isExternal %}target="_blank" rel="noopener"{% endif %}>
+                {{ navItem.label }}
+              </a>
+            </li>
           {% if loop.last %}</ul>{% endif %}
         {% endfor %}
       </nav>
     </div>
 
-    <p class="c-siteheader__menunav"><a class="c-menulink  js-menutrigger" href="#footernav">Menu</a></p>
-    
+    <p class="c-siteheader__menunav"><a class="c-menulink js-menutrigger" href="#footernav">Menu</a></p>
   </div>
 
   {% include "partials/mobilemenu.njk" %}
-
 </header>

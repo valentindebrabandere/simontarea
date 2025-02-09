@@ -209,3 +209,29 @@ collections:
           - { label: "Petit titre", name: "smallTitle", widget: "string" }
           - { label: "Grand titre", name: "title", widget: "string" }
           - { label: "URL Calendly", name: "calendlyUrl", widget: "string" }
+  - name: "header"
+    label: "Navigation"
+    folder: "src/content/collections/header"
+    create: false
+    fields:
+      - label: "Logo"
+        name: "logo"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Image", name: "image", widget: "image", required: false }
+          - { label: "Width", name: "width", widget: "number", required: false }
+          - { label: "Height", name: "height", widget: "number", required: false }
+          - { label: "Alt text", name: "alt", widget: "string", required: false }
+          - { label: "URL", name: "url", widget: "string", required: false }
+      - label: "Navigation"
+        name: "navigation"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Libellé", name: "label", widget: "string", required: false }
+          - { label: "URL", name: "url", widget: "string", required: false }
+          - { label: "Trigger", name: "trigger", widget: "string", required: false }
+          - { label: "Lien externe", name: "isExternal", widget: "boolean", required: false }
+          - { label: "Style Primaire", name: "isPrimary", widget: "boolean", required: false }
+          - { label: "Style Secondaire", name: "isSecondary", widget: "boolean", required: false }
