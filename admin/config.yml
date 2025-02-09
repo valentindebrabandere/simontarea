@@ -13,7 +13,7 @@ collections:
   - name: "home"
     label: "Homepage"
     folder: "src/content/collections/home"
-    create: false # Pas de création de nouvelles pages dans cette collection
+    create: false # Creation de collection désactivée depuis le panel admin
     fields:
       - label: "Meta données"
         name: "meta"
@@ -64,6 +64,7 @@ collections:
           - { label: "Description méthode", name: "methodText", widget: "text" }
           - { label: "Texte intermédiaire", name: "intermediateText", widget: "string" }
 
+
       - label: "Section Témoignages"
         name: "testimonials"
         widget: "object"
@@ -88,7 +89,8 @@ collections:
           - { label: "Contenu", name: "content", widget: "markdown" }
           - { label: "Image", name: "image", widget: "image" }
           - { label: "Alt text", name: "imageAlt", widget: "string" }
-  
+
+  # about collection
   - name: "about"
     label: "Page À propos"
     folder: "src/content/collections/about"
@@ -142,6 +144,7 @@ collections:
           - { label: "Texte du bouton", name: "buttonText", widget: "string" }
           - { label: "URL du bouton", name: "buttonUrl", widget: "string" }
 
+# Reviews collection
   - name: "reviews" 
     label: "Reviews"
     folder: "src/content/reviews/"
@@ -156,15 +159,7 @@ collections:
       - { label: "Brouillon", name: "draft", widget: "boolean", default: false }
       - { label: "Ordre", name: "sortOrder", widget: "number" }
 
-  - name: "socials"
-    label: "Réseaux sociaux"
-    folder: "src/content/socials/"
-    create: true
-    fields:
-      - { label: "Nom du réseau", name: "name", widget: "string" }
-      - { label: "Lien", name: "url", widget: "string" }
-      - { label: "Icône", name: "icon", widget: "image" }
-
+# Suivi collection
   - name: "suivi"
     label: "Page Suivi"
     folder: "src/content/collections/suivi"
@@ -209,7 +204,9 @@ collections:
           - { label: "Petit titre", name: "smallTitle", widget: "string" }
           - { label: "Grand titre", name: "title", widget: "string" }
           - { label: "URL Calendly", name: "calendlyUrl", widget: "string" }
-  - name: "header"
+
+  # navigation collection
+  - name: "navigation"
     label: "Navigation"
     folder: "src/content/collections/header"
     create: false
@@ -236,6 +233,7 @@ collections:
           - { label: "Style Primaire", name: "isPrimary", widget: "boolean", required: false }
           - { label: "Style Secondaire", name: "isSecondary", widget: "boolean", required: false }
 
+    # footer collection
   - name: "footer"
     label: "Footer"
     folder: "src/content/collections/footer"
@@ -267,3 +265,24 @@ collections:
         widget: "object"
         fields:
           - { label: "Texte", name: "text", widget: "string", default: "Simon Tarea" }
+
+  # mobile collection
+  - name: "mobile"
+    label: "Menu Mobile"
+    folder: "src/content/collections/mobile"
+    create: false
+    fields:
+      - label: "Actions"
+        name: "actions"
+        widget: "object"
+        fields:
+          - { label: "Texte bouton fermer", name: "closeText", widget: "string", default: "Close" }
+      
+      - label: "Navigation"
+        name: "navigation"
+        widget: "list"
+        fields:
+          - { label: "Libellé", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+          - { label: "Trigger", name: "trigger", widget: "string", required: false }
+          - { label: "Lien externe", name: "isExternal", widget: "boolean", default: false, required: false }
