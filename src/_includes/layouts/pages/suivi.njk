@@ -1,0 +1,77 @@
+---
+permalink: suivi/index.html
+---
+{% extends "layouts/base.njk" %}
+
+{% set currentSection = key %}
+
+{% set metaTitle = meta.title %}
+{% set metaDescription = meta.description %}
+
+{# Import #}
+{% from "macros/reviewCard.njk" import reviewCard %}
+
+{% block content %}
+  <main>
+    <div class="c-pagesection c-hero-secondary">
+      {% include "partials/siteheader.njk" %}
+      <div class="c-hero__image-container--secondary">
+        <img src="{{ hero.image }}" alt="{{ hero.imageAlt }}" class="c-hero__image--secondary">
+      </div>
+      <div class="l-container l-container--small">
+        <div class="c-hero__text">
+          <h1 class="c-h1 c-hero__title">{{ hero.title }}</h1>
+          <p class="c-hero__paragraph">{{ hero.paragraph }}</p>
+          <div class="c-hero__footer c-hero__footer--secondary">
+            <a href="{{ hero.buttonUrl }}" class="c-cta">{{ hero.buttonText }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-pagesection c-pagesection--light c-pagesection--deco">
+      <div class="l-container l-container--small">
+        <div class="c-title-module">
+          <div class="c-title-module__title">
+            <h4 class="c-h4">{{ testimonials.smallTitle }}</h4>
+            <h2 class="c-h2">{{ testimonials.title }}</h2>
+          </div>
+          <div class="c-title-module__content">
+            <p>{{ testimonials.description }}</p>
+          </div>
+        </div>
+        <div class="swiper-container js-init-cards">
+          <div class="swiper-wrapper js-cardesction__scroll--dyn">
+            {% for review in collections.reviews %}
+              <div class="swiper-slide">
+                {{ reviewCard(
+                  image=review.data.image,
+                  name=review.data.name,
+                  formation=review.data.formation,
+                  url=review.data.url,
+                  age=review.data.age,
+                  cardContent=review.data.cardContent
+                ) }}
+              </div>
+            {% endfor %}
+          </div>
+          <div class="c-gallery-section__footer">
+            <button class="c-cardsection__btn prev js-cardsection__btn--prev">{% include "svg/arrow.svg" %}</button>
+            <button class="c-cardsection__btn next js-cardsection__btn--next">{% include "svg/arrow.svg" %}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="ancre-rendez-vous" class="c-pagesection c-pagesection--deco">
+      <div class="l-container">
+        <div class="c-title-module__title">
+          <h4 class="c-h4">{{ appointment.smallTitle }}</h4>
+          <h2 class="c-h2 c-h2--white">{{ appointment.title }}</h2>
+        </div>
+        <div class="calendly-inline-widget" data-url="{{ appointment.calendlyUrl }}" style="min-width:320px;height:700px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      </div>
+    </div>
+  </main>
+{% endblock %}

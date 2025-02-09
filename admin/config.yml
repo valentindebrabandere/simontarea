@@ -1,0 +1,211 @@
+backend:
+  name: git-gateway
+  branch: main
+  repo: valentindebrabandere/simontarea
+  auth_endpoint: auth
+
+local_backend: true # Activer pour le développement local
+
+media_folder: "src/content/images/uploads" # Dossier pour les médias (ex : images uploadées)
+publish_mode: editorial_workflow # Workflow pour les brouillons et publications
+
+collections:
+  - name: "home"
+    label: "Homepage"
+    folder: "src/content/collections/home"
+    create: false # Pas de création de nouvelles pages dans cette collection
+    fields:
+      - label: "Meta données"
+        name: "meta"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Meta description", name: "description", widget: "string" }
+      - label: "Hero"
+        name: "hero"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Paragraph", name: "paragraph", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Alt text", name: "imageAlt", widget: "string", hint: "Le texte alternatif de l'image" }
+          - label: "Boutons"
+            name: "buttons"
+            widget: "list"
+            fields:
+              - { label: "Texte", name: "text", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Style secondaire", name: "isSecondary", widget: "boolean", default: false }
+      
+      - label: "Section Services"
+        name: "services"
+        widget: "object"
+        fields:
+          - { label: "Petit titre", name: "smallTitle", widget: "string" }
+          - { label: "Grand titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - label: "Cartes services"
+            name: "serviceCards"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Description", name: "content", widget: "text" }
+
+      - label: "Section Méthode"
+        name: "method"
+        widget: "object"
+        fields:
+          - { label: "Petit titre", name: "smallTitle", widget: "string" }
+          - { label: "Grand titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Titre méthode", name: "methodTitle", widget: "string" }
+          - { label: "Description méthode", name: "methodText", widget: "text" }
+          - { label: "Texte intermédiaire", name: "intermediateText", widget: "string" }
+
+      - label: "Section Témoignages"
+        name: "testimonials"
+        widget: "object"
+        fields:
+          - { label: "Petit titre", name: "smallTitle", widget: "string" }
+          - { label: "Grand titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - label: "Boutons"
+            name: "buttons"
+            widget: "list"
+            fields:
+              - { label: "Texte", name: "text", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Style secondaire", name: "isSecondary", widget: "boolean", default: false }
+
+      - label: "Section À propos"
+        name: "about"
+        widget: "object"
+        fields:
+          - { label: "Petit titre", name: "smallTitle", widget: "string" }
+          - { label: "Grand titre", name: "title", widget: "string" }
+          - { label: "Contenu", name: "content", widget: "markdown" }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Alt text", name: "imageAlt", widget: "string" }
+  
+  - name: "about"
+    label: "Page À propos"
+    folder: "src/content/collections/about"
+    create: false
+    fields:
+      - label: "Meta données"
+        name: "meta"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+      - label: "Hero Section"
+        name: "hero"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Sous-titre en surbrillance", name: "highlightedText", widget: "string" }
+          - { label: "Paragraph", name: "paragraph", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Alt text", name: "imageAlt", widget: "string" }
+          - label: "Boutons"
+            name: "buttons"
+            widget: "list"
+            fields:
+              - { label: "Texte", name: "text", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Style secondaire", name: "isSecondary", widget: "boolean", default: false }
+
+      - label: "Parcours Section"
+        name: "journey"
+        widget: "object"
+        fields:
+          - { label: "Petit titre", name: "smallTitle", widget: "string" }
+          - { label: "Grand titre", name: "title", widget: "string" }
+          - { label: "Introduction", name: "intro", widget: "markdown" }
+          - { label: "Liste des accomplissements", name: "achievements", widget: "list" }
+          - { label: "Conclusion", name: "conclusion", widget: "markdown" }
+      
+      - label: "Cartes Info"
+        name: "infoCards"
+        widget: "list"
+        fields:
+          - { label: "Icône", name: "icon", widget: "image" }
+          - { label: "Contenu", name: "content", widget: "text" }
+
+      - label: "Section Finale"
+        name: "finalSection"
+        widget: "object"
+        fields:
+          - { label: "Texte final", name: "text", widget: "text" }
+          - { label: "Texte du bouton", name: "buttonText", widget: "string" }
+          - { label: "URL du bouton", name: "buttonUrl", widget: "string" }
+
+  - name: "reviews" 
+    label: "Reviews"
+    folder: "src/content/reviews/"
+    create: true
+    fields:
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Nom", name: "name", widget: "string" }
+      - { label: "Formation", name: "formation", widget: "string" }
+      - { label: "URL", name: "url", widget: "string" }
+      - { label: "Âge", name: "age", widget: "string" }
+      - { label: "Témoignage", name: "cardContent", widget: "text" }
+      - { label: "Brouillon", name: "draft", widget: "boolean", default: false }
+      - { label: "Ordre", name: "sortOrder", widget: "number" }
+
+  - name: "socials"
+    label: "Réseaux sociaux"
+    folder: "src/content/socials/"
+    create: true
+    fields:
+      - { label: "Nom du réseau", name: "name", widget: "string" }
+      - { label: "Lien", name: "url", widget: "string" }
+      - { label: "Icône", name: "icon", widget: "image" }
+
+  - name: "suivi"
+    label: "Page Suivi"
+    folder: "src/content/collections/suivi"
+    create: false
+    fields:
+      - label: "Meta données"
+        name: "meta"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+      - label: "Hero Section"
+        name: "hero"
+        widget: "object"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Paragraphe", name: "paragraph", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Texte du bouton", name: "buttonText", widget: "string" }
+          - { label: "URL du bouton", name: "buttonUrl", widget: "string" }
+      - label: "Section Témoignages"
+        name: "testimonials"
+        widget: "object"
+        fields:
+          - { label: "Petit titre", name: "smallTitle", widget: "string" }
+          - { label: "Grand titre", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - label: "Cartes de témoignages"
+            name: "reviewCards"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Nom", name: "name", widget: "string" }
+              - { label: "Formation", name: "formation", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Âge", name: "age", widget: "string" }
+              - { label: "Contenu", name: "content", widget: "text" }
+      - label: "Section Rendez-vous"
+        name: "appointment"
+        widget: "object"
+        fields:
+          - { label: "Petit titre", name: "smallTitle", widget: "string" }
+          - { label: "Grand titre", name: "title", widget: "string" }
+          - { label: "URL Calendly", name: "calendlyUrl", widget: "string" }

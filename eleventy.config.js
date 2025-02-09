@@ -43,6 +43,22 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("dateYear", dates.dateYear);
   eleventyConfig.addFilter("replaceSpans", replaceSpans);
 
+  // admin passthrough
+  eleventyConfig.addPassthroughCopy("./admin");
+
+  // collections
+  eleventyConfig.addCollection("home", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/content/collections/home/*.md");
+  });
+  
+  eleventyConfig.addCollection("about", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/content/collections/about/*.md");
+  });
+  
+  eleventyConfig.addCollection("suivi", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/content/collections/suivi/*.md");
+  });
+
   // plugins
   eleventyConfig.addPlugin(syntaxHighlight, {
     trim: true,

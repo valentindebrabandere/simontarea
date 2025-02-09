@@ -1,0 +1,76 @@
+---
+permalink: about/index.html
+---
+{% extends "layouts/base.njk" %}
+
+{% set currentSection = key %}
+
+{% set metaTitle = meta.title %}
+{% set metaDescription = meta.description %}
+
+{# Import #}
+
+{% block content %}
+  <main>
+    <div class="c-pagesection c-hero-secondary">
+      {% include "partials/siteheader.njk" %}
+      <div class="c-hero__image-container--secondary">
+        <img src="{{ hero.image }}" alt="{{ hero.imageAlt }}" class="c-hero__image--secondary">
+      </div>
+      <div class="l-container l-container--small">
+        <div class="c-hero__text">
+          <h1 class="c-h1 c-hero__title">{{ hero.title }} <span>{{ hero.highlightedText }}</span></h1>
+          <p class="c-hero__paragraph">{{ hero.paragraph }}</p>
+          <div class="c-hero__footer c-hero__footer--secondary">
+            {% if hero.buttons %}
+              {% for button in hero.buttons %}
+                <a href="{{ button.url }}" class="c-cta {% if button.isSecondary %}c-cta--secondary{% endif %}">{{ button.text }}</a>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-pagesection c-pagesection--light c-pagesection--deco c-pagesection--no-bottom-deco">
+      <div class="l-container l-container--copy">
+        <div class="c-title-module c-title-module--vertical c-about-me">
+          <div class="c-title-module__title">
+            <h4 class="c-h4">{{ journey.smallTitle }}</h4>
+            <h2 class="c-h2">{{ journey.title }}</h2>
+          </div>
+
+          <div class="c-title-module__content c-about__content">
+            {{ journey.intro | safe }}
+
+            <ul class="c-about__list">
+              {% for achievement in journey.achievements %}
+                <li>{{ achievement }}</li>
+              {% endfor %}
+            </ul>
+
+            <h4 class="c-h2">Tout cela n'est pas le fruit du hasard</h4>
+
+            <div class="l-grid l-grid--2cols@medium">
+              {% for card in infoCards %}
+                <div class="c-about__card">
+                  <div class="c-deco-img-container c-card__deco-container c-about-card__deco">
+                    <img src="{{ card.icon }}" data-rotate="{% if loop.first %}10, -1{% else %}-10, 1{% endif %}" 
+                         alt="Icon" class="c-deco-img c-card__deco">
+                  </div>
+                  <p>{{ card.content }}</p>
+                </div>
+              {% endfor %}
+            </div>
+
+            {{ journey.conclusion | safe }}
+
+            <p class="c-about__p-muted">{{ finalSection.text }}</p>
+
+            <a href="{{ finalSection.buttonUrl }}" class="c-cta">{{ finalSection.buttonText }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}

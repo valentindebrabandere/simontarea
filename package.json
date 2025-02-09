@@ -17,7 +17,8 @@
     "dev": "npm-run-all --parallel styles:dev scripts:dev server watch:*",
     "build": "npm-run-all clean --parallel eleventy styles:prod scripts:prod",
     "commit": "node -e \"const rl = require('readline').createInterface({input: process.stdin, output: process.stdout}); rl.question('Enter commit message: ', (message) => { require('child_process').execSync('git add . && git commit -m\\\\'' + message + '\\\\'', { stdio: 'inherit' }); rl.close(); });\"",
-    "commit-p": "npm run commit && git push"
+    "commit-p": "npm run commit && git push",
+    "dev:eleventy": "npx eleventy --serve --watch --quiet"
   },
   "keywords": [
     "11ty",
@@ -52,6 +53,7 @@
     "sharp": "^0.33.5"
   },
   "dependencies": {
-    "animejs": "^3.2.2"
+    "animejs": "^3.2.2",
+    "decap-cms": "^3.6.1"
   }
 }
