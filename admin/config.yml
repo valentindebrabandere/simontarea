@@ -235,3 +235,35 @@ collections:
           - { label: "Lien externe", name: "isExternal", widget: "boolean", required: false }
           - { label: "Style Primaire", name: "isPrimary", widget: "boolean", required: false }
           - { label: "Style Secondaire", name: "isSecondary", widget: "boolean", required: false }
+
+  - name: "footer"
+    label: "Footer"
+    folder: "src/content/collections/footer"
+    create: false
+    fields:
+      - label: "Contact"
+        name: "contact"
+        widget: "object"
+        fields:
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Téléphone", name: "phone", widget: "string" }
+      
+      - label: "Navigation principale"
+        name: "mainNav"
+        widget: "list"
+        fields:
+          - { label: "Libellé", name: "label", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+      
+      - label: "Navigation légale"
+        name: "legalNav"
+        widget: "list"
+        fields:
+          - { label: "Libellé", name: "label", widget: "string" }
+          - { label: "Fichier PDF", name: "file", widget: "file", media_folder: "/assets/legal_docs/" }
+      
+      - label: "Copyright"
+        name: "copyright"
+        widget: "object"
+        fields:
+          - { label: "Texte", name: "text", widget: "string", default: "Simon Tarea" }

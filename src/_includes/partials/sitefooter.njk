@@ -1,34 +1,42 @@
+{%- set footerData = collections.footer[0].data -%}
+
 <footer class="c-sitefooter">
   <div class="l-container">
     
     <div class="c-sitefooter__contact">
-      
       <div class="c-sitefooter__links">
         <ul class="c-contactlist u-list-bare">
-          {# TODO : add phone number and mail #}
-          <li class="c-contactlist__item"><a class="c-contactlist__link" href="mailto:hello@zodiak.agency">maildesimon@mail.com</a></li>
-          <li class="c-contactlist__item"><a class="c-contactlist__link" href="tel:00322345657">Numéro de tel ?</a></li>
+          <li class="c-contactlist__item">
+            <a class="c-contactlist__link" href="mailto:{{ footerData.contact.email }}">{{ footerData.contact.email }}</a>
+          </li>
+          <li class="c-contactlist__item">
+            <a class="c-contactlist__link" href="tel:{{ footerData.contact.phone }}">{{ footerData.contact.phone }}</a>
+          </li>
         </ul>
       </div>
       <div class="c-sitefooter__social">
         <nav aria-label="social media">
           <ul class="c-socialmedia u-list-bare">
-            {# TODO : add social media links #}
-            <li class="c-socialmedia__item"><a class="c-socialmedia__link" href="#" aria-label="Instragram">{% include "svg/icon_instagram.svg" %}</a></li>
-            <li class="c-socialmedia__item"><a class="c-socialmedia__link" href="#" aria-label="Facebook">{% include "svg/icon_facebook.svg" %}</a></li>
-            <li class="c-socialmedia__item"><a class="c-socialmedia__link" href="#" aria-label="Twitter">{% include "svg/icon_twitter.svg" %}</a></li>
+            {% for socialItem in footerData.social %}
+              <li class="c-socialmedia__item">
+                <a class="c-socialmedia__link" href="{{ socialItem.url }}" aria-label="{{ socialItem.name }}">
+                  {% include socialItem.icon %}
+                </a>
+              </li>
+            {% endfor %}
           </ul>
         </nav>
       </div>
     </div>
 
     <div class="c-sitefooter__main">
-
       <div class="c-sitefooter__mainnav">
         <nav aria-label="footer navigation" id="footernav">
-          {% for item in mainnav %}
+          {% for item in footerData.mainNav %}
             {% if loop.first %}<ul class="c-footernav u-list-bare">{% endif %}
-              <li class="c-footernav__item"><a class="c-footernav__link" href="{{ item.url }}">{{ item.label }}</a></li>
+              <li class="c-footernav__item">
+                <a class="c-footernav__link" href="{{ item.url }}">{{ item.label }}</a>
+              </li>
             {% if loop.last %}</ul>{% endif %}
           {% endfor %}
         </nav>
@@ -36,18 +44,19 @@
 
       <div class="c-sitefooter__legalnav">
         <nav aria-label="legal navigation">
-          {% for item in legalnav %}
+          {% for item in footerData.legalNav %}
             {% if loop.first %}<ul class="c-footernav u-list-bare">{% endif %}
-              <li class="c-footernav__item"><a class="c-footernav__link" href="/assets/legal_docs/{{ item.file }}">{{ item.label }}</a></li>
+              <li class="c-footernav__item">
+                <a class="c-footernav__link" href="/assets/legal_docs/{{ item.file }}">{{ item.label }}</a>
+              </li>
             {% if loop.last %}</ul>{% endif %}
           {% endfor %}
         </nav>
       </div>
-      
     </div>
 
     <div class="c-sitefooter__end">
-      <p class="c-copyright">&copy; <time datetime="{{ site.buildTime | dateISO }}">{{ site.buildTime | dateYear }}</time> - Simon Tarea</p>
+      <p class="c-copyright">&copy; <time datetime="{{ site.buildTime | dateISO }}">{{ site.buildTime | dateYear }}</time> - {{ footerData.copyright.text }}</p>
     </div>
 
   </div>
