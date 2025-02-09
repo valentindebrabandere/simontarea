@@ -11,7 +11,7 @@ publish_mode: editorial_workflow # Workflow pour les brouillons et publications
 
 collections:
   - name: "home"
-    label: "Homepage"
+    label: "Page d'accueil"
     folder: "src/content/collections/home"
     create: false # Creation de collection désactivée depuis le panel admin
     fields:
